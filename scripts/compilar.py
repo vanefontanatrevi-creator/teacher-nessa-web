@@ -36,7 +36,7 @@ for file in sorted((ROOT/'content'/'materiales').glob('*.json')):
   'description':record.get('description',''),
   'usage':record.get('usage',''),
   'category':category,'topic':record.get('topic',''),
-  'music_group':record.get('music_group',''),
+  'music_group':record.get('music_group',''), 'audio':None,
   'file':record.get('reference_file') or 'Sin fichero identificado',
   'section':str(code).split('-')[0], 'download':None,
   'access':'Ficha de catálogo. Descarga pendiente de revisión o de archivo.',
@@ -48,13 +48,28 @@ for file in sorted((ROOT/'content'/'materiales').glob('*.json')):
  else:
   asset=str(record.get('asset') or '').lstrip('/')
   if asset.startswith('recursos/') and '..' not in Path(asset).parts and (ROOT/asset).is_file():
-   if all(record.get(key) is True for key in ['download_enabled','rights_checked','privacy_checked']):
+   rights_ok=record.get('rights_checked') is True and record.get('privacy_checked') is True
+   is_audio=Path(asset).suffix.lower() in {'.mp3','.m4a','.ogg','.wav'}
+   if is_audio:
+    groups={'1A','1B','1C','2A','2B','AE','GENERAL'}
+    verified=(record.get('audio_verified') is True and record.get('music_group') in groups)
+    listen=record.get('listen_enabled') is True
+    download=record.get('download_enabled') is True
+    if rights_ok and verified and (listen or download):
+     public_files.add(asset)
+     entry['file']=Path(asset).name
+     if listen:entry['audio']=asset
+     if download:entry['download']=asset
+     entry['access']='Audio verificado y disponible para escuchar.' if listen and not download else 'Audio verificado para uso educativo.'
+    elif listen or download:
+     bad.append(f'{code}: audio pendiente de verificacion de grupo, privacidad o derechos; no se publica')
+   elif rights_ok and record.get('download_enabled') is True:
     entry['download']=asset
     entry['file']=Path(asset).name
     entry['access']='Recurso original disponible para descarga gratuita y educativa.'
     public_files.add(asset)
-  elif record.get('download_enabled'):
-   bad.append(f'{code}: descarga solicitada pero sin verificaciones o archivo existente')
+  elif record.get('download_enabled') or record.get('listen_enabled'):
+   bad.append(f'{code}: archivo no encontrado o ruta no valida')
  materiales.append(entry)
 materiales.sort(key=lambda x:(next((i for i,p in enumerate(('I','E','C','A','T')) if x['id'].startswith(p)),5),x['id']))
 # Copy only the explicitly enabled downloads, never the whole private review library.
