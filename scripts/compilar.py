@@ -27,6 +27,9 @@ for file in sorted((ROOT/'content'/'materiales').glob('*.json')):
  if code in seen:raise ValueError(f'ID repetido: {code}')
  seen.add(code)
  if not record.get('published',False):continue
+ # Excluir siempre las fichas internas de la versión pública.
+ if record.get('internal') or str(code).startswith('T1-') or str(code) in {'I1-12','E1-12','A1-03','I1-06','E1-07','I1-09','E1-10'}:continue
+ if record.get('category') == 'Tutoría 2.º ESO':continue
  category=record.get('category','Inglés 1.º ESO')
  entry={
   'id':str(code),'title':record.get('title','Recurso sin título'),

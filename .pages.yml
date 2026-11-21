@@ -43,7 +43,7 @@ content:
         type: select
         required: true
         options:
-          values: ["Inglés 1.º ESO", "Inglés 2.º ESO", "Inglés 1.º y 2.º", "Atención Educativa", "Tutoría 2.º ESO"]
+          values: ["Inglés 1.º ESO", "Inglés 2.º ESO", "Inglés 1.º y 2.º", "Atención Educativa"]
       - name: topic
         label: Bloque o tema
         type: string
