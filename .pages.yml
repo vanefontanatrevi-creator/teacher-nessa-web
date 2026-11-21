@@ -1,0 +1,146 @@
+# Teacher Nessa — editor visual en https://app.pagescms.org
+# Se necesita autorizar la aplicacion de GitHub en el repositorio.
+media:
+  - name: documents
+    label: Archivos educativos PUBLICOS
+    input: recursos
+    output: /recursos
+    rename: safe
+    categories: [document, video, audio, spreadsheet]
+  - name: photos
+    label: Imagenes PUBLICAS
+    input: assets/uploads
+    output: /assets/uploads
+    rename: safe
+    categories: [image]
+content:
+  - name: material
+    label: Biblioteca de materiales
+    type: collection
+    path: content/materiales
+    format: json
+    filename: "{id}.json"
+    view:
+      primary: title
+      fields: [id, title, category, published, download_enabled]
+    fields:
+      - name: id
+        label: Codigo identificativo (unico)
+        type: string
+        required: true
+      - name: title
+        label: Titulo
+        type: string
+        required: true
+      - name: description
+        label: Descripcion
+        type: text
+      - name: usage
+        label: Ejemplo de uso en clase
+        type: text
+      - name: category
+        label: Curso o categoria
+        type: select
+        required: true
+        options:
+          values: ["Inglés 1.º ESO", "Inglés 2.º ESO", "Inglés 1.º y 2.º", "Atención Educativa", "Tutoría 2.º ESO"]
+      - name: topic
+        label: Bloque o tema
+        type: string
+      - name: reference_file
+        label: Nombre del fichero original (solo informativo)
+        type: string
+      - name: published
+        label: Mostrar ficha en la web
+        type: boolean
+      - name: asset
+        label: Subir o seleccionar archivo educativo
+        type: file
+        options:
+          media: documents
+      - name: download_enabled
+        label: Permitir la descarga
+        type: boolean
+      - name: rights_checked
+        label: Confirmo revision de derechos de autor
+        type: boolean
+      - name: privacy_checked
+        label: Confirmo revision de privacidad
+        type: boolean
+      - name: thumbnail
+        label: Imagen de portada (opcional)
+        type: image
+        options:
+          media: photos
+      - name: featured
+        label: Destacado
+        type: boolean
+      - name: internal
+        label: Recurso interno (no descargar)
+        type: boolean
+      - name: editor_notes
+        label: Notas para la docente
+        type: text
+  - name: novedades
+    label: Novedades y noticias
+    type: collection
+    path: content/novedades
+    format: json
+    filename: "{title}.json"
+    view:
+      primary: title
+      fields: [title, published]
+    fields:
+      - name: title
+        label: Titulo de la noticia
+        type: string
+        required: true
+      - name: body
+        label: Texto
+        type: text
+      - name: image
+        label: Imagen (opcional)
+        type: image
+        options:
+          media: photos
+      - name: sort
+        label: Orden de presentacion
+        type: number
+      - name: published
+        label: Mostrar noticia
+        type: boolean
+  - name: site
+    label: Textos y apariencia de la web
+    type: file
+    path: content/sitio.json
+    format: json
+    fields:
+      - name: site_title
+        label: Nombre de la web
+        type: string
+      - name: tagline
+        label: Lema
+        type: string
+      - name: intro
+        label: Texto de bienvenida
+        type: text
+      - name: resource_intro
+        label: Introduccion al catalogo
+        type: text
+      - name: notice
+        label: Aviso de la portada
+        type: text
+      - name: instagram
+        label: Enlace de Instagram
+        type: string
+      - name: x
+        label: Enlace de X
+        type: string
+      - name: hero_image
+        label: Foto propia de portada (opcional)
+        type: image
+        options:
+          media: photos
+      - name: show_music
+        label: Mostrar rincón musical
+        type: boolean

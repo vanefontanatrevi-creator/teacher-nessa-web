@@ -1,0 +1,33 @@
+TEACHER NESSA · WEB PUBLICABLE Y EDITABLE
+
+Carpeta lista para subir a un repositorio de GitHub y publicar con GitHub Pages.
+La edición visual de cada material se hace en https://app.pagescms.org/ tras conectar GitHub.
+
+PRUEBA LOCAL
+- Para ver la web ya compilada abre index.html en Chrome, Firefox o Safari.
+- Verás 163 fichas y las nuevas fichas originales descargables.
+
+PUBLICACIÓN (requiere tus propias cuentas)
+1. Crea una cuenta en github.com y un repositorio llamado, por ejemplo, teachernessa.
+2. Sube el CONTENIDO de esta carpeta al repositorio, conservando los subdirectorios, incluidos .pages.yml y .github/workflows.
+3. En GitHub, Settings > Pages > Build and deployment, selecciona GitHub Actions.
+4. Abre Actions, ejecuta "Publicar Teacher Nessa" (workflow_dispatch) si no se lanza automáticamente.
+5. Aparecerá una dirección temporal https://TU-USUARIO.github.io/teachernessa/.
+6. Abre https://app.pagescms.org/ ; inicia sesión en GitHub y autoriza el repositorio.
+7. Desde el panel cambia textos y foto del sitio, publica novedades y crea, edita, oculta o elimina materiales. Cada cambio inicia automáticamente la publicación.
+8. Para añadir un archivo, entra en una ficha y usa "Subir o seleccionar archivo educativo"; activa "Permitir la descarga" y marca las revisiones de derechos y privacidad. Son controles editoriales, no sustituyen la revisión real.
+9. Para cambiar la foto de portada, usa el campo "Foto propia de portada" del apartado "Textos y apariencia".
+
+DOMINIO teachernessa.es
+- Hay que comprobar que el dominio esté disponible, comprarlo o confirmar su titularidad.
+- Configura en GitHub Settings > Pages > Custom domain: teachernessa.es.
+- En DNS del proveedor sigue los registros oficiales de GitHub Pages (enlace en GUIA_PUBLICACION.md).
+- Una vez configurado el dominio, renombra CNAME_PENDIENTE.txt a CNAME y sube el cambio (o deja que GitHub cree el CNAME automáticamente).
+- Activa HTTPS.
+
+MUY IMPORTANTE: NO SUBIR INFORMACIÓN PRIVADA
+- Si el repositorio es público, TODOS LOS FICHEROS EN EL REPOSITORIO SON PUBLICOS, aunque una ficha aparezca despublicada.
+- No subas páginas de manuales, textos de novelas protegidas, fotografías de menores, listas de alumnado, distribuciones con nombres ni comunicaciones privadas.
+- Los originales antiguos no revisados NO están en este paquete publicable.
+- Las 163 fichas son inventario descriptivo; solo los PDF de creación nueva que vienen en recursos/ se ofrecen para descarga.
+- El panel Pages CMS no funciona desconectado: necesita repo y conexión GitHub. La web de lectura sí puede abrirse localmente.
