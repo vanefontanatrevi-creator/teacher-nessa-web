@@ -7,13 +7,15 @@
   "topic": "Gramática, vocabulario y escritura",
   "reference_file": "Teacher_Nessa_1B_Animal_Vocabulary_Song.mp3",
   "published": true,
-  "download_enabled": true,
+  "download_enabled": false,
   "rights_checked": true,
   "privacy_checked": true,
   "asset": "/recursos/Teacher_Nessa_I4-06_Original_Recuperado.mp3",
   "thumbnail": "",
   "featured": false,
   "internal": false,
-  "editor_notes": "Archivo original recuperado. Revisión preliminar para compartirlo gratuitamente como recurso docente; mantener actualizada la revisión de derechos y privacidad.",
-  "music_group": "1B"
+  "editor_notes": "Archivo original recuperado. Revisión preliminar para compartirlo gratuitamente como recurso docente; mantener actualizada la revisión de derechos y privacidad.\nRevisión pendiente: escuchar el MP3 real, seleccionar su grupo y activar reproducción cuando corresponda.",
+  "music_group": "",
+  "audio_verified": false,
+  "listen_enabled": false
 }
