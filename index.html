@@ -35,6 +35,14 @@ footer{background:#fffaf7;padding:54px 0 26px}.footer-grid{display:grid;grid-tem
 .music-audio-row audio{width:100%;max-width:100%;height:42px;display:block}
 .music-audio-pending{font-size:.78rem;font-weight:800;color:#645d6e;margin-top:17px}
 .music-card .bars{margin-top:14px}
+.music-shelves{display:grid;gap:30px;margin:36px 0 24px}
+.music-shelf-title,.music-pending>h3{font-family:'Arial Black',Impact,sans-serif;letter-spacing:-.035em;font-size:1.48rem;margin:0 0 12px;color:var(--yellow)}
+.music-shelf .music-cards,.music-pending .music-cards{margin-top:14px}
+.music-pending{margin-top:36px}
+.music-pending>p{font-size:.86rem;color:#d5cdda;margin-bottom:16px}
+.music-file-note{font-family:'Courier New',monospace;font-size:.72rem;font-weight:900;color:#665478;overflow-wrap:anywhere;margin-top:5px}
+.music-card .music-audio-row{margin-top:auto}
+.music-audio-pending{display:block;font-size:.79rem;font-weight:800;color:#625a6a;margin-top:auto;padding-top:18px}
 </style>
 <style>.tn-hero-owner-photo{display:none;max-width:270px;max-height:300px;object-fit:cover;object-position:center;border:5px solid var(--ink);border-radius:22px;box-shadow:7px 8px 0 var(--pink);position:absolute;z-index:5;right:14px;bottom:3px;transform:rotate(3deg)}@media(max-width:780px){.tn-hero-owner-photo{max-width:120px;max-height:130px;right:4px;bottom:5px}}</style>
 </head>
@@ -96,13 +104,15 @@ footer{background:#fffaf7;padding:54px 0 26px}.footer-grid{display:grid;grid-tem
 <p class="small-note">Esta web comparte fichas didácticas originales revisadas. Los archivos internos del centro y de tutoría no forman parte de esta web pública. Los materiales con derechos de terceros no están disponibles para descargar sin revisión.</p>
 </div></section>
 <section class="section music-section" id="musica"><div class="container"><div class="music-head"><div><span class="section-label">✦ THE TEACHER NESSA MUSIC CLUB</span><h2>Grammar has <span>a rhythm!</span></h2><p style="color:#d6cfdf;max-width:550px">Canciones, raps y vídeos para practicar inglés y trabajar las emociones. Porque aprender también puede sonar muy bien.</p><span class="tiny-tag" style="background:var(--yellow);color:var(--ink)">♫ MATERIAL MUSICAL EDUCATIVO</span></div><div class="vinyl" aria-label="Vinilo ilustrado decorativo" role="img"></div></div>
-<div class="music-cards"><article class="music-card" data-music-ids="I4-05,I4-06"><span class="track">TRACK 01 · 1.º ESO</span><h3>Animal Vocabulary</h3><p>Los animales se aprenden cantando.</p><div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></article>
-<article class="music-card" data-music-ids="E3-06"><span class="track">TRACK 02 · 2.º ESO</span><h3>Trends Vocabulary</h3><p>Lenguaje de tendencias y ritmo para memorizar.</p><div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></article>
-<article class="music-card"><span class="track">TRACK 03 · MYSTERY</span><h3>Who Did It?</h3><p>Un misterio con vocabulario de detectives.</p><div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></article>
-<article class="music-card"><span class="track">TRACK 04 · GRAMMAR</span><h3>Relative Pronouns Rap</h3><p>Oraciones de relativo con ritmo.</p><div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></article>
-<article class="music-card"><span class="track">TRACK 05 · VALUES</span><h3>La cuerda solidaria</h3><p>Una canción para hablar de empatía y amistad.</p><div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></article>
-<article class="music-card"><span class="track">TRACK 06 · WRITING</span><h3>Tell Me a Story</h3><p>Aprende a contar historias paso a paso.</p><div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></article></div>
-<p class="music-disclaimer">Escucha aquí las grabaciones que estén revisadas y publicadas. Las demás se incorporarán cuando tengan su MP3 y permisos correspondientes.</p>
+<div id="musicClassGroups" class="music-shelves" aria-live="polite"></div>
+<section class="music-pending" aria-labelledby="music-pending-title"><h3 id="music-pending-title">Más canciones del proyecto</h3><p>Estas canciones esperan su archivo de audio revisado antes de activar el reproductor.</p>
+<div class="music-cards">
+<article class="music-card"><span class="track">MYSTERY · PENDIENTE</span><h3>Who Did It?</h3><p>Un misterio con vocabulario de detectives.</p><span class="music-audio-pending">Audio aún no asociado</span></article>
+<article class="music-card"><span class="track">GRAMMAR · PENDIENTE</span><h3>Relative Pronouns Rap</h3><p>Oraciones de relativo con ritmo.</p><span class="music-audio-pending">Audio aún no asociado</span></article>
+<article class="music-card"><span class="track">VALUES · PENDIENTE</span><h3>La cuerda solidaria</h3><p>Una canción sobre empatía y amistad.</p><span class="music-audio-pending">Audio aún no asociado</span></article>
+<article class="music-card"><span class="track">WRITING · PENDIENTE</span><h3>Tell Me a Story</h3><p>Aprende a contar historias paso a paso.</p><span class="music-audio-pending">Audio aún no asociado</span></article>
+</div></section>
+<p class="music-disclaimer">Cada audio se muestra bajo el grupo indicado en su ficha editable. Si no tiene grupo, aparece en «Sin grupo asignado» para evitar confusiones.</p>
 </div></section>
 <section class="section quiz-section" id="reto"><div class="container quiz-grid"><div><span class="section-label">✦ LITTLE CHALLENGE</span><h2>Un mini reto. <span>¿Te atreves?</span></h2><p>Una actividad interactiva de muestra, original y sencilla, para practicar inglés al instante.</p><p class="mono">3 preguntas · Present Perfect</p></div><div class="quiz-box"><span class="tiny-tag" style="box-shadow:none;background:#fff0f8">Grammar time</span><div id="quizStage"></div><button class="quiz-reset" id="quizReset" hidden>Volver a empezar ↻</button></div></div></section>
 <section class="section tn-news-section" id="novedades"><div class="container"><div class="section-top"><div><span class="section-label">✦ LATEST FROM TEACHER NESSA</span><h2>El rincón de las <span>novedades.</span></h2></div><p>Noticias y proyectos: un espacio que puedes cambiar desde tu panel editorial.</p></div><div id="tn-news-grid" class="tn-news-grid"></div></div></section>
@@ -130,49 +140,40 @@ const normalize=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
 const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // Only the published, rights-checked and privacy-checked audio exported by the site builder can be played.
 function initMusicPlayers(){
- const used=new Set();
- const playable=item=>item&&typeof item.download==='string'
-   && /^recursos\/(?!.*(?:^|\/)\.\.)(?:[a-zA-Z0-9_.\/%-]+)\.(?:mp3|m4a|ogg|wav)$/i.test(item.download);
- function addAudio(card,item,label){
-  let host=card.querySelector('.music-audio-list');
-  if(!host){
-   host=document.createElement('div');
-   host.className='music-audio-list';
-   const bars=card.querySelector('.bars');
-   if(bars)bars.before(host);else card.appendChild(host);
-  }
-  const row=document.createElement('div');row.className='music-audio-row';
-  const caption=document.createElement('span');caption.className='music-audio-label';caption.textContent=label;
-  const player=document.createElement('audio');player.controls=true;player.preload='none';
-  player.setAttribute('controlsList','nodownload');
-  player.setAttribute('aria-label','Escuchar '+item.title);
-  player.src=item.download;
-  player.addEventListener('play',()=>document.querySelectorAll('#musica audio').forEach(other=>{if(other!==player)other.pause();}));
-  row.append(caption,player);host.appendChild(row);used.add(item.id);
+ const labels={'1A':'1.º ESO A','1B':'1.º ESO B','1C':'1.º ESO C','2A':'2.º ESO A','2B':'2.º ESO B','AE':'Atención Educativa','GENERAL':'Material común'};
+ const playable=item=>item&&typeof item.download==='string'&&/^recursos\/[a-zA-Z0-9_.\/%-]+\.(mp3|m4a|ogg|wav)$/i.test(item.download);
+ const music=MATERIALS.filter(playable);
+ const host=document.getElementById('musicClassGroups');
+ const categories=[...new Set(music.map(item=>labels[item.music_group]?item.music_group:'PENDING'))];
+ const order=['1A','1B','1C','2A','2B','AE','GENERAL','PENDING'];
+ categories.sort((a,b)=>order.indexOf(a)-order.indexOf(b));
+ if(!music.length){
+  const note=document.createElement('p');
+  note.textContent='Todavía no hay archivos de audio autorizados para escuchar.';
+  host.appendChild(note);
  }
- document.querySelectorAll('#musica .music-card[data-music-ids]').forEach(card=>{
-  const ids=card.dataset.musicIds.split(',');
-  for(const id of ids){
-   const item=MATERIALS.find(entry=>entry.id===id);
-   if(playable(item)){
-    const label=id==='I4-05'?'Escuchar · 1.º A':id==='I4-06'?'Escuchar · 1.º B':'Escuchar · 2.º A';
-    addAudio(card,item,label);
-   }
-  }
- });
- const grid=document.querySelector('#musica .music-cards');
- MATERIALS.filter(item=>playable(item)&&!used.has(item.id)).forEach(item=>{
-  const card=document.createElement('article');card.className='music-card';
-  const tag=document.createElement('span');tag.className='track';tag.textContent='TEACHER NESSA · AUDIO';
-  const title=document.createElement('h3');title.textContent=item.title;
-  const description=document.createElement('p');description.textContent=item.description||'Canción educativa para aprender inglés.';
-  card.append(tag,title,description);grid.appendChild(card);
-  addAudio(card,item,'Escuchar canción');
- });
- document.querySelectorAll('#musica .music-card:not(:has(.music-audio-list))').forEach(card=>{
-  const pending=document.createElement('span');pending.className='music-audio-pending';
-  pending.textContent='Audio pendiente de publicación';
-  const bars=card.querySelector('.bars');if(bars)bars.before(pending);else card.appendChild(pending);
+ categories.forEach(group=>{
+  const shelf=document.createElement('section');shelf.className='music-shelf';
+  const heading=document.createElement('h3');heading.className='music-shelf-title';
+  heading.textContent=labels[group]||'Sin grupo asignado · revisar en el editor';
+  const grid=document.createElement('div');grid.className='music-cards';
+  shelf.append(heading,grid);host.appendChild(shelf);
+  music.filter(item=>(labels[item.music_group]?item.music_group:'PENDING')===group).forEach(item=>{
+   const card=document.createElement('article');card.className='music-card';
+   const tag=document.createElement('span');tag.className='track';tag.textContent=labels[group]||'PENDIENTE DE CLASIFICAR';
+   const title=document.createElement('h3');title.textContent=item.title;
+   const description=document.createElement('p');description.textContent=item.description||'Canción educativa de Teacher Nessa.';
+   const note=document.createElement('span');note.className='music-file-note';
+   note.textContent='Ficha '+item.id+' · '+(item.file||'MP3');
+   const row=document.createElement('div');row.className='music-audio-row';
+   const caption=document.createElement('span');caption.className='music-audio-label';
+   caption.textContent='Escuchar '+(labels[group]||'audio sin clasificar');
+   const audio=document.createElement('audio');audio.controls=true;audio.preload='none';
+   audio.setAttribute('controlsList','nodownload');audio.setAttribute('aria-label',caption.textContent+' · '+item.title);
+   audio.src=item.download;
+   audio.addEventListener('play',()=>document.querySelectorAll('#musica audio').forEach(other=>{if(other!==audio)other.pause()}));
+   row.append(caption,audio);card.append(tag,title,description,note,row);grid.appendChild(card);
+  });
  });
 }
 initMusicPlayers();
