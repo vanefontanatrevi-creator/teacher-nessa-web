@@ -141,7 +141,7 @@ const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 // Only the published, rights-checked and privacy-checked audio exported by the site builder can be played.
 function initMusicPlayers(){
  const labels={'1A':'1.º ESO A','1B':'1.º ESO B','1C':'1.º ESO C','2A':'2.º ESO A','2B':'2.º ESO B','AE':'Atención Educativa','GENERAL':'Material común'};
- const playable=item=>item&&typeof item.download==='string'&&/^recursos\/[a-zA-Z0-9_.\/%-]+\.(mp3|m4a|ogg|wav)$/i.test(item.download);
+ const playable=item=>item&&typeof item.audio==='string'&&/^recursos\/[a-zA-Z0-9_.\/%-]+\.(mp3|m4a|ogg|wav)$/i.test(item.audio);
  const music=MATERIALS.filter(playable);
  const host=document.getElementById('musicClassGroups');
  const categories=[...new Set(music.map(item=>labels[item.music_group]?item.music_group:'PENDING'))];
@@ -149,7 +149,7 @@ function initMusicPlayers(){
  categories.sort((a,b)=>order.indexOf(a)-order.indexOf(b));
  if(!music.length){
   const note=document.createElement('p');
-  note.textContent='Todavía no hay archivos de audio autorizados para escuchar.';
+  note.textContent='Los audios están pendientes de confirmar la canción, el grupo y sus permisos en el editor. No se reproducirán MP3 sin comprobar.';
   host.appendChild(note);
  }
  categories.forEach(group=>{
@@ -170,7 +170,7 @@ function initMusicPlayers(){
    caption.textContent='Escuchar '+(labels[group]||'audio sin clasificar');
    const audio=document.createElement('audio');audio.controls=true;audio.preload='none';
    audio.setAttribute('controlsList','nodownload');audio.setAttribute('aria-label',caption.textContent+' · '+item.title);
-   audio.src=item.download;
+   audio.src=item.audio;
    audio.addEventListener('play',()=>document.querySelectorAll('#musica audio').forEach(other=>{if(other!==audio)other.pause()}));
    row.append(caption,audio);card.append(tag,title,description,note,row);grid.appendChild(card);
   });
