@@ -47,6 +47,12 @@ content:
       - name: topic
         label: Bloque o tema
         type: string
+      - name: music_group
+        label: Grupo de la cancion (solo para MP3)
+        type: select
+        options:
+          values: ["1A", "1B", "1C", "2A", "2B", "AE", "GENERAL"]
+        description: "1A = 1.º ESO A, 1B = 1.º ESO B, 2A = 2.º ESO A. Si queda vacío, el MP3 aparecerá como Sin grupo asignado."
       - name: reference_file
         label: Nombre del fichero original (solo informativo)
         type: string
