@@ -36,6 +36,7 @@ for file in sorted((ROOT/'content'/'materiales').glob('*.json')):
   'description':record.get('description',''),
   'usage':record.get('usage',''),
   'category':category,'topic':record.get('topic',''),
+  'music_group':record.get('music_group',''),
   'file':record.get('reference_file') or 'Sin fichero identificado',
   'section':str(code).split('-')[0], 'download':None,
   'access':'Ficha de catálogo. Descarga pendiente de revisión o de archivo.',
