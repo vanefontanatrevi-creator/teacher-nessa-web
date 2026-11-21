@@ -6,7 +6,7 @@ media:
     input: recursos
     output: /recursos
     rename: safe
-    categories: [document, video, audio, spreadsheet]
+    categories: [image, document, video, audio, spreadsheet]
   - name: photos
     label: Imagenes PUBLICAS
     input: assets/uploads
