@@ -48,11 +48,17 @@ content:
         label: Bloque o tema
         type: string
       - name: music_group
-        label: Grupo de la cancion (solo para MP3)
+        label: Grupo real de esta cancion (solo MP3)
         type: select
         options:
           values: ["1A", "1B", "1C", "2A", "2B", "AE", "GENERAL"]
-        description: "1A = 1.º ESO A, 1B = 1.º ESO B, 2A = 2.º ESO A. Si queda vacío, el MP3 aparecerá como Sin grupo asignado."
+        description: "Escucha el MP3 antes de elegir 1A, 1B, 2A, etc. No basta con el nombre del archivo."
+      - name: audio_verified
+        label: He escuchado el MP3 y confirmado que la cancion y el grupo son correctos
+        type: boolean
+      - name: listen_enabled
+        label: Permitir escuchar esta cancion en la web
+        type: boolean
       - name: reference_file
         label: Nombre del fichero original (solo informativo)
         type: string
@@ -65,7 +71,7 @@ content:
         options:
           media: documents
       - name: download_enabled
-        label: Permitir la descarga
+        label: Permitir descargar el archivo (independiente de escucharlo)
         type: boolean
       - name: rights_checked
         label: Confirmo revision de derechos de autor
