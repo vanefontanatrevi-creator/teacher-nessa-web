@@ -90,6 +90,13 @@ footer{background:#fffaf7;padding:54px 0 26px}.footer-grid{display:grid;grid-tem
  .hero h1{font-size:2.24rem}
 }
 </style>
+<style id="tn-poster-preview">
+.resource-card .res-preview{display:block;width:100%;height:206px;object-fit:contain;background:#fff7fb;border:1px solid #e9d9e3;border-radius:12px;margin-top:14px}
+.course-block .resource-card{min-width:0}
+.course-block .resource-grid{align-items:stretch}
+.detail-media .full-poster{display:block;width:100%;height:auto;max-height:72vh;object-fit:contain;border:1px solid #eadce5;border-radius:12px;background:#fff9fc}
+@media(max-width:540px){.resource-card .res-preview{height:230px}}
+</style>
 </head>
 <body>
 <a class="skip" href="#principal">Saltar al contenido</a>
@@ -221,6 +228,7 @@ function dataMatch(item){
 function resourceCard(item){
  return '<button class="resource-card" data-id="'+escapeHTML(item.id)+'" aria-label="Ver ficha: '+escapeHTML(item.title)+'">'
  +'<div class="res-top"><span class="res-code">'+escapeHTML(item.id)+'</span><span class="res-category">'+escapeHTML(item.kind)+' · '+escapeHTML(item.course_label)+'</span></div>'
+ +(item.preview?'<img class="res-preview" loading="lazy" decoding="async" src="'+escapeHTML(item.preview)+'" alt="Vista previa de '+escapeHTML(item.title)+'">':'')
  +'<h3>'+escapeHTML(item.title)+'</h3><p>'+escapeHTML(item.description)+'</p>'
  +'<div class="res-foot"><span><span class="res-available">'+(item.download?'ARCHIVO INCLUIDO':'REPRODUCIR')+'</span></span><span>VER FICHA ↗</span></div></button>';
 }
@@ -272,6 +280,11 @@ function openDetail(item){
   extra.appendChild(link);
  });
  const media=$('#detailMedia');media.replaceChildren();
+ if(item.preview){
+  const poster=document.createElement('img');poster.src=item.preview;
+  poster.loading='lazy';poster.alt='Póster: '+item.title;poster.className='full-poster';
+  media.appendChild(poster);
+ }
  const src=item.video||item.audio;
  if(src){
   const player=document.createElement(item.video?'video':'audio');
