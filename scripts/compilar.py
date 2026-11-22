@@ -80,7 +80,7 @@ for file in sorted((ROOT/'content'/'materiales').glob('*.json')):
   'music_group':record.get('music_group',''),
   'file':record.get('reference_file') or 'Material de Teacher Nessa',
   'section':code.split('-')[0],
-  'download':None,'downloads':[],'audio':None,'video':None,
+  'download':None,'downloads':[],'audio':None,'video':None,'preview':None,
   'access':'Recurso original revisado y disponible para uso educativo.'
  }
  requested=[record.get('asset'),record.get('extra_asset')]
@@ -110,6 +110,8 @@ for file in sorted((ROOT/'content'/'materiales').glob('*.json')):
   elif record.get('download_enabled') is True:
    entry['downloads'].append({'url':path,'name':original.name})
    public_files.add(path)
+   if suffix in {'.png','.jpg','.jpeg','.webp'} and entry['preview'] is None:
+    entry['preview']=path
  if entry['downloads']:
   entry['download']=entry['downloads'][0]['url']
   entry['file']=entry['downloads'][0]['name']
