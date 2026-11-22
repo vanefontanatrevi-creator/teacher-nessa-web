@@ -137,10 +137,10 @@ content:
         required: true
         options:
           values:
-            - {label: Ingles 1 ESO, value: 1ESO}
-            - {label: Ingles 2 ESO, value: 2ESO}
-            - {label: Atencion Educativa 1 ESO, value: ATENCION}
-            - {label: Ambos cursos de Ingles, value: AMBOS}
+            - {name: 1ESO, label: "Inglés 1.º ESO"}
+            - {name: 2ESO, label: "Inglés 2.º ESO"}
+            - {name: ATENCION, label: "Atención Educativa 1.º ESO"}
+            - {name: AMBOS, label: "Inglés 1.º y 2.º ESO"}
       - name: kind
         label: Tipo de poster
         type: select
