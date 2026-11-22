@@ -287,6 +287,37 @@ function initMusicPlayers(){
  });
 }
 initMusicPlayers();
+// Show the existing original song/lyric files in the Music Club, without
+// presenting unverified audio as playable or changing the rotating vinyl.
+(function showOriginalSongFiles(){
+ const host=document.getElementById('musicClassGroups');
+ if(!host)return;
+ const tracks=MATERIALS.filter(item=>item.kind==='Canciones'
+  && typeof item.download==='string'
+  && /^recursos\/[a-zA-Z0-9_.\/%-]+\.(pdf|docx)$/i.test(item.download));
+ if(!tracks.length)return;
+ const shelf=document.createElement('section');
+ shelf.className='music-shelf';
+ const heading=document.createElement('h3');
+ heading.className='music-shelf-title';
+ heading.textContent='Letras, fichas y pósteres musicales originales';
+ const grid=document.createElement('div');
+ grid.className='music-cards';
+ tracks.forEach(item=>{
+  const card=document.createElement('article');card.className='music-card';
+  const label=document.createElement('span');label.className='track';
+  label.textContent=item.course_label||'Teacher Nessa';
+  const title=document.createElement('h3');title.textContent=item.title;
+  const desc=document.createElement('p');
+  desc.textContent=item.description||'Material musical original de Teacher Nessa.';
+  const link=document.createElement('a');
+  link.className='btn btn-yellow';link.href=item.download;
+  link.setAttribute('download',item.file||'teacher-nessa');
+  link.textContent='Ver o descargar el original';
+  card.append(label,title,desc,link);grid.appendChild(card);
+ });
+ shelf.append(heading,grid);host.appendChild(shelf);
+})();
 const COURSE_ORDER=[
  {id:'1ESO',label:'Inglés · 1.º ESO'},
  {id:'2ESO',label:'Inglés · 2.º ESO'},
