@@ -154,7 +154,7 @@ function initMusicPlayers(){
    const audio=document.createElement(item.video?'video':'audio');audio.controls=true;audio.preload='none';audio.style.maxWidth='100%';
    audio.setAttribute('controlsList','nodownload');audio.setAttribute('aria-label',caption.textContent+' · '+item.title);
    audio.src=item.video||item.audio;
-   audio.addEventListener('play',()=>document.querySelectorAll('#musica audio').forEach(other=>{if(other!==audio)other.pause()}));
+   audio.addEventListener('play',()=>document.querySelectorAll('#musica audio,#musica video').forEach(other=>{if(other!==audio)other.pause()}));
    row.append(caption,audio);card.append(tag,title,description,note,row);grid.appendChild(card);
   });
  });
@@ -202,7 +202,7 @@ function openDetail(item){
  $('#detailBackdrop').setAttribute('aria-hidden','false');
  document.body.style.overflow='hidden';$('#closeDetail').focus();
 }
-function closeDetail(){$('#detailMedia audio,#detailMedia video');$('#detailMedia').querySelectorAll('audio,video').forEach(media=>media.pause());$('#detailBackdrop').classList.remove('open');$('#detailBackdrop').setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus?.focus)lastFocus.focus();}
+function closeDetail(){$('#detailMedia').querySelectorAll('audio,video').forEach(media=>media.pause());$('#detailBackdrop').classList.remove('open');$('#detailBackdrop').setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus?.focus)lastFocus.focus();}
 $('#closeDetail').addEventListener('click',closeDetail);
 $('#detailBackdrop').addEventListener('click',e=>{if(e.target.id==='detailBackdrop')closeDetail();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#detailBackdrop').classList.contains('open'))closeDetail();if(e.key==='Tab'&&$('#detailBackdrop').classList.contains('open')){const dialog=$('.detail-dialog');const buttons=$$('button,a,input',[dialog][0]).filter(n=>!n.disabled);if(!buttons.length)return;const first=buttons[0],last=buttons[buttons.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
