@@ -43,6 +43,7 @@ footer{background:#fffaf7;padding:54px 0 26px}.footer-grid{display:grid;grid-tem
 .music-file-note{font-family:'Courier New',monospace;font-size:.72rem;font-weight:900;color:#665478;overflow-wrap:anywhere;margin-top:5px}
 .music-card .music-audio-row{margin-top:auto}
 .music-audio-pending{display:block;font-size:.79rem;font-weight:800;color:#625a6a;margin-top:auto;padding-top:18px}
+ .extra-downloads,.detail-media{display:grid;gap:10px;margin-top:12px}.detail-media video{max-height:320px} .extra-downloads .btn{font-size:.84rem;white-space:normal;text-align:center}
 </style>
 <style>.tn-hero-owner-photo{display:none;max-width:270px;max-height:300px;object-fit:cover;object-position:center;border:5px solid var(--ink);border-radius:22px;box-shadow:7px 8px 0 var(--pink);position:absolute;z-index:5;right:14px;bottom:3px;transform:rotate(3deg)}@media(max-width:780px){.tn-hero-owner-photo{max-width:120px;max-height:130px;right:4px;bottom:5px}}</style>
 </head>
@@ -52,7 +53,7 @@ footer{background:#fffaf7;padding:54px 0 26px}.footer-grid{display:grid;grid-tem
 <header class="site-header"><div class="container nav-shell">
 <a class="brand" href="#inicio" aria-label="Teacher Nessa, ir al inicio"><span class="brand-mark">TN</span><span class="brand-name"><span class="teacher-word">Teacher</span> <em>Nessa</em><span aria-hidden="true"> ✳</span></span></a>
 <button class="menu-btn" id="menuBtn" aria-label="Abrir navegación" aria-expanded="false" aria-controls="menuLinks">☰</button>
-<nav class="nav-links" id="menuLinks" aria-label="Navegación principal"><a href="#inicio">Inicio</a><a href="#ambitos">Ámbitos</a><a href="#recursos">Recursos</a><a href="#novedades">Novedades</a><a href="#musica">Música</a><a href="#proyecto">Proyecto</a><a class="nav-cta" href="#descargas">Descargar catálogo ↗</a></nav>
+<nav class="nav-links" id="menuLinks" aria-label="Navegación principal"><a href="#inicio">Inicio</a><a href="#recursos">Gramática y vocabulario</a><a href="#musica">Canciones</a><a class="nav-cta" href="#reto">Reto de gramática ↗</a></nav>
 </div></header>
 <main id="principal">
 <section class="hero" id="inicio"><div class="container hero-grid">
@@ -87,49 +88,28 @@ footer{background:#fffaf7;padding:54px 0 26px}.footer-grid{display:grid;grid-tem
  <path d="M485 342l9 29 29 9-29 9-9 29-9-29-29-9 29-9z" fill="#ffe25c" stroke="#191920" stroke-width="5"/>
  <path d="M449 232q8-26 30-16q15 10-3 32q-15 13-22 21q-6-14-22-27q-13-14 0-26q12-9 17 16z" fill="#f637a4" stroke="#191920" stroke-width="5"/>
  <g fill="none" stroke="#191920" stroke-linecap="round" stroke-width="5"><path d="M54 448q-26 16-14 46m9-27l-28 -1m44 7l-18 25"/><path d="M516 165q26 15 18 49m-15-24l25-6m-40 26l22 17"/></g>
-</svg><div class="poster-cloud">SING IT.<br><span class="pink">LEARN IT.</span><br>LOVE IT.</div><div class="poster-bottom">ENGLISH · VALUES<br>READING · MUSIC</div></div><div class="hero-bubble">B1 +<br>GOOD<br>VIBES ✦</div></div>
+</svg><div class="poster-cloud">SING IT.<br><span class="pink">LEARN IT.</span><br>LOVE IT.</div><div class="poster-bottom">GRAMMAR · VOCABULARY<br>SONGS · ENGLISH</div></div><div class="hero-bubble">B1 +<br>GOOD<br>VIBES ✦</div></div>
 </div></section>
-<div class="mini-strip" aria-hidden="true"><div class="container strip-inner"><span>✳ ENGLISH</span><b>✦</b><span>READING CLUB</span><b>✦</b><span>GRAMMAR POWER</span><b>✦</b><span>BE KIND</span><b>✦</b><span>LEARN WITH MUSIC</span></div></div>
-<section class="section" id="ambitos"><div class="container"><div class="section-top"><div><span class="section-label">✦ EVERYBODY IS WELCOME</span><h2>Aprender a tu <span>manera.</span></h2></div><p>Cuatro espacios educativos y una misma idea: aprender mejor cuando la curiosidad está encendida.</p></div><div class="area-grid">
-<button class="area-card" data-filter="I"><span class="arrow">↗</span><span class="emoji" aria-hidden="true">🎒</span><h3>Inglés<br>1.º ESO</h3><p>Reading, gramática, juegos, escritura y retos para descubrir el inglés.</p></button>
-<button class="area-card" data-filter="E"><span class="arrow">↗</span><span class="emoji" aria-hidden="true">🎤</span><h3>Inglés<br>2.º ESO</h3><p>Grammar, writing, mediación y pequeños misterios en inglés.</p></button>
-<button class="area-card" data-filter="A"><span class="arrow">↗</span><span class="emoji" aria-hidden="true">💛</span><h3>Atención<br>Educativa</h3><p>Empatía, solidaridad, emociones y convivencia en 1.º ESO.</p></button>
-
-</div></div></section>
-<section class="section resources" id="recursos"><div class="container"><div class="section-top"><div><span class="section-label">✦ EXPLORE THE COLLECTION</span><h2>La biblioteca <span>Teacher Nessa.</span></h2></div><p>Descubre los materiales educativos catalogados. Las descargas se activan solo para versiones originales revisadas; las páginas de manuales quedan excluidos.</p></div>
-<div class="search-console"><div class="console-top"><div class="count"><strong id="count">147</strong> materiales</div><p class="hint">Escribe algo como «Past Simple», «Calpurnia» o «empatía»</p></div>
+<div class="mini-strip" aria-hidden="true"><div class="container strip-inner"><span>✳ GRAMMAR</span><b>✦</b><span>VOCABULARY</span><b>✦</b><span>TEACHER NESSA SONGS</span><b>✦</b><span>ENGLISH</span></div></div>
+<section class="section resources" id="recursos"><div class="container"><div class="section-top"><div><span class="section-label">✦ EXPLORE THE COLLECTION</span><h2>Grammar, Vocabulary <span>&amp; Songs.</span></h2></div><p>Solo recursos originales de gramática, vocabulario y canciones con archivo real disponible. Sin programación docente ni otros documentos.</p></div>
+<div class="search-console"><div class="console-top"><div class="count"><strong id="count">0</strong> materiales</div><p class="hint">Busca «Present Perfect», «Timeline» o «Who Did It?»</p></div>
 <label class="search-field"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.8"/><path d="M16 16l5 5"/></svg><span class="sr-only">Buscar materiales</span><input id="search" placeholder="¿Qué te apetece aprender hoy?" autocomplete="off"></label>
-<div class="filters" aria-label="Filtrar materiales"><button class="filter-btn" data-cat="all" aria-pressed="true">Todos</button><button class="filter-btn" data-cat="I" aria-pressed="false">1.º ESO · Inglés</button><button class="filter-btn" data-cat="E" aria-pressed="false">2.º ESO · Inglés</button><button class="filter-btn" data-cat="C" aria-pressed="false">Inglés común</button><button class="filter-btn" data-cat="A" aria-pressed="false">Atención Educativa</button></div></div>
-<label class="only-download"><input type="checkbox" id="onlyDownload"> Mostrar solo recursos con archivo incorporado</label><div id="resultGrid" class="resource-grid" aria-live="polite"></div><div class="load-row"><button class="btn btn-yellow" id="loadMore">Mostrar más materiales ↓</button></div>
-<p class="small-note">Esta web comparte fichas didácticas originales revisadas. Los archivos internos del centro y de tutoría no forman parte de esta web pública. Los materiales con derechos de terceros no están disponibles para descargar sin revisión.</p>
+<div class="filters" aria-label="Filtrar materiales"><button class="filter-btn" data-cat="all" aria-pressed="true">Todos</button><button class="filter-btn" data-cat="Gramática" aria-pressed="false">Gramática</button><button class="filter-btn" data-cat="Vocabulario" aria-pressed="false">Vocabulario</button><button class="filter-btn" data-cat="Canciones" aria-pressed="false">Canciones y letras</button></div></div>
+<label class="only-download"><input type="checkbox" id="onlyDownload"> Mostrar solo materiales descargables</label><div id="resultGrid" class="resource-grid" aria-live="polite"></div><div class="load-row"><button class="btn btn-yellow" id="loadMore">Mostrar más materiales ↓</button></div>
+<p class="small-note">Solo se muestran archivos originales de gramática, vocabulario y canciones cuya publicación se ha autorizado. No se publican programaciones, documentos internos, novelas ni material de terceros sin permiso.</p>
 </div></section>
 <section class="section music-section" id="musica"><div class="container"><div class="music-head"><div><span class="section-label">✦ THE TEACHER NESSA MUSIC CLUB</span><h2>Grammar has <span>a rhythm!</span></h2><p style="color:#d6cfdf;max-width:550px">Canciones, raps y vídeos para practicar inglés y trabajar las emociones. Porque aprender también puede sonar muy bien.</p><span class="tiny-tag" style="background:var(--yellow);color:var(--ink)">♫ MATERIAL MUSICAL EDUCATIVO</span></div><div class="vinyl" aria-label="Vinilo ilustrado decorativo" role="img"></div></div>
 <div id="musicClassGroups" class="music-shelves" aria-live="polite"></div>
-<section class="music-pending" aria-labelledby="music-pending-title"><h3 id="music-pending-title">Más canciones del proyecto</h3><p>Estas canciones esperan su archivo de audio revisado antes de activar el reproductor.</p>
-<div class="music-cards">
-<article class="music-card"><span class="track">MYSTERY · PENDIENTE</span><h3>Who Did It?</h3><p>Un misterio con vocabulario de detectives.</p><span class="music-audio-pending">Audio aún no asociado</span></article>
-<article class="music-card"><span class="track">GRAMMAR · PENDIENTE</span><h3>Relative Pronouns Rap</h3><p>Oraciones de relativo con ritmo.</p><span class="music-audio-pending">Audio aún no asociado</span></article>
-<article class="music-card"><span class="track">VALUES · PENDIENTE</span><h3>La cuerda solidaria</h3><p>Una canción sobre empatía y amistad.</p><span class="music-audio-pending">Audio aún no asociado</span></article>
-<article class="music-card"><span class="track">WRITING · PENDIENTE</span><h3>Tell Me a Story</h3><p>Aprende a contar historias paso a paso.</p><span class="music-audio-pending">Audio aún no asociado</span></article>
-</div></section>
-<p class="music-disclaimer">Cada audio se muestra bajo el grupo indicado en su ficha editable. Si no tiene grupo, aparece en «Sin grupo asignado» para evitar confusiones.</p>
+<p class="music-disclaimer">Los audios pendientes de comprobar no se ofrecen como reproductores. Las letras y pósteres musicales disponibles están en la biblioteca de recursos.</p>
+
 </div></section>
 <section class="section quiz-section" id="reto"><div class="container quiz-grid"><div><span class="section-label">✦ LITTLE CHALLENGE</span><h2>Un mini reto. <span>¿Te atreves?</span></h2><p>Una actividad interactiva de muestra, original y sencilla, para practicar inglés al instante.</p><p class="mono">3 preguntas · Present Perfect</p></div><div class="quiz-box"><span class="tiny-tag" style="box-shadow:none;background:#fff0f8">Grammar time</span><div id="quizStage"></div><button class="quiz-reset" id="quizReset" hidden>Volver a empezar ↻</button></div></div></section>
-<section class="section tn-news-section" id="novedades"><div class="container"><div class="section-top"><div><span class="section-label">✦ LATEST FROM TEACHER NESSA</span><h2>El rincón de las <span>novedades.</span></h2></div><p>Noticias y proyectos: un espacio que puedes cambiar desde tu panel editorial.</p></div><div id="tn-news-grid" class="tn-news-grid"></div></div></section>
-<style>.tn-news-section{background:#fff1f9;border-top:2px solid #1b1823}.tn-news-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.tn-news-item{padding:24px;border:2px solid #23212c;background:white;border-radius:22px;box-shadow:5px 6px 0 #f537a1}.tn-news-item h3{font-size:1.3rem;margin:0 0 10px}.tn-news-item p{margin:0;color:#5b5262;white-space:pre-wrap}.tn-news-item img{width:100%;height:190px;object-fit:cover;border-radius:12px;margin:0 0 14px}.tn-news-empty{padding:16px;font-weight:700}@media(max-width:690px){.tn-news-grid{grid-template-columns:1fr}}</style>
-<section class="section values-section" id="proyecto"><div class="container"><div class="section-top"><div><span class="section-label">✦ MORE THAN JUST GRAMMAR</span><h2>Teaching with <span>heart.</span></h2></div><p>Teacher Nessa nace de la experiencia en el aula, la creatividad y las ganas de compartir materiales útiles.</p></div><div class="values-grid"><article class="value-card"><div class="value-icon">💡</div><h3>Crear</h3><p>Diseñar actividades prácticas, adaptadas al nivel y conectadas con los intereses del alumnado.</p></article><article class="value-card"><div class="value-icon">🎶</div><h3>Aprender jugando</h3><p>Combinar lectura, juegos, música y proyectos para trabajar distintas destrezas.</p></article><article class="value-card"><div class="value-icon">💗</div><h3>Compartir con cuidado</h3><p>Usar recursos gratuitamente con finalidad educativa, respetando los derechos de terceros y la privacidad del alumnado.</p></article></div>
-<div style="margin-top:40px;border:2px solid var(--ink);padding:20px 24px;border-radius:17px;background:#f8f4ff"><strong>Una nota de transparencia:</strong> en el desarrollo de algunos recursos se han usado herramientas digitales y de IA como apoyo. La planificación pedagógica, la selección, la adaptación y la revisión son parte de la labor docente. Los resultados y las obras de terceros requieren una comprobación específica antes de su publicación abierta.</div>
-</div></section>
-<section class="section downloads" id="descargas"><div class="container"><span class="section-label" style="color:#28202c">✦ A LITTLE GIFT FROM TEACHER NESSA</span><h2>Tu catálogo, <span style="color:#e52c93">a un clic.</span></h2><p>Consulta los materiales publicados, sus descripciones y los ejemplos de uso.</p>
-<div class="download-grid"><a class="download-card" href="descargas/Catalogo_Teacher_Nessa_Publico.pdf" download><span class="doc-icon">📕</span><div><h3>Catálogo en PDF</h3><p>Para leer, presentar o imprimir.</p></div><span class="download-arrow" aria-hidden="true">↘</span></a><a class="download-card" href="descargas/GUIA_DE_USO.html" download><span class="doc-icon">📝</span><div><h3>Guía de uso de la web</h3><p>Aprende a navegar y descargar recursos.</p></div><span class="download-arrow" aria-hidden="true">↘</span></a></div>
-<p class="privacy">Nota: este es un catálogo documental, no una licencia general para reproducir textos, imágenes, vídeos o música de terceros. Los archivos originales se compartirán individualmente solo tras revisar su contenido.</p></div></section>
 </main>
-<footer><div class="container"><div class="footer-grid"><div><div class="footer-brand"><span class="teacher-word">Teacher</span> <em>Nessa</em> ✳</div><p>Un proyecto educativo de Vanesa González Castro. Inglés, creatividad, música y educación en valores.</p></div><div><h3>Explora</h3><ul><li><a href="#ambitos">Ámbitos</a></li><li><a href="#recursos">Biblioteca</a></li><li><a href="#musica">Rincón musical</a></li><li><a href="#descargas">Catálogo</a></li></ul></div><div><h3>Sígueme</h3><ul><li><a href="https://www.instagram.com/nessabray/" rel="noopener noreferrer" target="_blank">Instagram · @nessabray ↗</a></li><li><a href="https://x.com/LondonScones" rel="noopener noreferrer" target="_blank">X · @LondonScones ↗</a></li></ul></div></div><div class="footer-line"><span>© Teacher Nessa · Proyecto educativo · 2026</span><span>Made with creativity, music & heart ♡ · <a href="https://app.pagescms.org/" target="_blank" rel="noopener noreferrer" title="Editar contenido (requiere acceso autorizado)">Edición de la web</a></span></div></div></footer>
-<div class="dialog-backdrop" id="detailBackdrop" aria-hidden="true"><div class="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="detailTitle" tabindex="-1"><button class="close" id="closeDetail" aria-label="Cerrar ficha">×</button><span class="tiny-tag" id="detailCode">TN</span><h3 id="detailTitle"></h3><p id="detailCategory" class="mono"></p><p id="detailDescription"></p><div class="detail-label">Ejemplo de uso en clase</div><p id="detailUsage" class="detail-value"></p><div class="detail-label">Archivo de referencia</div><p class="detail-file" id="detailFile"></p><p class="detail-access" id="detailAccess" aria-live="polite"></p><a id="detailDownload" class="btn btn-pink" href="#" download style="margin-top:14px;display:none;justify-content:center">Abrir o descargar material ↗</a><p class="dialog-note">Descarga gratuita para uso educativo. Los materiales de terceros y los documentos internos requieren autorización y revisión adicional.</p></div></div>
+<footer><div class="container"><div class="footer-grid"><div><div class="footer-brand"><span class="teacher-word">Teacher</span> <em>Nessa</em> ✳</div><p>Gramática, vocabulario y canciones originales para aprender inglés.</p></div><div><h3>Explora</h3><ul><li><a href="#recursos">Gramática y vocabulario</a></li><li><a href="#musica">Canciones</a></li><li><a href="#reto">Reto de gramática</a></li></ul></div><div><h3>Sígueme</h3><ul><li><a href="https://www.instagram.com/nessabray/" rel="noopener noreferrer" target="_blank">Instagram · @nessabray ↗</a></li><li><a href="https://x.com/LondonScones" rel="noopener noreferrer" target="_blank">X · @LondonScones ↗</a></li></ul></div></div><div class="footer-line"><span>© Teacher Nessa · Proyecto educativo · 2026</span><span>Made with creativity, music & heart ♡ · <a href="https://app.pagescms.org/" target="_blank" rel="noopener noreferrer" title="Editar contenido (requiere acceso autorizado)">Edición de la web</a></span></div></div></footer>
+<div class="dialog-backdrop" id="detailBackdrop" aria-hidden="true"><div class="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="detailTitle" tabindex="-1"><button class="close" id="closeDetail" aria-label="Cerrar ficha">×</button><span class="tiny-tag" id="detailCode">TN</span><h3 id="detailTitle"></h3><p id="detailCategory" class="mono"></p><p id="detailDescription"></p><div class="detail-label">Ejemplo de uso en clase</div><p id="detailUsage" class="detail-value"></p><div class="detail-label">Archivo de referencia</div><p class="detail-file" id="detailFile"></p><p class="detail-access" id="detailAccess" aria-live="polite"></p><a id="detailDownload" class="btn btn-pink" href="#" download style="margin-top:14px;display:none;justify-content:center">Descargar material ↗</a><div id="detailExtraFiles" class="extra-downloads"></div><div id="detailMedia" class="detail-media"></div><p class="dialog-note">Descarga gratuita para uso educativo. Los materiales de terceros y los documentos internos requieren autorización y revisión adicional.</p></div></div>
 <div class="toast" id="toast" aria-live="polite"></div>
 <script src="datos/materiales.js"></script>
 <script src="datos/sitio.js"></script>
-<script src="datos/novedades.js"></script>
 <script>
 const MATERIALS=window.TN_MATERIALS||[];
 const TN_SETTINGS=window.TN_SITE||{};
@@ -141,7 +121,10 @@ const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 // Only the published, rights-checked and privacy-checked audio exported by the site builder can be played.
 function initMusicPlayers(){
  const labels={'1A':'1.º ESO A','1B':'1.º ESO B','1C':'1.º ESO C','2A':'2.º ESO A','2B':'2.º ESO B','AE':'Atención Educativa','GENERAL':'Material común'};
- const playable=item=>item&&typeof item.audio==='string'&&/^recursos\/[a-zA-Z0-9_.\/%-]+\.(mp3|m4a|ogg|wav)$/i.test(item.audio);
+ const playable=item=>item&&(
+ (typeof item.audio==='string'&&/^recursos\/[a-zA-Z0-9_.\/%-]+\.(mp3|m4a|ogg|wav)$/i.test(item.audio))||
+ (typeof item.video==='string'&&/^recursos\/[a-zA-Z0-9_.\/%-]+\.(mp4|webm)$/i.test(item.video))
+);
  const music=MATERIALS.filter(playable);
  const host=document.getElementById('musicClassGroups');
  const categories=[...new Set(music.map(item=>labels[item.music_group]?item.music_group:'PENDING'))];
@@ -168,25 +151,58 @@ function initMusicPlayers(){
    const row=document.createElement('div');row.className='music-audio-row';
    const caption=document.createElement('span');caption.className='music-audio-label';
    caption.textContent='Escuchar '+(labels[group]||'audio sin clasificar');
-   const audio=document.createElement('audio');audio.controls=true;audio.preload='none';
+   const audio=document.createElement(item.video?'video':'audio');audio.controls=true;audio.preload='none';audio.style.maxWidth='100%';
    audio.setAttribute('controlsList','nodownload');audio.setAttribute('aria-label',caption.textContent+' · '+item.title);
-   audio.src=item.audio;
+   audio.src=item.video||item.audio;
    audio.addEventListener('play',()=>document.querySelectorAll('#musica audio').forEach(other=>{if(other!==audio)other.pause()}));
    row.append(caption,audio);card.append(tag,title,description,note,row);grid.appendChild(card);
   });
  });
 }
 initMusicPlayers();
-function dataMatch(item){const q=normalize(searchTerm);const byCat=cat==='all'||item.id.startsWith(cat);const fields=[item.title,item.description,item.topic,item.category,item.id].join(' ');return byCat&&(!onlyDownload||!!item.download)&&(!q||normalize(fields).includes(q));}
-function render(){const list=MATERIALS.filter(dataMatch);$('#count').textContent=list.length;const grid=$('#resultGrid');if(!list.length){grid.innerHTML='<div class="res-empty">No hemos encontrado ese recurso. Prueba otra palabra ✳</div>';}else{grid.innerHTML=list.slice(0,limit).map(item=>`<button class="resource-card" data-id="${escapeHTML(item.id)}" aria-label="Ver ficha: ${escapeHTML(item.title)}"><div class="res-top"><span class="res-code">${escapeHTML(item.id)}</span><span class="res-category">${escapeHTML(item.category)}</span></div><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.description)}</p><div class="res-foot"><span>${item.download?'<span class="res-available">ARCHIVO INCLUIDO</span>':'<span class="res-locked">SOLO FICHA</span>'}</span><span>VER FICHA ↗</span></div></button>`).join('');}$('#loadMore').hidden=list.length<=limit;}
+function dataMatch(item){const q=normalize(searchTerm);const byCat=cat==='all'||item.kind===cat;const fields=[item.title,item.description,item.topic,item.category,item.kind,item.id].join(' ');return byCat&&(!onlyDownload||!!item.download)&&(!q||normalize(fields).includes(q));}
+function render(){const list=MATERIALS.filter(dataMatch);$('#count').textContent=list.length;const grid=$('#resultGrid');if(!list.length){grid.innerHTML='<div class="res-empty">No hemos encontrado ese recurso. Prueba otra palabra ✳</div>';}else{grid.innerHTML=list.slice(0,limit).map(item=>`<button class="resource-card" data-id="${escapeHTML(item.id)}" aria-label="Ver ficha: ${escapeHTML(item.title)}"><div class="res-top"><span class="res-code">${escapeHTML(item.id)}</span><span class="res-category">${escapeHTML(item.kind)} · ${escapeHTML(item.category)}</span></div><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.description)}</p><div class="res-foot"><span>${item.download?'<span class="res-available">ARCHIVO INCLUIDO</span>':'<span class="res-available">ESCUCHAR</span>'}</span><span>VER FICHA ↗</span></div></button>`).join('');}$('#loadMore').hidden=list.length<=limit;}
 function changeFilter(value){cat=value;limit=12;$$('.filter-btn').forEach(b=>b.setAttribute('aria-pressed',b.dataset.cat===value?'true':'false'));render();}
 $$('.filter-btn').forEach(b=>b.addEventListener('click',()=>changeFilter(b.dataset.cat)));
 $$('.area-card').forEach(b=>b.addEventListener('click',()=>{changeFilter(b.dataset.filter);document.getElementById('recursos').scrollIntoView({behavior:'smooth'});}));
 $('#search').addEventListener('input',e=>{searchTerm=e.target.value;limit=12;render();});$('#onlyDownload').addEventListener('change',e=>{onlyDownload=e.target.checked;limit=12;render();});
 $('#loadMore').addEventListener('click',()=>{limit+=12;render();});
 $('#resultGrid').addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b){const item=MATERIALS.find(x=>x.id===b.dataset.id);if(item)openDetail(item);}});
-function openDetail(item){lastFocus=document.activeElement;$('#detailTitle').textContent=item.title;$('#detailCode').textContent=item.id;$('#detailCategory').textContent=item.category+' · '+item.topic;$('#detailDescription').textContent=item.description;$('#detailUsage').textContent=item.usage||'Recurso educativo para trabajar en el aula.';$('#detailFile').textContent=item.file||'Sin archivo disponible';$('#detailAccess').textContent=item.access||'Consulta el catálogo para más información';const download=$('#detailDownload');if(item.download){download.href=item.download;download.setAttribute('download',(item.download||'').split('/').pop()||'material-teacher-nessa');download.style.display='inline-flex';download.textContent=/\.(mp3|mp4)$/i.test(item.file)?'Escuchar / descargar archivo ♫ ↗':'Descargar archivo original ↗';}else{download.style.display='none';download.removeAttribute('href');}$('#detailBackdrop').classList.add('open');$('#detailBackdrop').setAttribute('aria-hidden','false');document.body.style.overflow='hidden';$('#closeDetail').focus();}
-function closeDetail(){$('#detailBackdrop').classList.remove('open');$('#detailBackdrop').setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus?.focus)lastFocus.focus();}
+function openDetail(item){
+ lastFocus=document.activeElement;
+ $('#detailTitle').textContent=item.title;
+ $('#detailCode').textContent=item.id;
+ $('#detailCategory').textContent=item.kind+' · '+item.category;
+ $('#detailDescription').textContent=item.description||'';
+ $('#detailUsage').textContent=item.usage||'Actividad para el aula.';
+ $('#detailFile').textContent=item.file||'Archivo del material';
+ $('#detailAccess').textContent=item.access||'Material disponible';
+ const download=$('#detailDownload');
+ if(item.download){
+  download.href=item.download;download.setAttribute('download',(item.download||'').split('/').pop()||'teacher-nessa');
+  download.style.display='inline-flex';download.textContent='Descargar archivo ↗';
+ }else{download.style.display='none';download.removeAttribute('href');}
+ const extra=$('#detailExtraFiles');extra.replaceChildren();
+ (item.downloads||[]).slice(1).forEach(doc=>{
+  const link=document.createElement('a');link.className='btn btn-yellow';
+  link.href=doc.url;link.setAttribute('download',doc.name||'material');
+  link.textContent='Descargar también: '+(doc.name||'archivo');
+  extra.appendChild(link);
+ });
+ const media=$('#detailMedia');media.replaceChildren();
+ const src=item.video||item.audio;
+ if(src){
+  const player=document.createElement(item.video?'video':'audio');
+  player.controls=true;player.preload='none';player.src=src;
+  player.style.width='100%';player.style.maxWidth='100%';
+  player.setAttribute('aria-label','Reproducir '+item.title);
+  media.appendChild(player);
+ }
+ $('#detailBackdrop').classList.add('open');
+ $('#detailBackdrop').setAttribute('aria-hidden','false');
+ document.body.style.overflow='hidden';$('#closeDetail').focus();
+}
+function closeDetail(){$('#detailMedia audio,#detailMedia video');$('#detailMedia').querySelectorAll('audio,video').forEach(media=>media.pause());$('#detailBackdrop').classList.remove('open');$('#detailBackdrop').setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus?.focus)lastFocus.focus();}
 $('#closeDetail').addEventListener('click',closeDetail);
 $('#detailBackdrop').addEventListener('click',e=>{if(e.target.id==='detailBackdrop')closeDetail();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#detailBackdrop').classList.contains('open'))closeDetail();if(e.key==='Tab'&&$('#detailBackdrop').classList.contains('open')){const dialog=$('.detail-dialog');const buttons=$$('button,a,input',[dialog][0]).filter(n=>!n.disabled);if(!buttons.length)return;const first=buttons[0],last=buttons[buttons.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
