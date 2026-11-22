@@ -120,59 +120,44 @@ for file in sorted((ROOT/'content'/'materiales').glob('*.json')):
  else:
   continue  # Do not advertise a resource without a real published file.
  materiales.append(entry)
-# AUTO POSTERS SEPT-NOV: include the original classroom poster images already reviewed
-# and placed in the public /recursos/posters collection by the site owner.
-# This does not publish any other folder, school programming, or student records.
-poster_dir=ROOT/'recursos'/'posters'
-known_assets={d['url'] for entry in materiales for d in entry.get('downloads',[])}
-known_assets.update(entry['preview'] for entry in materiales if entry.get('preview'))
-for n, poster in enumerate(sorted(poster_dir.glob('*.webp')),1):
- relative=poster.relative_to(ROOT).as_posix()
- if relative in known_assets: continue
- stem=poster.stem
- low=stem.lower()
- if low.startswith('calpurnia_tate_grammar_vocabulary_ch_'):
-  try: chapter=int(stem.rsplit('_',1)[-1])
-  except ValueError: continue
-  level='1ESO';kind='Vocabulario'
-  title=f'Calpurnia Tate · Chapter {chapter}: Grammar & Vocabulary'
-  desc='Original visual grammar and vocabulary poster for the reading project.'
-  topic='Calpurnia Tate · Reading, Grammar & Vocabulary'
- elif 'moda' in low or 'tendencias' in low:
-  level='2ESO';kind='Vocabulario';title='Fashion & Trends · Original Vocabulary Poster'
-  desc='Original classroom poster about fashion and trends vocabulary.'
-  topic='Fashion & Trends'
- elif 'relative_pronouns' in low:
-  level='2ESO';kind='Gramática';title='Relative Pronouns · Original Poster'
-  desc='Visual poster explaining relative pronouns.'
-  topic='Relative Clauses'
- elif 'animales' in low or 'vocab' in low or 'mediacion' in low:
-  level='1ESO';kind='Vocabulario'
-  title=stem.replace('_',' ').replace('Poster ','')+' · Original poster'
-  desc='Original visual vocabulary and speaking material.'
-  topic='Animals, Travel & Vocabulary'
- elif 'gram' in low or 'repaso' in low or 'examen' in low or 'practica' in low:
-  level='1ESO';kind='Gramática'
-  title=stem.replace('_',' ').replace('Poster ','')+' · Original poster'
-  desc='Original grammar and revision poster.'
-  topic='Grammar & Revision'
- else:
-  level='AMBOS';kind='Vocabulario'
-  title=stem.replace('_',' ')+' · Original poster'
-  desc='Teacher Nessa original classroom poster.'
-  topic='Visual Resources'
- label={'1ESO':'Inglés · 1.º ESO','2ESO':'Inglés · 2.º ESO','AMBOS':'Inglés · 1.º y 2.º ESO'}[level]
- category={'1ESO':'Inglés 1.º ESO','2ESO':'Inglés 2.º ESO','AMBOS':'Inglés 1.º y 2.º'}[level]
+# Every public poster has its own editable Pages CMS record.
+# Removing/unpublishing a poster removes it from the generated public website.
+for file in sorted((ROOT/'content'/'posters').glob('*.json')):
+ try:record=json.loads(file.read_text(encoding='utf8'))
+ except Exception as e:raise ValueError(f'Póster JSON inválido: {file.name}: {e}')
+ code=str(record.get('id',file.stem))
+ if code in seen:raise ValueError(f'ID repetido: {code}')
+ seen.add(code)
+ if record.get('published') is not True or record.get('internal'):continue
+ if record.get('rights_checked') is not True or record.get('privacy_checked') is not True:continue
+ kind=record.get('kind','Vocabulario')
+ if kind not in {'Gramática','Vocabulario','Canciones','Rúbricas','Atención Educativa'}:continue
+ level=record.get('level','1ESO')
+ if level not in LEVEL_ORDER:continue
+ if level=='ATENCION' and kind not in {'Atención Educativa','Canciones'}:continue
+ if kind=='Atención Educativa' and level!='ATENCION':continue
+ path=str(record.get('asset') or '').lstrip('/')
+ if not path.startswith('recursos/') or '..' in Path(path).parts:continue
+ original=ROOT/path
+ if not original.is_file() or original.suffix.lower() not in {'.webp','.png','.jpg','.jpeg','.pdf'}:
+  bad.append(f'{code}: póster no encontrado: {path}')
+  continue
+ if record.get('download_enabled') is not True:continue
+ category={'1ESO':'Inglés 1.º ESO','2ESO':'Inglés 2.º ESO','ATENCION':'Atención Educativa','AMBOS':'Inglés 1.º y 2.º'}[level]
+ label={'1ESO':'Inglés · 1.º ESO','2ESO':'Inglés · 2.º ESO','ATENCION':'Atención Educativa · 1.º ESO','AMBOS':'Inglés · 1.º y 2.º ESO'}[level]
+ desc=record.get('description','')
  materiales.append({
-  'id':f'POSTER-{n:02d}','title':title,'description':desc,
-  'usage':'View, download and use the original poster in class.',
-  'category':category,'topic':topic,'kind':kind,'level':level,
-  'course_label':label,'music_group':'','file':poster.name,'section':'POSTER',
-  'download':relative,'downloads':[{'url':relative,'name':poster.name}],
-  'audio':None,'video':None,'preview':relative,
-  'access':'Original poster available for educational use.'
+  'id':code,'title':record.get('title',original.stem.replace('_',' ')),
+  'description':desc,'usage':record.get('usage','Ver y trabajar con el póster original en clase.'),
+  'category':category,'topic':record.get('topic','Material visual'),
+  'kind':kind,'level':level,'course_label':label,'music_group':'',
+  'file':original.name,'section':'POSTER','download':path,
+  'downloads':[{'url':path,'name':original.name}],
+  'audio':None,'video':None,
+  'preview':path if original.suffix.lower() in {'.webp','.png','.jpg','.jpeg'} else None,
+  'access':'Póster original disponible para uso educativo.'
  })
- public_files.add(relative)
+ public_files.add(path)
 
 materiales.sort(key=lambda x:(LEVEL_ORDER.get(x['level'],99),('Gramática','Vocabulario','Canciones','Rúbricas','Atención Educativa').index(x['kind']),x['id']))
 # Copy only the explicitly enabled downloads, never the whole private review library.
@@ -181,6 +166,21 @@ for relative in sorted(public_files):
  shutil.copy2(ROOT/relative,dest)
 (OUT/'datos'/'materiales.js').write_text('window.TN_MATERIALS='+json.dumps(materiales,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf8')
 (OUT/'datos'/'sitio.js').write_text('window.TN_SITE='+json.dumps(site,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf8')
+# Independent quiz questions can be added, edited, reordered or removed in Pages CMS.
+quiz=[]
+for file in sorted((ROOT/'content'/'quiz').glob('*.json')):
+ try:rec=json.loads(file.read_text(encoding='utf8'))
+ except Exception as e:raise ValueError(f'Pregunta JSON inválida: {file.name}: {e}')
+ if rec.get('published') is not True:continue
+ answers=[str(rec.get('answer_a') or ''),str(rec.get('answer_b') or ''),str(rec.get('answer_c') or '')]
+ if not rec.get('question') or not all(answers):continue
+ try: correct=int(rec.get('correct_index',0))
+ except (ValueError,TypeError):continue
+ if correct not in (0,1,2):continue
+ quiz.append({'q':str(rec['question']),'answers':answers,'correct':correct,
+              'why':str(rec.get('explanation') or ''),'sort':rec.get('sort',0)})
+quiz.sort(key=lambda q:(int(q['sort']) if str(q['sort']).lstrip('-').isdigit() else 9999,q['q']))
+(OUT/'datos'/'quiz.js').write_text('window.TN_QUIZ='+json.dumps(quiz,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf8')
 # News cards managed through Pages CMS.
 news=[]
 for nfile in (ROOT/'content'/'novedades').glob('*.json'):

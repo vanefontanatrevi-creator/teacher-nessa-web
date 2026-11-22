@@ -104,6 +104,109 @@ content:
       - name: editor_notes
         label: Notas para la docente
         type: text
+  - name: posters
+    label: Posters originales · Subir, sustituir, ocultar o borrar
+    type: collection
+    path: content/posters
+    format: json
+    filename: "{id}.json"
+    view:
+      primary: title
+      fields: [id, title, level, published]
+    fields:
+      - name: id
+        label: Codigo unico (ejemplo POSTER-100)
+        type: string
+        required: true
+      - name: title
+        label: Titulo visible
+        type: string
+        required: true
+      - name: description
+        label: Descripcion
+        type: text
+      - name: usage
+        label: Instrucciones y ejemplo de uso
+        type: text
+      - name: topic
+        label: Tema de vocabulario o gramatica
+        type: string
+      - name: level
+        label: Curso al que corresponde
+        type: select
+        required: true
+        options:
+          values:
+            - {label: Ingles 1 ESO, value: 1ESO}
+            - {label: Ingles 2 ESO, value: 2ESO}
+            - {label: Atencion Educativa 1 ESO, value: ATENCION}
+            - {label: Ambos cursos de Ingles, value: AMBOS}
+      - name: kind
+        label: Tipo de poster
+        type: select
+        required: true
+        options:
+          values: ["Gramática", "Vocabulario", "Canciones", "Rúbricas", "Atención Educativa"]
+      - name: asset
+        label: Imagen o PDF original (reemplazable)
+        type: file
+        required: true
+        options:
+          media: documents
+      - name: published
+        label: Mostrar este poster en la web
+        type: boolean
+      - name: download_enabled
+        label: Permitir descarga
+        type: boolean
+      - name: rights_checked
+        label: Derechos de uso revisados
+        type: boolean
+      - name: privacy_checked
+        label: Privacidad revisada
+        type: boolean
+      - name: internal
+        label: Ocultar por ser material interno
+        type: boolean
+  - name: quiz
+    label: Mini reto · Preguntas editables
+    type: collection
+    path: content/quiz
+    format: json
+    filename: "{id}.json"
+    view:
+      primary: question
+      fields: [id, question, published, sort]
+    fields:
+      - name: id
+        label: Codigo unico de pregunta
+        type: string
+        required: true
+      - name: question
+        label: Pregunta (ingles)
+        type: string
+        required: true
+      - name: answer_a
+        label: Opcion 1
+        type: string
+      - name: answer_b
+        label: Opcion 2
+        type: string
+      - name: answer_c
+        label: Opcion 3
+        type: string
+      - name: correct_index
+        label: Numero de respuesta correcta (0 primera, 1 segunda, 2 tercera)
+        type: number
+      - name: explanation
+        label: Explicacion al responder
+        type: text
+      - name: sort
+        label: Orden de la pregunta
+        type: number
+      - name: published
+        label: Mostrar esta pregunta
+        type: boolean
   - name: novedades
     label: Novedades y noticias
     type: collection

@@ -1,0 +1,11 @@
+{
+  "id": "QUIZ-03",
+  "question": "She has lived here ___ 2020.",
+  "answer_a": "for",
+  "answer_b": "since",
+  "answer_c": "already",
+  "correct_index": 1,
+  "explanation": "Since introduce el punto de inicio de la acción: since 2020.",
+  "sort": 3,
+  "published": true
+}

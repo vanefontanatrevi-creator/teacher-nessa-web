@@ -1,0 +1,11 @@
+{
+  "id": "QUIZ-01",
+  "question": "I have ___ finished my homework.",
+  "answer_a": "yet",
+  "answer_b": "just",
+  "answer_c": "since",
+  "correct_index": 1,
+  "explanation": "Just se usa para una acción que acaba de suceder: I have just finished.",
+  "sort": 1,
+  "published": true
+}

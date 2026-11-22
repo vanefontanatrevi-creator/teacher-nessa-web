@@ -1,0 +1,11 @@
+{
+  "id": "QUIZ-02",
+  "question": "Have you done the exercise ___?",
+  "answer_a": "already",
+  "answer_b": "since",
+  "answer_c": "yet",
+  "correct_index": 2,
+  "explanation": "Yet aparece normalmente en preguntas y negativas: Have you done it yet?",
+  "sort": 2,
+  "published": true
+}
