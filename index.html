@@ -117,7 +117,7 @@ const MATERIALS=window.TN_MATERIALS||[];
 const TN_SETTINGS=window.TN_SITE||{};
 const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 const $=(sel,root=document)=>root.querySelector(sel);
-let cat='all',limit=12,searchTerm='',lastFocus=null,onlyDownload=false;
+let cat='all',kind='all',limit=8,searchTerm='',lastFocus=null,onlyDownload=false;
 const normalize=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
 const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // Only the published, rights-checked and privacy-checked audio exported by the site builder can be played.
@@ -162,13 +162,50 @@ function initMusicPlayers(){
  });
 }
 initMusicPlayers();
-function dataMatch(item){const q=normalize(searchTerm);const byCat=cat==='all'||item.kind===cat;const fields=[item.title,item.description,item.topic,item.category,item.kind,item.id].join(' ');return byCat&&(!onlyDownload||!!item.download)&&(!q||normalize(fields).includes(q));}
-function render(){const list=MATERIALS.filter(dataMatch);$('#count').textContent=list.length;const grid=$('#resultGrid');if(!list.length){grid.innerHTML='<div class="res-empty">No hemos encontrado ese recurso. Prueba otra palabra ✳</div>';}else{grid.innerHTML=list.slice(0,limit).map(item=>`<button class="resource-card" data-id="${escapeHTML(item.id)}" aria-label="Ver ficha: ${escapeHTML(item.title)}"><div class="res-top"><span class="res-code">${escapeHTML(item.id)}</span><span class="res-category">${escapeHTML(item.kind)} · ${escapeHTML(item.category)}</span></div><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.description)}</p><div class="res-foot"><span>${item.download?'<span class="res-available">ARCHIVO INCLUIDO</span>':'<span class="res-available">ESCUCHAR</span>'}</span><span>VER FICHA ↗</span></div></button>`).join('');}$('#loadMore').hidden=list.length<=limit;}
-function changeFilter(value){cat=value;limit=12;$$('.filter-btn').forEach(b=>b.setAttribute('aria-pressed',b.dataset.cat===value?'true':'false'));render();}
-$$('.filter-btn').forEach(b=>b.addEventListener('click',()=>changeFilter(b.dataset.cat)));
-$$('.area-card').forEach(b=>b.addEventListener('click',()=>{changeFilter(b.dataset.filter);document.getElementById('recursos').scrollIntoView({behavior:'smooth'});}));
-$('#search').addEventListener('input',e=>{searchTerm=e.target.value;limit=12;render();});$('#onlyDownload').addEventListener('change',e=>{onlyDownload=e.target.checked;limit=12;render();});
-$('#loadMore').addEventListener('click',()=>{limit+=12;render();});
+const COURSE_ORDER=[
+ {id:'1ESO',label:'Inglés · 1.º ESO'},
+ {id:'2ESO',label:'Inglés · 2.º ESO'},
+ {id:'ATENCION',label:'Atención Educativa · 1.º ESO (en español)'},
+ {id:'AMBOS',label:'Inglés · materiales comunes para 1.º y 2.º ESO'}
+];
+function dataMatch(item){
+ const q=normalize(searchTerm);
+ const byCourse=cat==='all'||item.level===cat;
+ const byKind=kind==='all'||item.kind===kind;
+ const fields=[item.title,item.description,item.topic,item.category,item.kind,item.course_label,item.id].join(' ');
+ return byCourse&&byKind&&(!onlyDownload||!!item.download)&&(!q||normalize(fields).includes(q));
+}
+function resourceCard(item){
+ return '<button class="resource-card" data-id="'+escapeHTML(item.id)+'" aria-label="Ver ficha: '+escapeHTML(item.title)+'">'
+ +'<div class="res-top"><span class="res-code">'+escapeHTML(item.id)+'</span><span class="res-category">'+escapeHTML(item.kind)+' · '+escapeHTML(item.course_label)+'</span></div>'
+ +'<h3>'+escapeHTML(item.title)+'</h3><p>'+escapeHTML(item.description)+'</p>'
+ +'<div class="res-foot"><span><span class="res-available">'+(item.download?'ARCHIVO INCLUIDO':'REPRODUCIR')+'</span></span><span>VER FICHA ↗</span></div></button>';
+}
+function render(){
+ const list=MATERIALS.filter(dataMatch);
+ $('#count').textContent=String(list.length);
+ const grid=$('#resultGrid');
+ if(!list.length){grid.innerHTML='<div class="res-empty">No hemos encontrado un archivo publicado con esos filtros. Prueba otra palabra o curso ✳</div>';$('#loadMore').hidden=true;return;}
+ const chunks=COURSE_ORDER.map(c=>({label:c.label,items:list.filter(item=>item.level===c.id)})).filter(c=>c.items.length);
+ grid.innerHTML=chunks.map(group=>'<section class="course-block"><h3>'+escapeHTML(group.label)+' <small>'+group.items.length+' recursos</small></h3>'
+ +'<div class="resource-grid">'+group.items.slice(0,limit).map(resourceCard).join('')+'</div></section>').join('');
+ $('#loadMore').hidden=chunks.every(group=>group.items.length<=limit);
+}
+function changeFilter(value){
+ cat=value;limit=8;
+ $$('[data-cat]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.cat===value?'true':'false'));
+ render();
+}
+function changeKind(value){
+ kind=value;limit=8;
+ $$('[data-kind]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.kind===value?'true':'false'));
+ render();
+}
+$$('[data-cat]').forEach(b=>b.addEventListener('click',()=>changeFilter(b.dataset.cat)));
+$$('[data-kind]').forEach(b=>b.addEventListener('click',()=>changeKind(b.dataset.kind)));
+$$('[data-nav-course]').forEach(a=>a.addEventListener('click',()=>changeFilter(a.dataset.navCourse)));
+$('#search').addEventListener('input',e=>{searchTerm=e.target.value;limit=8;render();});$('#onlyDownload').addEventListener('change',e=>{onlyDownload=e.target.checked;limit=8;render();});
+$('#loadMore').addEventListener('click',()=>{limit+=8;render();});
 $('#resultGrid').addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b){const item=MATERIALS.find(x=>x.id===b.dataset.id);if(item)openDetail(item);}});
 function openDetail(item){
  lastFocus=document.activeElement;
