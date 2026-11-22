@@ -7,5 +7,8 @@
   "x": "https://x.com/LondonScones",
   "hero_image": "/assets/uploads/teacher-nessa-avatar.svg",
   "notice": "Materiales de gramática, vocabulario, canciones, rúbricas y Atención Educativa de 1.º ESO. Sin programaciones, documentación administrativa ni datos personales del alumnado. Música pendiente de verificación sin reproducción pública.",
-  "show_music": true
+  "show_music": true,
+  "resources_footer_note": "Materiales de inglés en inglés; actividades de Atención Educativa de 1.º ESO en español. Incluimos rúbricas y canciones. No se publican programaciones, documentación administrativa ni información privada del alumnado. Los archivos pendientes de identificar no se ofrecen como descarga.",
+  "music_pending_note": "Los audios están pendientes de confirmar la canción, el grupo y sus permisos en el editor. No se reproducirán MP3 sin comprobar.",
+  "music_disclaimer": "Los audios pendientes de comprobar no se ofrecen como reproductores. Las letras y pósteres musicales disponibles están en la biblioteca de recursos."
 }
