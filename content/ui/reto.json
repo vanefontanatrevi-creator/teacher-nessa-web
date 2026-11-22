@@ -1,0 +1,19 @@
+{
+  "show_quiz": true,
+  "quiz_eyebrow": "✦ LITTLE CHALLENGE",
+  "quiz_title_first": "Un mini reto.",
+  "quiz_title_second": "¿Te atreves?",
+  "quiz_intro": "Una actividad interactiva de muestra, original y sencilla, para practicar inglés al instante.",
+  "quiz_topic_label": "Present Perfect",
+  "quiz_badge": "Grammar time",
+  "quiz_reset": "Volver a empezar ↻",
+  "quiz_complete_title": "¡Reto terminado! ✨",
+  "quiz_score_prefix": "Has acertado",
+  "quiz_perfect": "Brilliant! You are a grammar superstar.",
+  "quiz_good": "Good job! Cada intento cuenta.",
+  "quiz_correct": "✅ ¡Correcto!",
+  "quiz_wrong": "💡 Casi...",
+  "quiz_question_label": "Pregunta",
+  "quiz_next": "Siguiente pregunta",
+  "quiz_result": "Ver resultado"
+}

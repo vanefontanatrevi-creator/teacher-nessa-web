@@ -236,7 +236,7 @@ content:
         label: Mostrar noticia
         type: boolean
   - name: site
-    label: Textos y apariencia de la web
+    label: "00 · Configuración general y avisos de portada"
     type: file
     path: content/sitio.json
     format: json
@@ -279,3 +279,364 @@ content:
       - name: show_music
         label: Mostrar rincón musical
         type: boolean
+
+  - name: portada
+    label: "01 · Portada, ilustración, identidad y colores"
+    type: file
+    path: content/ui/portada.json
+    format: json
+    fields:
+      - name: pink_color
+        label: "Color Teacher rosa (HEX, ej. #f637a4)"
+        type: string
+      - name: yellow_color
+        label: "Color Nessa amarillo (HEX, ej. #ffe25c)"
+        type: string
+      - name: ink_color
+        label: "Color oscuro de bordes y fondos (HEX)"
+        type: string
+      - name: paper_color
+        label: "Color de fondo general (HEX)"
+        type: string
+      - name: top_tape
+        label: "Frase de la banda rosa superior"
+        type: string
+      - name: brand_mark
+        label: "Iniciales del icono del logotipo"
+        type: string
+      - name: brand_teacher
+        label: "Primera palabra del logotipo (rosa)"
+        type: string
+      - name: brand_nessa
+        label: "Segunda palabra del logotipo (amarillo)"
+        type: string
+      - name: hero_eyebrow
+        label: "Etiqueta encima del titulo de portada"
+        type: string
+      - name: hero_line1
+        label: "Titulo portada linea 1"
+        type: string
+      - name: hero_line2_pre
+        label: "Titulo portada linea 2 inicio"
+        type: string
+      - name: hero_line2_highlight
+        label: "Titulo portada palabra amarilla"
+        type: string
+      - name: hero_line3_pre
+        label: "Titulo portada linea 3 inicio"
+        type: string
+      - name: hero_line3_highlight
+        label: "Titulo portada palabra rosa"
+        type: string
+      - name: hero_line4
+        label: "Titulo portada linea 4"
+        type: string
+      - name: hero_primary_cta
+        label: "Boton principal de portada"
+        type: string
+      - name: hero_music_cta
+        label: "Boton musical de portada"
+        type: string
+      - name: hero_ribbon
+        label: "Texto de cinta rosa sobre el dibujo"
+        type: string
+      - name: hero_svg_hello
+        label: "Texto del dibujo: HELLO"
+        type: string
+      - name: hero_svg_class
+        label: "Texto del dibujo: CLASS!"
+        type: string
+      - name: hero_svg_learn
+        label: "Texto del dibujo: Learn"
+        type: string
+      - name: hero_svg_create
+        label: "Texto del dibujo: Create"
+        type: string
+      - name: hero_cloud1
+        label: "Globo del dibujo: linea 1"
+        type: string
+      - name: hero_cloud2
+        label: "Globo del dibujo: linea 2"
+        type: string
+      - name: hero_cloud3
+        label: "Globo del dibujo: linea 3"
+        type: string
+      - name: hero_board_footer1
+        label: "Etiqueta inferior del dibujo linea 1"
+        type: string
+      - name: hero_board_footer2
+        label: "Etiqueta inferior del dibujo linea 2"
+        type: string
+      - name: hero_bubble
+        label: "Burbuja amarilla (texto en varias lineas)"
+        type: text
+      - name: hero_art_image
+        label: "Sustituir el dibujo de la portada por una imagen (opcional)"
+        type: image
+        options:
+          media: photos
+      - name: strip_grammar
+        label: "Cinta de palabras · primera"
+        type: string
+      - name: strip_vocabulary
+        label: "Cinta de palabras · segunda"
+        type: string
+      - name: strip_songs
+        label: "Cinta de palabras · tercera"
+        type: string
+      - name: strip_english
+        label: "Cinta de palabras · cuarta"
+        type: string
+
+  - name: biblioteca
+    label: "02 · Biblioteca, menús, filtros y fichas"
+    type: file
+    path: content/ui/biblioteca.json
+    format: json
+    fields:
+      - name: nav_home
+        label: "Menu superior · inicio"
+        type: string
+      - name: nav_first
+        label: "Menu superior · 1 ESO"
+        type: string
+      - name: nav_second
+        label: "Menu superior · 2 ESO"
+        type: string
+      - name: nav_values
+        label: "Menu superior · valores"
+        type: string
+      - name: nav_music
+        label: "Menu superior · canciones"
+        type: string
+      - name: resources_eyebrow
+        label: "Etiqueta sobre el titulo de la biblioteca"
+        type: string
+      - name: resources_title_first
+        label: "Titulo de biblioteca · primera parte"
+        type: string
+      - name: resources_title_second
+        label: "Titulo de biblioteca · parte rosa"
+        type: string
+      - name: resources_count_label
+        label: "Palabra que sigue al numero de materiales"
+        type: string
+      - name: resources_hint
+        label: "Ejemplo de busqueda"
+        type: string
+      - name: resources_search_placeholder
+        label: "Texto dentro del buscador"
+        type: string
+      - name: filter_all_courses
+        label: "Filtro · todos los cursos"
+        type: string
+      - name: filter_1eso
+        label: "Filtro · 1 ESO"
+        type: string
+      - name: filter_2eso
+        label: "Filtro · 2 ESO"
+        type: string
+      - name: filter_atencion
+        label: "Filtro · Atencion Educativa"
+        type: string
+      - name: filter_ambos
+        label: "Filtro · ambos cursos"
+        type: string
+      - name: filter_all_kinds
+        label: "Filtro · todos los tipos"
+        type: string
+      - name: filter_grammar
+        label: "Filtro · gramatica"
+        type: string
+      - name: filter_vocabulary
+        label: "Filtro · vocabulario"
+        type: string
+      - name: filter_songs
+        label: "Filtro · canciones"
+        type: string
+      - name: filter_rubrics
+        label: "Filtro · rubricas"
+        type: string
+      - name: filter_values
+        label: "Filtro · valores y emociones"
+        type: string
+      - name: resources_only_download
+        label: "Casilla · solo descargables"
+        type: string
+      - name: resources_show_more
+        label: "Boton · mostrar mas"
+        type: string
+      - name: resources_empty
+        label: "Mensaje cuando no hay resultados"
+        type: text
+      - name: resource_card_included
+        label: "Etiqueta de tarjeta · archivo incluido"
+        type: string
+      - name: resource_card_play
+        label: "Etiqueta de tarjeta · reproducir"
+        type: string
+      - name: resource_card_view
+        label: "Etiqueta de tarjeta · ver ficha"
+        type: string
+      - name: resource_group_count
+        label: "Palabra al lado del total de recursos por curso"
+        type: string
+      - name: show_resources
+        label: "Mostrar biblioteca de recursos"
+        type: boolean
+
+  - name: musica
+    label: "03 · Music Club, disco y canciones"
+    type: file
+    path: content/ui/musica.json
+    format: json
+    fields:
+      - name: music_eyebrow
+        label: "Etiqueta arriba de Music Club"
+        type: string
+      - name: music_title_first
+        label: "Titulo musical · primera parte"
+        type: string
+      - name: music_title_second
+        label: "Titulo musical · parte amarilla"
+        type: string
+      - name: music_intro
+        label: "Parrafo explicativo bajo el titulo musical"
+        type: text
+      - name: music_tag
+        label: "Etiqueta amarilla de musica"
+        type: string
+      - name: music_vinyl_label
+        label: "Texto del centro del vinilo (puedes usar saltos de linea)"
+        type: text
+      - name: music_vinyl_visible
+        label: "Mostrar disco giratorio"
+        type: boolean
+      - name: music_group_1a
+        label: "Nombre grupo musical 1A"
+        type: string
+      - name: music_group_1b
+        label: "Nombre grupo musical 1B"
+        type: string
+      - name: music_group_1c
+        label: "Nombre grupo musical 1C"
+        type: string
+      - name: music_group_2a
+        label: "Nombre grupo musical 2A"
+        type: string
+      - name: music_group_2b
+        label: "Nombre grupo musical 2B"
+        type: string
+      - name: music_group_ae
+        label: "Nombre grupo musical atencion educativa"
+        type: string
+      - name: music_group_general
+        label: "Nombre grupo musical comun"
+        type: string
+
+  - name: reto
+    label: "04 · Minirreto y mensajes de las preguntas"
+    type: file
+    path: content/ui/reto.json
+    format: json
+    fields:
+      - name: show_quiz
+        label: "Mostrar el minirreto"
+        type: boolean
+      - name: quiz_eyebrow
+        label: "Etiqueta del minirreto"
+        type: string
+      - name: quiz_title_first
+        label: "Titulo del minirreto · primera parte"
+        type: string
+      - name: quiz_title_second
+        label: "Titulo del minirreto · parte rosa"
+        type: string
+      - name: quiz_intro
+        label: "Descripcion del minirreto"
+        type: text
+      - name: quiz_topic_label
+        label: "Tema mostrado junto al numero de preguntas"
+        type: string
+      - name: quiz_badge
+        label: "Etiqueta rosa del minirreto"
+        type: string
+      - name: quiz_reset
+        label: "Boton para repetir el minirreto"
+        type: string
+      - name: quiz_complete_title
+        label: "Texto final del minirreto"
+        type: string
+      - name: quiz_score_prefix
+        label: "Texto antes de la puntuacion"
+        type: string
+      - name: quiz_perfect
+        label: "Mensaje si se aciertan todas"
+        type: string
+      - name: quiz_good
+        label: "Mensaje si hay algun fallo"
+        type: string
+      - name: quiz_correct
+        label: "Texto al responder correctamente"
+        type: string
+      - name: quiz_wrong
+        label: "Texto al fallar"
+        type: string
+      - name: quiz_question_label
+        label: "Texto antes del numero de pregunta"
+        type: string
+      - name: quiz_next
+        label: "Boton siguiente pregunta"
+        type: string
+      - name: quiz_result
+        label: "Boton ver resultado"
+        type: string
+
+  - name: pie
+    label: "05 · Pie de pagina y ventana de materiales"
+    type: file
+    path: content/ui/pie.json
+    format: json
+    fields:
+      - name: footer_description
+        label: "Descripcion del pie de pagina"
+        type: text
+      - name: footer_explore
+        label: "Titulo columna enlaces"
+        type: string
+      - name: footer_follow
+        label: "Titulo columna redes"
+        type: string
+      - name: footer_music
+        label: "Enlace a musica en el pie"
+        type: string
+      - name: footer_instagram
+        label: "Texto del enlace a Instagram"
+        type: string
+      - name: footer_x
+        label: "Texto del enlace a X"
+        type: string
+      - name: footer_copyright
+        label: "Texto legal del pie"
+        type: string
+      - name: footer_motto
+        label: "Lema al final de la web"
+        type: string
+      - name: footer_editor
+        label: "Texto enlace al panel de edicion"
+        type: string
+      - name: detail_usage_label
+        label: "Ficha emergente · uso en clase"
+        type: string
+      - name: detail_file_label
+        label: "Ficha emergente · archivo"
+        type: string
+      - name: detail_download
+        label: "Boton · descargar archivo"
+        type: string
+      - name: detail_extra_download
+        label: "Boton · descargar archivo extra"
+        type: string
+      - name: detail_note
+        label: "Nota legal al final de cada ficha"
+        type: text
