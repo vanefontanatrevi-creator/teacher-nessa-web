@@ -1,20 +1,18 @@
 {
   "id": "P1-04",
-  "title": "Past Tenses & Present Perfect: English Grammar",
-  "description": "Explicación visual de tiempos verbales y marcadores temporales.",
-  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "title": "1.º ESO: Grammar for the Exam",
+  "description": "Póster de Past Simple, Past Continuous, Present Perfect, for, since, just, already, yet y ever.",
+  "usage": "Consultar el póster, repasar el contenido y utilizarlo como apoyo de clase.",
   "category": "Inglés 1.º ESO",
-  "topic": "Gramática",
+  "topic": "Past tenses",
   "public_kind": "Gramática",
   "published": true,
   "internal": false,
-  "asset": "/recursos/posters/Poster_Gramatica_Aventuras.webp",
-  "reference_file": "Poster_Gramatica_Aventuras.png",
+  "asset": "/recursos/posters/Poster_Gram_Ingles.webp",
   "extra_asset": "",
+  "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "download_enabled": true,
   "listen_enabled": false,
-  "audio_verified": false,
-  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+  "reference_file": "Poster_Gram_Ingles.png"
 }

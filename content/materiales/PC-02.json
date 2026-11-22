@@ -1,20 +1,18 @@
 {
   "id": "PC-02",
-  "title": "Exam Practice: soluciones explicadas",
-  "description": "Póster original con las respuestas y consejos de Teacher Nessa.",
-  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "title": "Exam Practice — Answer Key 27 November",
+  "description": "Póster con soluciones a la práctica de examen de la página 46.",
+  "usage": "Consultar el póster, repasar el contenido y utilizarlo como apoyo de clase.",
   "category": "Inglés 1.º y 2.º",
-  "topic": "Gramática",
+  "topic": "Answer key",
   "public_kind": "Gramática",
   "published": true,
   "internal": false,
   "asset": "/recursos/posters/Poster_Respuestas_Examen.webp",
-  "reference_file": "Poster_Respuestas_Examen.png",
   "extra_asset": "",
+  "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "download_enabled": true,
   "listen_enabled": false,
-  "audio_verified": false,
-  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+  "reference_file": "Poster_Respuestas_Examen.png"
 }

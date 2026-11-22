@@ -1,20 +1,18 @@
 {
   "id": "PC-01",
-  "title": "Exam Practice: actividades de gramática",
-  "description": "Póster de repaso con transformación de oraciones, comprensión y huecos.",
-  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "title": "Exam Practice — 26 November",
+  "description": "Póster de actividades de Reading, Use of English y Vocabulary para el 26 de noviembre.",
+  "usage": "Consultar el póster, repasar el contenido y utilizarlo como apoyo de clase.",
   "category": "Inglés 1.º y 2.º",
-  "topic": "Gramática",
+  "topic": "Exam practice",
   "public_kind": "Gramática",
   "published": true,
   "internal": false,
   "asset": "/recursos/posters/Poster_Examen_Repaso.webp",
-  "reference_file": "Poster_Examen_Repaso.png",
   "extra_asset": "",
+  "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "download_enabled": true,
   "listen_enabled": false,
-  "audio_verified": false,
-  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+  "reference_file": "Poster_Examen_Repaso.png"
 }

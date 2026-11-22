@@ -1,20 +1,18 @@
 {
   "id": "P1-11",
-  "title": "Mediation Example: Animals & Travel",
-  "description": "Modelo de mediación con vocabulario de naturaleza y viajes.",
-  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "title": "1.º ESO: Grammar & Vocabulary — Teacher Nessa",
+  "description": "Póster de repaso de gramática y vocabulario de animales y viajes.",
+  "usage": "Consultar el póster, repasar el contenido y utilizarlo como apoyo de clase.",
   "category": "Inglés 1.º ESO",
-  "topic": "Vocabulario",
-  "public_kind": "Vocabulario",
+  "topic": "Revision",
+  "public_kind": "Gramática",
   "published": true,
   "internal": false,
-  "asset": "/recursos/posters/Poster_Mediacion_Animales.webp",
-  "reference_file": "Poster_Mediacion_Animales.png",
+  "asset": "/recursos/posters/Repaso_Ingles_Teacher_Nessa.webp",
   "extra_asset": "",
+  "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "download_enabled": true,
   "listen_enabled": false,
-  "audio_verified": false,
-  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+  "reference_file": "Repaso_Ingles_Teacher_Nessa.png"
 }

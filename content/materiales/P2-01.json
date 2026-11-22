@@ -1,20 +1,18 @@
 {
   "id": "P2-01",
-  "title": "Grammar & Vocabulary: repaso 2.º ESO",
-  "description": "Póster de repaso de tiempos verbales, juegos y moda para 2.º ESO Sección.",
-  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "title": "2.º ESO Sección: Exam Review — Grammar & Vocabulary",
+  "description": "Guía visual con Present Perfect, Past Simple, juegos, moda y vocabulario.",
+  "usage": "Consultar el póster, repasar el contenido y utilizarlo como apoyo de clase.",
   "category": "Inglés 2.º ESO",
-  "topic": "Gramática",
+  "topic": "Grammar and vocabulary",
   "public_kind": "Gramática",
   "published": true,
   "internal": false,
   "asset": "/recursos/posters/Guia_Repaso_Ingles.webp",
-  "reference_file": "Guia_Repaso_Ingles.png",
   "extra_asset": "",
+  "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "download_enabled": true,
   "listen_enabled": false,
-  "audio_verified": false,
-  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+  "reference_file": "Guia_Repaso_Ingles.png"
 }

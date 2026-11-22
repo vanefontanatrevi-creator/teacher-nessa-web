@@ -1,20 +1,18 @@
 {
   "id": "P1-08",
-  "title": "Animal & Travel Vocabulary: versión vertical",
-  "description": "Póster bilingüe ilustrado de animales y expresiones para viajar.",
-  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "title": "1.º ESO: Animals, Travel & Grammar Review",
+  "description": "Repaso visual de vocabulario de animales y viajes junto a estructuras gramaticales de examen.",
+  "usage": "Consultar el póster, repasar el contenido y utilizarlo como apoyo de clase.",
   "category": "Inglés 1.º ESO",
-  "topic": "Vocabulario",
+  "topic": "Animals and travel",
   "public_kind": "Vocabulario",
   "published": true,
   "internal": false,
-  "asset": "/recursos/posters/Poster_Vocab_Animales_Viajes_V2.webp",
-  "reference_file": "Poster_Vocab_Animales_Viajes_V2.png",
+  "asset": "/recursos/posters/Poster_Repaso_Animales_Viajes_Gramatica.webp",
   "extra_asset": "",
+  "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "download_enabled": true,
   "listen_enabled": false,
-  "audio_verified": false,
-  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+  "reference_file": "Poster_Repaso_Animales_Viajes_Gramatica.png"
 }

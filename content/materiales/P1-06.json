@@ -1,20 +1,18 @@
 {
   "id": "P1-06",
-  "title": "Animals + Travel + Grammar: revisión",
-  "description": "Póster ilustrado de vocabulario y estructuras gramaticales.",
-  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "title": "1.º ESO: Grammar & Vocabulary Review",
+  "description": "Póster de repaso de gramática y vocabulario cotidiano para 1.º ESO Sección.",
+  "usage": "Consultar el póster, repasar el contenido y utilizarlo como apoyo de clase.",
   "category": "Inglés 1.º ESO",
-  "topic": "Gramática",
+  "topic": "Revision",
   "public_kind": "Gramática",
   "published": true,
   "internal": false,
-  "asset": "/recursos/posters/Poster_Repaso_Animales_Viajes_Gramatica.webp",
-  "reference_file": "Poster_Repaso_Animales_Viajes_Gramatica.png",
+  "asset": "/recursos/posters/Poster_Repaso_1ESO.webp",
   "extra_asset": "",
+  "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "download_enabled": true,
   "listen_enabled": false,
-  "audio_verified": false,
-  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+  "reference_file": "Poster_Repaso_1ESO.png"
 }

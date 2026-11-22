@@ -1,20 +1,18 @@
 {
   "id": "P1-10",
-  "title": "English Grammar & Vocabulary Review: repaso ilustrado",
-  "description": "Gramática de pasado y present perfect con repaso de animales y viajes.",
-  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "title": "1.º ESO: Animals & Travel — Vocabulary Review 2",
+  "description": "Póster de vocabulario de animales y viajes con imágenes y palabras clave.",
+  "usage": "Consultar el póster, repasar el contenido y utilizarlo como apoyo de clase.",
   "category": "Inglés 1.º ESO",
-  "topic": "Gramática",
-  "public_kind": "Gramática",
+  "topic": "Animals and travel",
+  "public_kind": "Vocabulario",
   "published": true,
   "internal": false,
-  "asset": "/recursos/posters/Repaso_Ingles_Teacher_Nessa.webp",
-  "reference_file": "Repaso_Ingles_Teacher_Nessa.png",
+  "asset": "/recursos/posters/Poster_Vocab_Animales_Viajes_V2.webp",
   "extra_asset": "",
+  "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "download_enabled": true,
   "listen_enabled": false,
-  "audio_verified": false,
-  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+  "reference_file": "Poster_Vocab_Animales_Viajes_V2.png"
 }

@@ -1,20 +1,18 @@
 {
   "id": "P1-02",
-  "title": "Grammar for the Exam: tiempos de pasado y present perfect",
-  "description": "Póster con Past Simple, Past Continuous, Present Perfect, for, since, just y yet.",
-  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "title": "1.º ESO: Animals & Travel — mediation poster",
+  "description": "Modelo de mediación con vocabulario de animales y viajes, Past Simple, Past Continuous y Present Perfect.",
+  "usage": "Consultar el póster, repasar el contenido y utilizarlo como apoyo de clase.",
   "category": "Inglés 1.º ESO",
-  "topic": "Gramática",
+  "topic": "Mediation",
   "public_kind": "Gramática",
   "published": true,
   "internal": false,
-  "asset": "/recursos/posters/Poster_Gram_Ingles.webp",
-  "reference_file": "Poster_Gram_Ingles.png",
+  "asset": "/recursos/posters/Poster_Animales_Aventura.webp",
   "extra_asset": "",
+  "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "download_enabled": true,
   "listen_enabled": false,
-  "audio_verified": false,
-  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+  "reference_file": "Poster_Animales_Aventura.png"
 }

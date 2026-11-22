@@ -1,20 +1,18 @@
 {
   "id": "P1-01",
-  "title": "Mediación: animales, viajes y gramática",
-  "description": "Póster visual de mediación con léxico de animales, viajes y ejemplos gramaticales.",
-  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "title": "1.º ESO: mediación de animales y viajes",
+  "description": "Mediación en inglés sobre animales, viajes y tiempos verbales: póster Teacher Nessa.",
+  "usage": "Consultar el póster, repasar el contenido y utilizarlo como apoyo de clase.",
   "category": "Inglés 1.º ESO",
-  "topic": "Vocabulario",
-  "public_kind": "Vocabulario",
+  "topic": "Mediation",
+  "public_kind": "Gramática",
   "published": true,
   "internal": false,
   "asset": "/recursos/posters/Cartel_Animales_Viajes.webp",
-  "reference_file": "Cartel_Animales_Viajes.png",
   "extra_asset": "",
+  "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "download_enabled": true,
   "listen_enabled": false,
-  "audio_verified": false,
-  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+  "reference_file": "Cartel_Animales_Viajes.png"
 }

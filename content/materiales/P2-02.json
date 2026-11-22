@@ -1,20 +1,18 @@
 {
   "id": "P2-02",
-  "title": "Fashion and Trends: project & vocabulary",
-  "description": "Póster de proyecto de moda con palabras de tendencias y gramática en contexto.",
-  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "title": "2.º ESO: Fashion and Trends Project",
+  "description": "Proyecto en inglés sobre moda y tendencias, frases de ejemplo y repaso de tiempos del pasado.",
+  "usage": "Consultar el póster, repasar el contenido y utilizarlo como apoyo de clase.",
   "category": "Inglés 2.º ESO",
-  "topic": "Vocabulario",
+  "topic": "Fashion and trends",
   "public_kind": "Vocabulario",
   "published": true,
   "internal": false,
   "asset": "/recursos/posters/Proyecto_Moda_Tendencias.webp",
-  "reference_file": "Proyecto_Moda_Tendencias.png",
   "extra_asset": "",
+  "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "download_enabled": true,
   "listen_enabled": false,
-  "audio_verified": false,
-  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+  "reference_file": "Proyecto_Moda_Tendencias.png"
 }

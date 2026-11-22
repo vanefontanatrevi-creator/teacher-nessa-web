@@ -1,20 +1,18 @@
 {
   "id": "P1-03",
-  "title": "Grammar & Vocabulary Review 1.º ESO",
-  "description": "Repaso ilustrado de gramática y vocabulario del nivel.",
-  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "title": "1.º ESO: Animals & Travel — mediation (versión alternativa)",
+  "description": "Póster alternativo de mediación de animales y viajes con repaso de gramática y vocabulario.",
+  "usage": "Consultar el póster, repasar el contenido y utilizarlo como apoyo de clase.",
   "category": "Inglés 1.º ESO",
-  "topic": "Gramática",
+  "topic": "Mediation",
   "public_kind": "Gramática",
   "published": true,
   "internal": false,
-  "asset": "/recursos/posters/Poster_Repaso_1ESO.webp",
-  "reference_file": "Poster_Repaso_1ESO.png",
+  "asset": "/recursos/posters/Poster_Mediacion_Animales.webp",
   "extra_asset": "",
+  "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "download_enabled": true,
   "listen_enabled": false,
-  "audio_verified": false,
-  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+  "reference_file": "Poster_Mediacion_Animales.png"
 }
