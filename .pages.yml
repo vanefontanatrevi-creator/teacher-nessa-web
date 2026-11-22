@@ -2,7 +2,7 @@
 # Se necesita autorizar la aplicacion de GitHub en el repositorio.
 media:
   - name: documents
-    label: Archivos educativos PUBLICOS
+    label: Poster, fichas de gramatica y vocabulario, canciones PUBLICAS
     input: recursos
     output: /recursos
     rename: safe
@@ -47,6 +47,12 @@ content:
       - name: topic
         label: Bloque o tema
         type: string
+      - name: public_kind
+        label: Tipo de material para la web publica
+        type: select
+        options:
+          values: ["Gramática", "Vocabulario", "Canciones"]
+        description: "SOLO estos tres tipos. Si queda sin seleccionar la ficha no se mostrara en la web."
       - name: music_group
         label: Grupo real de esta cancion (solo MP3)
         type: select
@@ -66,7 +72,12 @@ content:
         label: Mostrar ficha en la web
         type: boolean
       - name: asset
-        label: Subir o seleccionar archivo educativo
+        label: Archivo principal (poster PDF, imagen, audio o video)
+        type: file
+        options:
+          media: documents
+      - name: extra_asset
+        label: Segundo archivo de la misma ficha (opcional)
         type: file
         options:
           media: documents
