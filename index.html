@@ -169,6 +169,7 @@ VIBES ✦</div></div>
 <script>
 const MATERIALS=window.TN_MATERIALS||[];
 const TN_SETTINGS=window.TN_SITE||{};
+const tnText=(key,fallback)=>typeof TN_SETTINGS[key]==='string'?TN_SETTINGS[key]:fallback;
 const $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 const $=(sel,root=document)=>root.querySelector(sel);
 let cat='all',kind='all',limit=8,searchTerm='',lastFocus=null,onlyDownload=false;
@@ -176,7 +177,7 @@ const normalize=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
 const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // Only the published, rights-checked and privacy-checked audio exported by the site builder can be played.
 function initMusicPlayers(){
- const labels={'1A':'1.º ESO A','1B':'1.º ESO B','1C':'1.º ESO C','2A':'2.º ESO A','2B':'2.º ESO B','AE':'Atención Educativa','GENERAL':'Material común'};
+ const labels={'1A':tnText('music_group_1a','1.º ESO A'),'1B':tnText('music_group_1b','1.º ESO B'),'1C':tnText('music_group_1c','1.º ESO C'),'2A':tnText('music_group_2a','2.º ESO A'),'2B':tnText('music_group_2b','2.º ESO B'),'AE':tnText('music_group_ae','Atención Educativa'),'GENERAL':tnText('music_group_general','Material común')};
  const playable=item=>item&&(
  (typeof item.audio==='string'&&/^recursos\/[a-zA-Z0-9_.\/%-]+\.(mp3|m4a|ogg|wav)$/i.test(item.audio))||
  (typeof item.video==='string'&&/^recursos\/[a-zA-Z0-9_.\/%-]+\.(mp4|webm)$/i.test(item.video))
@@ -217,10 +218,10 @@ function initMusicPlayers(){
 }
 initMusicPlayers();
 const COURSE_ORDER=[
- {id:'1ESO',label:'Inglés · 1.º ESO'},
- {id:'2ESO',label:'Inglés · 2.º ESO'},
- {id:'ATENCION',label:'Atención Educativa · 1.º ESO (en español)'},
- {id:'AMBOS',label:'Inglés · materiales comunes para 1.º y 2.º ESO'}
+ {id:'1ESO',label:tnText('filter_1eso','Inglés · 1.º ESO')},
+ {id:'2ESO',label:tnText('filter_2eso','Inglés · 2.º ESO')},
+ {id:'ATENCION',label:tnText('filter_atencion','Atención Educativa · 1.º ESO')+' (en español)'},
+ {id:'AMBOS',label:tnText('filter_ambos','Comunes a 1.º y 2.º')}
 ];
 function dataMatch(item){
  const q=normalize(searchTerm);
@@ -234,15 +235,15 @@ function resourceCard(item){
  +'<div class="res-top"><span class="res-code">'+escapeHTML(item.id)+'</span><span class="res-category">'+escapeHTML(item.kind)+' · '+escapeHTML(item.course_label)+'</span></div>'
  +(item.preview?'<img class="res-preview" loading="lazy" decoding="async" src="'+escapeHTML(item.preview)+'" alt="Vista previa de '+escapeHTML(item.title)+'">':'')
  +'<h3>'+escapeHTML(item.title)+'</h3><p>'+escapeHTML(item.description)+'</p>'
- +'<div class="res-foot"><span><span class="res-available">'+(item.download?'ARCHIVO INCLUIDO':'REPRODUCIR')+'</span></span><span>VER FICHA ↗</span></div></button>';
+ +'<div class="res-foot"><span><span class="res-available">'+(item.download?escapeHTML(tnText('resource_card_included','ARCHIVO INCLUIDO')):escapeHTML(tnText('resource_card_play','REPRODUCIR')))+'</span></span><span>'+escapeHTML(tnText('resource_card_view','VER FICHA ↗'))+'</span></div></button>';
 }
 function render(){
  const list=MATERIALS.filter(dataMatch);
  $('#count').textContent=String(list.length);
  const grid=$('#resultGrid');
- if(!list.length){grid.innerHTML='<div class="res-empty">No hemos encontrado un archivo publicado con esos filtros. Prueba otra palabra o curso ✳</div>';$('#loadMore').hidden=true;return;}
+ if(!list.length){grid.innerHTML='<div class="res-empty">'+escapeHTML(tnText('resources_empty','No hemos encontrado un archivo publicado con esos filtros. Prueba otra palabra o curso ✳'))+'</div>';$('#loadMore').hidden=true;return;}
  const chunks=COURSE_ORDER.map(c=>({label:c.label,items:list.filter(item=>item.level===c.id)})).filter(c=>c.items.length);
- grid.innerHTML=chunks.map(group=>'<section class="course-block"><h3>'+escapeHTML(group.label)+' <small>'+group.items.length+' recursos</small></h3>'
+ grid.innerHTML=chunks.map(group=>'<section class="course-block"><h3>'+escapeHTML(group.label)+' <small>'+group.items.length+' '+escapeHTML(tnText('resource_group_count','recursos'))+'</small></h3>'
  +'<div class="resource-grid">'+group.items.slice(0,limit).map(resourceCard).join('')+'</div></section>').join('');
  $('#loadMore').hidden=chunks.every(group=>group.items.length<=limit);
 }
@@ -274,13 +275,13 @@ function openDetail(item){
  const download=$('#detailDownload');
  if(item.download){
   download.href=item.download;download.setAttribute('download',(item.download||'').split('/').pop()||'teacher-nessa');
-  download.style.display='inline-flex';download.textContent='Descargar archivo ↗';
+  download.style.display='inline-flex';download.textContent=tnText('detail_download','Descargar archivo ↗');
  }else{download.style.display='none';download.removeAttribute('href');}
  const extra=$('#detailExtraFiles');extra.replaceChildren();
  (item.downloads||[]).slice(1).forEach(doc=>{
   const link=document.createElement('a');link.className='btn btn-yellow';
   link.href=doc.url;link.setAttribute('download',doc.name||'material');
-  link.textContent='Descargar también: '+(doc.name||'archivo');
+  link.textContent=tnText('detail_extra_download','Descargar también:')+' '+(doc.name||'archivo');
   extra.appendChild(link);
  });
  const media=$('#detailMedia');media.replaceChildren();
@@ -306,9 +307,9 @@ $('#closeDetail').addEventListener('click',closeDetail);
 $('#detailBackdrop').addEventListener('click',e=>{if(e.target.id==='detailBackdrop')closeDetail();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#detailBackdrop').classList.contains('open'))closeDetail();if(e.key==='Tab'&&$('#detailBackdrop').classList.contains('open')){const dialog=$('.detail-dialog');const buttons=$$('button,a,input',[dialog][0]).filter(n=>!n.disabled);if(!buttons.length)return;const first=buttons[0],last=buttons[buttons.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
 const menu=$('#menuLinks'),menuBtn=$('#menuBtn');menuBtn.addEventListener('click',()=>{const open=menu.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'×':'☰';});$$('a',menu).forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰';}));
-const quiz=[{q:'I have ___ finished my homework.',answers:['yet','just','since'],correct:1,why:'Just se usa para una acción que acaba de suceder: I have just finished.'},{q:'Have you done the exercise ___?',answers:['already','since','yet'],correct:2,why:'Yet aparece normalmente en preguntas y negativas: Have you done it yet?'},{q:'She has lived here ___ 2020.',answers:['for','since','already'],correct:1,why:'Since introduce el punto de inicio de la acción: since 2020.'}];let qIndex=0,qScore=0,qAnswered=false;
-function showQuiz(){const s=$('#quizStage');if(qIndex>=quiz.length){s.innerHTML=`<p class="question">¡Reto terminado! ✨</p><p>Has acertado <strong>${qScore} de ${quiz.length}</strong> preguntas.</p><p>${qScore===3?'Brilliant! You are a grammar superstar.':'Good job! Cada intento cuenta.'}</p>`;$('#quizReset').hidden=false;return;}const q=quiz[qIndex];qAnswered=false;$('#quizReset').hidden=true;s.innerHTML=`<p class="mono" style="color:var(--violet);margin-top:20px">Pregunta ${qIndex+1} / ${quiz.length}</p><p class="question">${escapeHTML(q.q)}</p><div class="quiz-options">${q.answers.map((a,i)=>`<button class="quiz-answer" data-answer="${i}">${escapeHTML(a)}</button>`).join('')}</div><div class="quiz-feedback" aria-live="polite"></div>`;}
-$('#quizStage').addEventListener('click',e=>{const b=e.target.closest('[data-answer]');if(!b||qAnswered)return;qAnswered=true;const q=quiz[qIndex],selected=Number(b.dataset.answer);if(selected===q.correct)qScore++;$$('.quiz-answer',$('#quizStage')).forEach(x=>{x.disabled=true;if(Number(x.dataset.answer)===q.correct)x.classList.add('correct');else if(Number(x.dataset.answer)===selected)x.classList.add('wrong');});$('.quiz-feedback',$('#quizStage')).innerHTML=`${selected===q.correct?'✅ ¡Correcto!':'💡 Casi...'} ${escapeHTML(q.why)} <button class="btn btn-pink" id="nextQuiz" style="display:block;margin-top:13px">${qIndex===quiz.length-1?'Ver resultado':'Siguiente pregunta'} →</button>`;});
+const quiz=Array.isArray(window.TN_QUIZ)?window.TN_QUIZ:[];let qIndex=0,qScore=0,qAnswered=false;
+function showQuiz(){const s=$('#quizStage');if(qIndex>=quiz.length){s.innerHTML=`<p class="question">${escapeHTML(tnText("quiz_complete_title","¡Reto terminado! ✨"))}</p><p>${escapeHTML(tnText("quiz_score_prefix","Has acertado"))} <strong>${qScore} de ${quiz.length}</strong> preguntas.</p><p>${qScore===quiz.length?tnText('quiz_perfect','Brilliant! You are a grammar superstar.'):tnText('quiz_good','Good job! Cada intento cuenta.')}</p>`;$('#quizReset').hidden=false;return;}const q=quiz[qIndex];qAnswered=false;$('#quizReset').hidden=true;s.innerHTML=`<p class="mono" style="color:var(--violet);margin-top:20px">${escapeHTML(tnText("quiz_question_label","Pregunta"))} ${qIndex+1} / ${quiz.length}</p><p class="question">${escapeHTML(q.q)}</p><div class="quiz-options">${q.answers.map((a,i)=>`<button class="quiz-answer" data-answer="${i}">${escapeHTML(a)}</button>`).join('')}</div><div class="quiz-feedback" aria-live="polite"></div>`;}
+$('#quizStage').addEventListener('click',e=>{const b=e.target.closest('[data-answer]');if(!b||qAnswered)return;qAnswered=true;const q=quiz[qIndex],selected=Number(b.dataset.answer);if(selected===q.correct)qScore++;$$('.quiz-answer',$('#quizStage')).forEach(x=>{x.disabled=true;if(Number(x.dataset.answer)===q.correct)x.classList.add('correct');else if(Number(x.dataset.answer)===selected)x.classList.add('wrong');});$('.quiz-feedback',$('#quizStage')).innerHTML=`${selected===q.correct?escapeHTML(tnText('quiz_correct','✅ ¡Correcto!')):escapeHTML(tnText('quiz_wrong','💡 Casi...'))} ${escapeHTML(q.why)} <button class="btn btn-pink" id="nextQuiz" style="display:block;margin-top:13px">${qIndex===quiz.length-1?tnText('quiz_result','Ver resultado'):tnText('quiz_next','Siguiente pregunta')} →</button>`;});
 $('#quizStage').addEventListener('click',e=>{if(e.target?.id==='nextQuiz'){qIndex++;showQuiz();}});
 $('#quizReset').addEventListener('click',()=>{qIndex=0;qScore=0;showQuiz();});
 render();showQuiz();
