@@ -47,6 +47,49 @@ footer{background:#fffaf7;padding:54px 0 26px}.footer-grid{display:grid;grid-tem
 </style>
 <style>.tn-hero-owner-photo{display:none;max-width:270px;max-height:300px;object-fit:cover;object-position:center;border:5px solid var(--ink);border-radius:22px;box-shadow:7px 8px 0 var(--pink);position:absolute;z-index:5;right:14px;bottom:3px;transform:rotate(3deg)}@media(max-width:780px){.tn-hero-owner-photo{max-width:120px;max-height:130px;right:4px;bottom:5px}}</style>
 <style>.course-block{grid-column:1/-1;min-width:0;margin:0 0 24px}.course-block>h3{font-size:1.55rem;letter-spacing:-.025em;margin:12px 0 18px}.course-block>h3 small{display:inline-block;color:#6c6070;font-size:.78rem;font-weight:700;margin-left:10px;letter-spacing:0}.course-block .resource-grid{margin:0}.filters[aria-label="Filtrar por tipo"]{padding-top:10px;border-top:1px solid #eadce7;margin-top:13px}@media(max-width:560px){.course-block>h3{font-size:1.32rem}}</style>
+<style id="tn-header-layout-fix">
+/* Prevent the brand and course links from colliding on laptop widths. */
+.site-header .nav-shell{gap:clamp(10px,2vw,22px);min-width:0}
+.site-header .brand{min-width:0;flex-shrink:0}
+.site-header .brand-name{white-space:nowrap;letter-spacing:-.04em}
+.site-header .nav-links{gap:clamp(9px,1.25vw,18px);min-width:0}
+.site-header .nav-links a{font-size:clamp(.77rem,1.1vw,.88rem)}
+/* Headline lines stay inside their grid column at all widths. */
+.hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)}
+.hero-copy,.hero-art{min-width:0}
+.hero h1{font-size:clamp(3.1rem,5vw,4.9rem);line-height:1.09;letter-spacing:-.04em;overflow-wrap:normal}
+.hero-art .art-ribbon{top:16px;left:10px;max-width:calc(100% - 20px);transform:rotate(-3deg);font-size:clamp(.7rem,1.4vw,.92rem);padding:8px 13px;line-height:1.25}
+.hero-art .poster-cloud{top:auto;bottom:93px;right:8px;transform:rotate(7deg) scale(.78);transform-origin:bottom right}
+.hero-bubble{right:1px;top:-20px}
+.top-tape{padding:2px 12px;text-align:center;height:auto;min-height:25px;line-height:1.25}
+@media(max-width:1090px){
+ .site-header .nav-shell{min-height:67px}
+ .site-header .menu-btn{display:block;flex:0 0 auto}
+ .site-header .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fffdfb;border-bottom:2px solid var(--ink);padding:17px 26px;flex-direction:column;align-items:stretch;gap:14px;box-shadow:0 8px 14px #19192018}
+ .site-header .nav-links.open{display:flex}
+ .site-header .nav-links a{font-size:.98rem;white-space:normal}
+ .site-header .nav-links .nav-cta{width:fit-content}
+ .hero-grid{grid-template-columns:1fr}
+ .hero-copy{max-width:780px}
+ .hero-art{max-width:510px;width:100%;margin:25px auto 0;min-height:460px}
+ .hero-art .art-board{height:440px}
+}
+@media(max-width:600px){
+ .hero h1{font-size:clamp(2.4rem,9.4vw,3.5rem);line-height:1.12;margin-block:22px}
+ .hero-art{min-height:300px;max-width:430px}
+ .hero-art .art-board{height:320px;transform:none}
+ .hero-art .art-ribbon{font-size:.69rem;letter-spacing:.01em}
+ .hero-art .poster-cloud,.hero-art .hero-bubble,.hero-bubble{display:none}
+ .hero-art .poster-bottom{right:12px;bottom:12px;transform:rotate(-3deg);font-size:.56rem;padding:6px 8px}
+ .site-header .brand-name{font-size:1.17rem}
+ .site-header .brand-mark{width:40px;height:40px}
+ .site-header .nav-shell{gap:8px}
+}
+@media(max-width:350px){
+ .site-header .brand-name{font-size:1.05rem}
+ .hero h1{font-size:2.24rem}
+}
+</style>
 </head>
 <body>
 <a class="skip" href="#principal">Saltar al contenido</a>
@@ -59,7 +102,7 @@ footer{background:#fffaf7;padding:54px 0 26px}.footer-grid{display:grid;grid-tem
 <main id="principal">
 <section class="hero" id="inicio"><div class="container hero-grid">
 <div class="hero-copy"><span class="eyebrow"><span class="dot"></span> MADE FOR THE CLASSROOM · 2026—27</span>
-<h1>El inglés se <span class="highlight">vive,</span><br>se <span class="script">canta</span><br>y se crea<span style="color:var(--pink)">.</span></h1>
+<h1>El inglés<br>se <span class="highlight">vive,</span><br>se <span class="script">canta</span><br>y se crea<span style="color:var(--pink)">.</span></h1>
 <p class="lead">¡Bienvenidos a Teacher Nessa! Gramática y vocabulario en inglés para 1.º y 2.º de ESO, rúbricas, canciones y actividades de Atención Educativa en español para 1.º ESO.</p>
 <div class="hero-actions"><a class="btn btn-pink" href="#recursos">Explorar materiales <span aria-hidden="true">↗</span></a><a class="btn btn-yellow" href="#musica">Rincón musical <span aria-hidden="true">♫</span></a></div>
 <p class="muted-note">Recursos gratuitos para uso educativo · Materiales sujetos a revisión de derechos y privacidad antes de compartir sus originales.</p>
