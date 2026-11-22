@@ -120,6 +120,60 @@ for file in sorted((ROOT/'content'/'materiales').glob('*.json')):
  else:
   continue  # Do not advertise a resource without a real published file.
  materiales.append(entry)
+# AUTO POSTERS SEPT-NOV: include the original classroom poster images already reviewed
+# and placed in the public /recursos/posters collection by the site owner.
+# This does not publish any other folder, school programming, or student records.
+poster_dir=ROOT/'recursos'/'posters'
+known_assets={d['url'] for entry in materiales for d in entry.get('downloads',[])}
+known_assets.update(entry['preview'] for entry in materiales if entry.get('preview'))
+for n, poster in enumerate(sorted(poster_dir.glob('*.webp')),1):
+ relative=poster.relative_to(ROOT).as_posix()
+ if relative in known_assets: continue
+ stem=poster.stem
+ low=stem.lower()
+ if low.startswith('calpurnia_tate_grammar_vocabulary_ch_'):
+  try: chapter=int(stem.rsplit('_',1)[-1])
+  except ValueError: continue
+  level='1ESO';kind='Vocabulario'
+  title=f'Calpurnia Tate · Chapter {chapter}: Grammar & Vocabulary'
+  desc='Original visual grammar and vocabulary poster for the reading project.'
+  topic='Calpurnia Tate · Reading, Grammar & Vocabulary'
+ elif 'moda' in low or 'tendencias' in low:
+  level='2ESO';kind='Vocabulario';title='Fashion & Trends · Original Vocabulary Poster'
+  desc='Original classroom poster about fashion and trends vocabulary.'
+  topic='Fashion & Trends'
+ elif 'relative_pronouns' in low:
+  level='2ESO';kind='Gramática';title='Relative Pronouns · Original Poster'
+  desc='Visual poster explaining relative pronouns.'
+  topic='Relative Clauses'
+ elif 'animales' in low or 'vocab' in low or 'mediacion' in low:
+  level='1ESO';kind='Vocabulario'
+  title=stem.replace('_',' ').replace('Poster ','')+' · Original poster'
+  desc='Original visual vocabulary and speaking material.'
+  topic='Animals, Travel & Vocabulary'
+ elif 'gram' in low or 'repaso' in low or 'examen' in low or 'practica' in low:
+  level='1ESO';kind='Gramática'
+  title=stem.replace('_',' ').replace('Poster ','')+' · Original poster'
+  desc='Original grammar and revision poster.'
+  topic='Grammar & Revision'
+ else:
+  level='AMBOS';kind='Vocabulario'
+  title=stem.replace('_',' ')+' · Original poster'
+  desc='Teacher Nessa original classroom poster.'
+  topic='Visual Resources'
+ label={'1ESO':'Inglés · 1.º ESO','2ESO':'Inglés · 2.º ESO','AMBOS':'Inglés · 1.º y 2.º ESO'}[level]
+ category={'1ESO':'Inglés 1.º ESO','2ESO':'Inglés 2.º ESO','AMBOS':'Inglés 1.º y 2.º'}[level]
+ materiales.append({
+  'id':f'POSTER-{n:02d}','title':title,'description':desc,
+  'usage':'View, download and use the original poster in class.',
+  'category':category,'topic':topic,'kind':kind,'level':level,
+  'course_label':label,'music_group':'','file':poster.name,'section':'POSTER',
+  'download':relative,'downloads':[{'url':relative,'name':poster.name}],
+  'audio':None,'video':None,'preview':relative,
+  'access':'Original poster available for educational use.'
+ })
+ public_files.add(relative)
+
 materiales.sort(key=lambda x:(LEVEL_ORDER.get(x['level'],99),('Gramática','Vocabulario','Canciones','Rúbricas','Atención Educativa').index(x['kind']),x['id']))
 # Copy only the explicitly enabled downloads, never the whole private review library.
 for relative in sorted(public_files):
