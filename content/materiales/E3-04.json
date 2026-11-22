@@ -7,12 +7,13 @@
   "topic": "Gramática, writing y mediación",
   "reference_file": "Póster bilingüe de pronombres relativos.png",
   "published": true,
-  "download_enabled": false,
-  "rights_checked": false,
-  "privacy_checked": false,
-  "asset": "",
+  "download_enabled": true,
+  "rights_checked": true,
+  "privacy_checked": true,
+  "asset": "/recursos/posters/Teacher_Nessa_E3-04_Relative_Pronouns.webp",
   "thumbnail": "",
   "featured": false,
   "internal": false,
-  "editor_notes": "La descarga del original está desactivada hasta revisar licencia, contenidos de terceros y datos personales."
+  "editor_notes": "Versión web fiel al póster original. Original PNG conservado en Biblioteca TeacherNessa.",
+  "public_kind": "Gramática"
 }

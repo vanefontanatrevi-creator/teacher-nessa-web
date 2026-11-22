@@ -1,0 +1,20 @@
+{
+  "id": "PC-02",
+  "title": "Exam Practice: soluciones explicadas",
+  "description": "Póster original con las respuestas y consejos de Teacher Nessa.",
+  "usage": "Abrir el póster, observar los ejemplos y practicar el contenido en clase.",
+  "category": "Inglés 1.º y 2.º",
+  "topic": "Gramática",
+  "public_kind": "Gramática",
+  "published": true,
+  "internal": false,
+  "asset": "/recursos/posters/Poster_Respuestas_Examen.webp",
+  "reference_file": "Poster_Respuestas_Examen.png",
+  "extra_asset": "",
+  "rights_checked": true,
+  "privacy_checked": true,
+  "download_enabled": true,
+  "listen_enabled": false,
+  "audio_verified": false,
+  "editor_notes": "Copia visual optimizada para la web a partir del póster PNG original. Original intacto en Biblioteca TeacherNessa."
+}
