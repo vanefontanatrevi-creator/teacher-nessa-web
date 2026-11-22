@@ -153,6 +153,15 @@ content:
       - name: notice
         label: Aviso de la portada
         type: text
+      - name: resources_footer_note
+        label: Texto debajo de Mostrar mas materiales (dejar vacio para ocultar)
+        type: text
+      - name: music_pending_note
+        label: Aviso principal debajo del disco cuando no hay canciones publicadas (dejar vacio para ocultar)
+        type: text
+      - name: music_disclaimer
+        label: Nota pequena al final de la seccion musical (dejar vacio para ocultar)
+        type: text
       - name: instagram
         label: Enlace de Instagram
         type: string
