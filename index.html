@@ -23,7 +23,7 @@ header.site-header{position:sticky;top:0;z-index:30;background:#fffdfbfa;backdro
 .downloads{background:var(--yellow);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}.download-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:32px}.download-card{border:2px solid var(--ink);background:white;border-radius:20px;box-shadow:6px 7px 0 var(--ink);padding:25px;display:flex;gap:18px;align-items:center;transition:transform .18s}.download-card:hover{transform:translateY(-3px)}.download-card .doc-icon{font-size:3rem}.download-card h3{font-size:1.3rem;margin:0 0 7px}.download-card p{color:var(--muted);font-size:.85rem;margin:0}.download-card .download-arrow{margin-left:auto;font-size:1.7rem;font-weight:900}.privacy{font-size:.82rem;color:#5b5139;margin-top:23px;max-width:900px}
 footer{background:#fffaf7;padding:54px 0 26px}.footer-grid{display:grid;grid-template-columns:1.6fr .9fr .9fr;gap:40px}.footer-brand{font-family:'Arial Black',Impact,sans-serif;font-size:2rem;letter-spacing:-.06em;margin-bottom:15px}.footer-brand .teacher-word{color:var(--pink)}.footer-brand em{font-style:normal;color:var(--yellow);text-shadow:1px 0 var(--ink),-1px 0 var(--ink),0 1px var(--ink),0 -1px var(--ink)}footer p{color:var(--muted);max-width:390px;font-size:.9rem}footer h3{font-family:'Courier New',monospace;text-transform:uppercase;font-size:.81rem;letter-spacing:.12em}footer ul{list-style:none;margin:0;padding:0}footer li{margin:10px 0}footer a:hover{color:var(--pink)}.footer-line{border-top:1px solid #ddd3d9;margin-top:40px;padding-top:22px;display:flex;justify-content:space-between;gap:20px;font-size:.75rem;color:#746a73}
 .dialog-backdrop{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:20px;background:#17141eb8;backdrop-filter:blur(3px)}.dialog-backdrop.open{display:flex}.detail-dialog{background:white;border:3px solid var(--ink);border-radius:22px;max-width:650px;width:100%;max-height:88vh;overflow:auto;box-shadow:10px 11px 0 var(--pink);padding:30px;position:relative}.detail-dialog .close{position:absolute;right:17px;top:14px;font-size:1.5rem;background:#f5eff4;border:2px solid var(--ink);height:43px;width:43px;border-radius:12px}.detail-dialog h3{font-size:2rem;letter-spacing:-.04em;margin:22px 42px 17px 0}.detail-label{margin-top:17px;font-size:.71rem;text-transform:uppercase;letter-spacing:.1em;color:var(--violet);font-weight:950}.detail-value{white-space:pre-wrap;overflow-wrap:anywhere}.detail-file{background:#f7f2fa;border-left:4px solid var(--pink);padding:14px;border-radius:4px;font-size:.85rem}.dialog-note{font-size:.8rem;color:#6d6471}.toast{position:fixed;bottom:18px;right:18px;background:var(--ink);color:white;padding:12px 16px;border-radius:12px;z-index:100;opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}
-@keyframes spin{to{transform:rotate(360deg)}}#musica{scroll-margin-top:95px}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@keyframes spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 @media(max-width:1020px){.hero-grid{grid-template-columns:1fr 1fr;gap:25px}.hero-art{min-height:480px}.hero-art .art-board{height:445px}.poster-cloud{transform:scale(.75) rotate(13deg);transform-origin:top right}.area-grid{grid-template-columns:repeat(2,1fr)}.resource-grid,.music-cards{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:790px){.nav-shell{min-height:67px}.menu-btn{display:block}.nav-links{display:none;position:absolute;top:67px;left:0;right:0;background:#fffdfb;border-bottom:2px solid var(--ink);padding:17px 30px;flex-direction:column;align-items:stretch;gap:18px}.nav-links.open{display:flex}.nav-links .nav-cta{width:fit-content}.hero{padding:56px 0 72px}.hero-grid,.quiz-grid,.music-head{grid-template-columns:1fr}.hero-art{margin-top:25px;max-width:560px;margin-inline:auto;width:100%}.section{padding:65px 0}.section-top{align-items:start;flex-direction:column}.music-head{gap:10px}.vinyl{height:170px;width:170px}.vinyl:after{inset:45px;font-size:.77rem}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}}
 @media(max-width:540px){.container{padding:0 18px}.top-tape{font-size:.55rem}.hero h1{font-size:clamp(3rem,13vw,4.6rem)}.lead{font-size:1rem}.hero-art{min-height:375px}.hero-art .art-board{height:345px;box-shadow:8px 9px 0 var(--ink)}.hero-bubble{top:-20px;right:-10px;width:80px;height:80px;font-size:.72rem}.poster-cloud{top:65px;right:0;transform:scale(.57) rotate(13deg)}.poster-bottom{font-size:.57rem;right:15px;bottom:16px}.art-ribbon{font-size:.72rem;left:-8px}.area-grid,.resource-grid,.music-cards,.download-grid,.values-grid{grid-template-columns:1fr}.area-card{min-height:205px}.console-top{flex-direction:column;align-items:start;gap:3px}.search-console{padding:18px 15px}.res-category{font-size:.6rem}.quiz-box{padding:20px}.detail-dialog{padding:22px}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}.footer-line{flex-direction:column}}
@@ -97,89 +97,6 @@ footer{background:#fffaf7;padding:54px 0 26px}.footer-grid{display:grid;grid-tem
 .detail-media .full-poster{display:block;width:100%;height:auto;max-height:72vh;object-fit:contain;border:1px solid #eadce5;border-radius:12px;background:#fff9fc}
 @media(max-width:540px){.resource-card .res-preview{height:230px}}
 </style>
-
-<style id="tn-editorial-redesign">
-:root{--ink:#29243a;--pink:#ee319c;--yellow:#ffda3b;--aqua:#4bcad3;--violet:#735a86;--paper:#fffdf9;--line:#e8e1e5;--muted:#706978;--shadow:0 16px 40px #44303d0d}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55}
-.top-tape,.mini-strip{display:none}
-header.site-header{background:#fffdfbf2;border-bottom:1px solid #eae2e6;box-shadow:none}
-.site-header .nav-shell{min-height:76px;gap:20px}
-.site-header .brand-mark{display:none}
-.site-header .brand-name{font-family:system-ui,-apple-system,sans-serif;font-size:1.55rem;letter-spacing:-.055em;font-weight:850}
-.brand-name em,footer .footer-brand em{color:#efc400;text-shadow:none}
-.site-header .brand-name>span[aria-hidden]{display:none}
-.site-header .nav-links a{font-weight:700;color:#665e6b}
-.site-header .nav-links .nav-cta{background:var(--pink);color:#fff;border:none;border-radius:999px;padding:11px 20px;box-shadow:none}
-.hero{background:radial-gradient(circle at 98% 3%,#fff0f3 0%,transparent 42%),#fffdf9;padding:85px 0 92px;border-bottom:1px solid #ece6e7}
-.hero:after{display:none}
-.hero-grid{grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr);gap:54px;align-items:center}
-.hero-copy{min-width:0}
-.hero .eyebrow{background:none;border:none;box-shadow:none;transform:none;color:var(--pink);font-family:inherit;font-size:.77rem;letter-spacing:.12em;padding:0;gap:9px}
-.hero .eyebrow .dot{background:var(--pink);width:8px;height:8px}
-.hero h1{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:clamp(3.3rem,5.6vw,5.7rem);letter-spacing:-.072em;line-height:1.06;font-weight:800;margin:27px 0 28px;overflow-wrap:normal}
-.hero h1 .hero-teacher{color:var(--pink)}
-.hero h1 .hero-nessa{color:#f2c30c;background:linear-gradient(transparent 77%,#fff0a3 77%);white-space:nowrap}
-.hero h1 .hero-stop{color:var(--pink)}
-.hero .lead{font-size:1.08rem;color:#66606c;line-height:1.68;max-width:55ch;margin-bottom:30px}
-.hero .btn{border:1px solid transparent;border-radius:999px;padding:13px 22px;box-shadow:none;font-weight:760;transition:transform .18s,background .18s}
-.hero .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px #c8197420}
-.hero .btn-yellow{background:#fff;border-color:#d9d2d6}
-.hero .muted-note{font-size:.77rem;margin-top:22px;color:#88818c}
-.hero-art{min-height:400px;display:flex;align-items:center;justify-content:center;position:relative;max-width:none;margin:0}
-.editorial-board{height:365px;width:min(100%,450px);background:linear-gradient(145deg,#fbe4ee,#fffbf0 65%,#e6f9f9);border-radius:23px;border:1px solid #f0e5e9;padding:37px;box-shadow:0 25px 60px #3b29341b;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-1.5deg)}
-.editorial-overline{font-size:.7rem;letter-spacing:.14em;color:#8b687b;font-weight:760}
-.editorial-quote{font:italic clamp(1.9rem,3.3vw,3rem)/1.17 Georgia,"Times New Roman",serif;letter-spacing:-.05em;color:#453547;margin:0}
-.editorial-quote em{color:var(--pink);font-weight:normal}
-.editorial-footer{border-top:1px solid #e4d7db;padding-top:18px;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;font-weight:800;color:#80717b}
-.teacher-mini-card{display:flex;align-items:center;gap:12px;position:absolute;right:0;bottom:0;background:#fff;border:1px solid #e9e4e8;border-radius:999px;padding:9px 20px 9px 9px;box-shadow:0 12px 32px #39243a17;transform:rotate(2deg)}
-.teacher-mini-card .tn-hero-owner-photo{position:static!important;display:none;width:67px;height:67px;max-width:none;max-height:none;border:none;border-radius:50%;object-fit:cover;object-position:center;box-shadow:none;transform:none}
-.teacher-mini-card .avatar-placeholder{height:67px;width:67px;border-radius:50%;display:grid;place-items:center;background:#fde7f1;color:var(--pink);font-weight:850;letter-spacing:-.04em}
-.teacher-mini-card strong{display:block;font-size:.89rem;line-height:1.3}
-.teacher-mini-card small{display:block;font-size:.69rem;line-height:1.4;color:#78707b}
-.section{padding:76px 0}
-.section-label{color:var(--pink);font-family:inherit;letter-spacing:.13em;font-size:.7rem}
-.section h2{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:clamp(2.2rem,4.3vw,3.6rem);letter-spacing:-.065em;font-weight:800}
-.area-card{border:1px solid #ece4e7;border-radius:18px;box-shadow:none;min-height:220px}
-.area-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px #34252e13}
-.resources{background:#faf7f8;border-top:1px solid #eee8e9;border-bottom:1px solid #eee8e9}
-.search-console{border:1px solid #ece4e8;border-radius:19px;box-shadow:0 12px 35px #34252e0b;padding:23px}
-.search-console .count{font-family:inherit;font-weight:800}
-.search-field{border:1px solid #dcd6da;border-radius:999px;background:white}
-.filter-btn{font-family:inherit;border:1px solid #e4dce0;font-weight:700}
-.filter-btn[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:white}
-.resource-card{padding:16px;border:1px solid #eae3e7;border-radius:17px;box-shadow:0 5px 17px #34252e0a;min-height:unset}
-.resource-card:hover{transform:translateY(-3px);box-shadow:0 13px 29px #34252e18}
-.resource-card .res-preview{height:225px;object-fit:contain;object-position:center;background:#fff;border:0;border-radius:10px;margin-top:11px}
-.res-category{color:var(--pink)}
-.resource-card h3{font-weight:760;font-size:1.07rem;letter-spacing:-.025em}
-.res-code{background:#fff4cf;border:1px solid #e9d799}
-.resource-card .res-foot{border-top:1px solid #f0ebed}
-.resource-card .res-available{background:#e9f8f2;border:0;color:#33745e}
-.course-block>h3{font-size:1.45rem;font-weight:800}
-.btn{border-radius:999px;box-shadow:none;border:1px solid #e2d9df;font-weight:770}
-.btn:hover{box-shadow:0 8px 22px #37253819}
-.music-section{background:#fff9fb;color:var(--ink);border-bottom:1px solid #eee7ec}
-.music-section h2 span{color:var(--pink)}
-.music-section .section-label{color:var(--pink)}
-.music-section .section-top p,.music-section .music-head p,.music-disclaimer{color:#726675!important}
-.music-head{grid-template-columns:1fr .16fr}
-.music-section .vinyl{display:none}
-.music-shelf-title,.music-pending>h3{color:var(--ink);font-family:inherit}
-.music-card,.quiz-box{border:1px solid #e9e0e7;box-shadow:0 7px 25px #38263412;border-radius:18px}
-.music-card h3{font-family:inherit;font-weight:800;font-size:1.2rem}
-.quiz-section{background:#f4fbfa;border-bottom:1px solid #e9eeee}
-.quiz-box .question{font-weight:780}
-.quiz-answer{border:1px solid #ddd7dc}
-footer{background:#fffdf9}
-footer .footer-brand{font-family:inherit;font-weight:850}
-.footer-line{border-color:#e9dfe4}
-.detail-dialog{border:1px solid #e5dce2;box-shadow:0 26px 72px #1c162d30}
-.detail-dialog .close{border:1px solid #ddd4da}
-@media(max-width:1090px){.hero-grid{grid-template-columns:1fr 1fr;gap:30px}.hero-art{min-height:380px}.editorial-board{height:340px}}
-@media(max-width:790px){.hero-grid{grid-template-columns:1fr}.hero{padding:56px 0 68px}.hero h1{font-size:clamp(3.1rem,10vw,5.2rem)}.hero-art{max-width:550px;width:100%;margin:18px auto 0;min-height:335px}.editorial-board{height:320px}.site-header .nav-links{background:#fffdf9;border-bottom:1px solid #eae2e6}}
-@media(max-width:540px){.hero h1{font-size:clamp(2.75rem,11.8vw,4rem)}.hero-art{min-height:310px}.editorial-board{height:290px;padding:24px}.editorial-quote{font-size:2rem}.teacher-mini-card{right:2px;bottom:-6px}.teacher-mini-card .tn-hero-owner-photo,.teacher-mini-card .avatar-placeholder{width:52px;height:52px}.search-console{padding:17px}.resource-card .res-preview{height:220px}}
-</style>
 </head>
 <body>
 <a class="skip" href="#principal">Saltar al contenido</a>
@@ -187,35 +104,43 @@ footer .footer-brand{font-family:inherit;font-weight:850}
 <header class="site-header"><div class="container nav-shell">
 <a class="brand" href="#inicio" aria-label="Teacher Nessa, ir al inicio"><span class="brand-mark">TN</span><span class="brand-name"><span class="teacher-word">Teacher</span> <em>Nessa</em><span aria-hidden="true"> ✳</span></span></a>
 <button class="menu-btn" id="menuBtn" aria-label="Abrir navegación" aria-expanded="false" aria-controls="menuLinks">☰</button>
-<nav class="nav-links" id="menuLinks" aria-label="Navegación principal"><a href="#inicio">Inicio</a><a href="#recursos" data-nav-course="1ESO">Inglés 1.º ESO</a><a href="#recursos" data-nav-course="2ESO">Inglés 2.º ESO</a><a href="#recursos" data-nav-course="ATENCION">Atención Educativa</a><a class="nav-cta" href="#musica">🎵 Disco y canciones</a></nav>
+<nav class="nav-links" id="menuLinks" aria-label="Navegación principal"><a href="#inicio">Inicio</a><a href="#recursos" data-nav-course="1ESO">Inglés 1.º ESO</a><a href="#recursos" data-nav-course="2ESO">Inglés 2.º ESO</a><a href="#recursos" data-nav-course="ATENCION">Atención Educativa</a><a class="nav-cta" href="#musica">Canciones ♫</a></nav>
 </div></header>
 <main id="principal">
-<section class="hero" id="inicio">
- <div class="container hero-grid">
-  <div class="hero-copy">
-   <span class="eyebrow"><span class="dot" aria-hidden="true"></span> TEACHING WITH MUSIC & HEART</span>
-   <h1>Hola, soy <span class="hero-teacher">Teacher</span> <span class="hero-nessa">Nessa</span><span class="hero-stop">.</span></h1>
-   <p class="lead">Creo materiales originales para aprender inglés de una forma visual, cercana y creativa. Gramática, vocabulario, pósteres, canciones y rúbricas para 1.º y 2.º ESO; Atención Educativa de 1.º ESO en español.</p>
-   <div class="hero-actions">
-    <a class="btn btn-pink" href="#recursos">Explorar la biblioteca <span aria-hidden="true">↗</span></a>
-    <a class="btn btn-yellow" href="#musica">🎵 Ver el disco girando</a>
-   </div>
-   <p class="muted-note">Teacher Nessa Originals · Materiales creados desde septiembre de 2026.</p>
-  </div>
-  <div class="hero-art">
-   <div class="editorial-board">
-    <div class="editorial-overline">THE CLASSROOM STUDIO / 2026–27</div>
-    <p class="editorial-quote">More than English.<br><em>A little bit of magic</em> in every lesson.</p>
-    <div class="editorial-footer">Grammar &nbsp; · &nbsp; Vocabulary &nbsp; · &nbsp; Music</div>
-   </div>
-   <div class="teacher-mini-card">
-    <img id="tnOwnerPhoto" class="tn-hero-owner-photo" alt="Fotografía de Teacher Nessa" decoding="async" loading="lazy"/>
-    <span class="avatar-placeholder" id="tnOwnerInitials" aria-hidden="true">TN</span>
-    <span><strong>Teacher Nessa</strong><small>English teacher · Author · Creator</small></span>
-   </div>
-  </div>
- </div>
-</section>
+<section class="hero" id="inicio"><div class="container hero-grid">
+<div class="hero-copy"><span class="eyebrow"><span class="dot"></span> MADE FOR THE CLASSROOM · 2026—27</span>
+<h1>El inglés<br>se <span class="highlight">vive,</span><br>se <span class="script">canta</span><br>y se crea<span style="color:var(--pink)">.</span></h1>
+<p class="lead">¡Bienvenidos a Teacher Nessa! Gramática y vocabulario en inglés para 1.º y 2.º de ESO, rúbricas, canciones y actividades de Atención Educativa en español para 1.º ESO.</p>
+<div class="hero-actions"><a class="btn btn-pink" href="#recursos">Explorar materiales <span aria-hidden="true">↗</span></a><a class="btn btn-yellow" href="#musica">Rincón musical <span aria-hidden="true">♫</span></a></div>
+<p class="muted-note">Recursos gratuitos para uso educativo · Materiales sujetos a revisión de derechos y privacidad antes de compartir sus originales.</p>
+</div>
+<div class="hero-art"><img class="tn-hero-owner-photo" id="tnOwnerPhoto" alt="Fotografía de Teacher Nessa"/><div class="art-board"><div class="pin"></div><div class="art-ribbon">✦ TEACHER NESSA ORIGINALS ✦</div>
+<svg class="art-svg" viewBox="0 0 580 560" role="img" aria-label="Ilustración original de un micrófono rosa, gafas negras, un cuaderno y estrellas para Teacher Nessa">
+ <defs><filter id="sh"><feDropShadow dx="6" dy="7" stdDeviation="0" flood-color="#191920"/></filter></defs>
+ <g transform="translate(34 108) rotate(-8 250 210)">
+  <rect x="46" y="128" width="324" height="320" rx="26" fill="#ffedf8" stroke="#191920" stroke-width="6" filter="url(#sh)" />
+  <path d="M67 170h282 M67 210h282 M67 250h282 M67 290h282 M67 330h282 M67 370h282" stroke="#a7d4f7" stroke-width="3" stroke-dasharray="8 12"/>
+  <rect x="102" y="174" width="233" height="81" rx="12" fill="#ffe25c" stroke="#191920" stroke-width="5" />
+  <text x="122" y="207" font-size="27" font-family="Arial Black,Impact" font-weight="900" fill="#191920">HELLO,</text>
+  <text x="122" y="242" font-size="31" font-family="Arial Black,Impact" font-weight="900" fill="#f637a4">CLASS!</text>
+  <path d="M107 313l28 23 35-43 M110 380l28 21 35-42" fill="none" stroke="#f637a4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="188" y="321" font-size="23" font-family="Arial" font-weight="800">Learn</text><text x="188" y="386" font-size="23" font-family="Arial" font-weight="800">Create</text>
+ </g>
+ <g transform="translate(226 72) rotate(17 145 180)" filter="url(#sh)">
+  <rect x="92" y="150" width="112" height="239" rx="26" fill="#f637a4" stroke="#191920" stroke-width="9"/>
+  <rect x="88" y="44" width="120" height="176" rx="59" fill="#fb4caa" stroke="#191920" stroke-width="9"/>
+  <path d="M95 90h105M95 115h105M95 140h105M95 165h105" stroke="#ffd4ec" stroke-width="11"/>
+  <rect x="126" y="384" width="45" height="62" rx="8" fill="#202027" />
+  <rect x="67" y="434" width="157" height="19" rx="8" fill="#202027"/>
+ </g>
+ <g transform="translate(110 47) rotate(-11 110 55)"><rect x="12" y="38" width="99" height="78" rx="34" fill="none" stroke="#191920" stroke-width="17"/><rect x="125" y="38" width="99" height="78" rx="34" fill="none" stroke="#191920" stroke-width="17"/><path d="M110 67q8 -11 16 0M10 58l-12 -12M225 58l14 -12" fill="none" stroke="#191920" stroke-width="14" stroke-linecap="round"/></g>
+ <path d="M405 53l15 42 42 15-42 15-15 42-15-42-42-15 42-15z" fill="#ffe25c" stroke="#191920" stroke-width="5"/>
+ <path d="M67 33l8 23 23 8-23 8-8 23-8-23-23-8 23-8z" fill="#f637a4" stroke="#191920" stroke-width="4"/>
+ <path d="M485 342l9 29 29 9-29 9-9 29-9-29-29-9 29-9z" fill="#ffe25c" stroke="#191920" stroke-width="5"/>
+ <path d="M449 232q8-26 30-16q15 10-3 32q-15 13-22 21q-6-14-22-27q-13-14 0-26q12-9 17 16z" fill="#f637a4" stroke="#191920" stroke-width="5"/>
+ <g fill="none" stroke="#191920" stroke-linecap="round" stroke-width="5"><path d="M54 448q-26 16-14 46m9-27l-28 -1m44 7l-18 25"/><path d="M516 165q26 15 18 49m-15-24l25-6m-40 26l22 17"/></g>
+</svg><div class="poster-cloud">SING IT.<br><span class="pink">LEARN IT.</span><br>LOVE IT.</div><div class="poster-bottom">GRAMMAR · VOCABULARY<br>SONGS · ENGLISH</div></div><div class="hero-bubble">B1 +<br>GOOD<br>VIBES ✦</div></div>
+</div></section>
 <div class="mini-strip" aria-hidden="true"><div class="container strip-inner"><span>✳ GRAMMAR</span><b>✦</b><span>VOCABULARY</span><b>✦</b><span>TEACHER NESSA SONGS</span><b>✦</b><span>ENGLISH</span></div></div>
 <section class="section resources" id="recursos"><div class="container"><div class="section-top"><div><span class="section-label">✦ EXPLORE THE COLLECTION</span><h2>Aprende y crea <span>con Teacher Nessa.</span></h2></div><p>Recursos originales desde septiembre de 2026, organizados en Inglés de 1.º ESO, Inglés de 2.º ESO y Atención Educativa de 1.º ESO en español.</p></div>
 <div class="search-console"><div class="console-top"><div class="count"><strong id="count">0</strong> materiales</div><p class="hint">Busca «Present Perfect», «slang», «rúbrica», «empatía» o «frustración»</p></div>
@@ -225,7 +150,7 @@ footer .footer-brand{font-family:inherit;font-weight:850}
 <label class="only-download"><input type="checkbox" id="onlyDownload"> Mostrar solo materiales descargables</label><div id="resultGrid" class="resource-grid" aria-live="polite"></div><div class="load-row"><button class="btn btn-yellow" id="loadMore">Mostrar más materiales ↓</button></div>
 <p class="small-note">Materiales de inglés en inglés; actividades de Atención Educativa de 1.º ESO en español. Incluimos rúbricas y canciones. No se publican programaciones, documentación administrativa ni información privada del alumnado. Los archivos pendientes de identificar no se ofrecen como descarga.</p>
 </div></section>
-<section class="section music-section" id="musica"><div class="container"><div class="music-head"><div><span class="section-label">✦ THE TEACHER NESSA MUSIC CLUB</span><h2>Grammar has <span>a rhythm!</span></h2><p style="color:#d6cfdf;max-width:550px">Canciones, raps y vídeos para practicar inglés y trabajar las emociones. Porque aprender también puede sonar muy bien.</p><span class="tiny-tag" style="background:var(--yellow);color:var(--ink)">♫ MATERIAL MUSICAL EDUCATIVO</span></div><div class="vinyl" aria-label="Vinilo giratorio original Teacher Nessa" role="img"></div></div>
+<section class="section music-section" id="musica"><div class="container"><div class="music-head"><div><span class="section-label">✦ THE TEACHER NESSA MUSIC CLUB</span><h2>Grammar has <span>a rhythm!</span></h2><p style="color:#d6cfdf;max-width:550px">Canciones, raps y vídeos para practicar inglés y trabajar las emociones. Porque aprender también puede sonar muy bien.</p><span class="tiny-tag" style="background:var(--yellow);color:var(--ink)">♫ MATERIAL MUSICAL EDUCATIVO</span></div><div class="vinyl" aria-label="Vinilo ilustrado decorativo" role="img"></div></div>
 <div id="musicClassGroups" class="music-shelves" aria-live="polite"></div>
 <p class="music-disclaimer">Los audios pendientes de comprobar no se ofrecen como reproductores. Las letras y pósteres musicales disponibles están en la biblioteca de recursos.</p>
 
@@ -287,37 +212,6 @@ function initMusicPlayers(){
  });
 }
 initMusicPlayers();
-// Show the existing original song/lyric files in the Music Club, without
-// presenting unverified audio as playable or changing the rotating vinyl.
-(function showOriginalSongFiles(){
- const host=document.getElementById('musicClassGroups');
- if(!host)return;
- const tracks=MATERIALS.filter(item=>item.kind==='Canciones'
-  && typeof item.download==='string'
-  && /^recursos\/[a-zA-Z0-9_.\/%-]+\.(pdf|docx)$/i.test(item.download));
- if(!tracks.length)return;
- const shelf=document.createElement('section');
- shelf.className='music-shelf';
- const heading=document.createElement('h3');
- heading.className='music-shelf-title';
- heading.textContent='Letras, fichas y pósteres musicales originales';
- const grid=document.createElement('div');
- grid.className='music-cards';
- tracks.forEach(item=>{
-  const card=document.createElement('article');card.className='music-card';
-  const label=document.createElement('span');label.className='track';
-  label.textContent=item.course_label||'Teacher Nessa';
-  const title=document.createElement('h3');title.textContent=item.title;
-  const desc=document.createElement('p');
-  desc.textContent=item.description||'Material musical original de Teacher Nessa.';
-  const link=document.createElement('a');
-  link.className='btn btn-yellow';link.href=item.download;
-  link.setAttribute('download',item.file||'teacher-nessa');
-  link.textContent='Ver o descargar el original';
-  card.append(label,title,desc,link);grid.appendChild(card);
- });
- shelf.append(heading,grid);host.appendChild(shelf);
-})();
 const COURSE_ORDER=[
  {id:'1ESO',label:'Inglés · 1.º ESO'},
  {id:'2ESO',label:'Inglés · 2.º ESO'},
@@ -439,7 +333,7 @@ render();showQuiz();
  const notice=document.querySelector('.hero .muted-note');if(notice&&cfg.notice)notice.textContent=cfg.notice;
  const img=document.getElementById('tnOwnerPhoto');
  if(img && cfg.hero_image && typeof cfg.hero_image==='string' && /^(?:\/?assets\/uploads\/)[a-zA-Z0-9_.\/-]+$/.test(cfg.hero_image)){
-  img.src=cfg.hero_image.replace(/^\//,'');img.style.display='block';const placeholder=document.getElementById('tnOwnerInitials');if(placeholder)placeholder.style.display='none';
+  img.src=cfg.hero_image.replace(/^\//,'');img.style.display='block';
  }
  const insta=document.querySelector('a[href*="instagram.com"]');if(insta&&/^https:\/\/www\.instagram\.com\//.test(cfg.instagram||''))insta.href=cfg.instagram;
  const twitter=document.querySelector('a[href*="x.com/"]');if(twitter&&/^https:\/\/x\.com\//.test(cfg.x||''))twitter.href=cfg.x;
