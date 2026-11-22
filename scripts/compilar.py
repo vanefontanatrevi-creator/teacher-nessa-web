@@ -20,8 +20,8 @@ for folder in ['assets']:
  if src.exists():shutil.copytree(src,OUT/folder,dirs_exist_ok=True)
 site=json.loads((ROOT/'content'/'sitio.json').read_text(encoding='utf8'))
 materiales=[];public_files=set();seen=set();bad=[]
-# Only grammar, vocabulary, and songs belong in the public library.
-# Old records stay available in the editor / git history, but aren't published.
+# Publish original English grammar/vocabulary and music, Spanish values worksheets for 1 ESO,
+# and classroom rubrics. Curricular programming, private data and other subjects remain hidden.
 LEGACY_PUBLIC={
  'I4-03':'Gramática',
  'C1-01':'Gramática',
@@ -30,8 +30,16 @@ LEGACY_PUBLIC={
  'I4-05':'Canciones',
  'I4-06':'Canciones',
  'E3-06':'Canciones',
+ 'I1-10':'Rúbricas',
+ 'I2-16':'Vocabulario',
+ 'E3-15':'Canciones',
+ 'A1-05':'Atención Educativa',
+ 'A1-11':'Atención Educativa',
+ 'A1-14':'Atención Educativa',
+ 'A2-04':'Atención Educativa',
 }
-PUBLIC_KINDS={'Gramática','Vocabulario','Canciones'}
+PUBLIC_KINDS={'Gramática','Vocabulario','Canciones','Rúbricas','Atención Educativa'}
+LEVEL_ORDER={'1ESO':0,'2ESO':1,'ATENCION':2,'AMBOS':3}
 AUDIO_TYPES={'.mp3','.m4a','.ogg','.wav'}
 VIDEO_TYPES={'.mp4','.webm'}
 SUPPORTED={'.pdf','.png','.jpg','.jpeg','.webp','.docx','.mp3','.m4a','.ogg','.wav','.mp4','.webm'}
@@ -47,14 +55,29 @@ for file in sorted((ROOT/'content'/'materiales').glob('*.json')):
  if record.get('category')=='Tutoría 2.º ESO':continue
  kind=record.get('public_kind') or LEGACY_PUBLIC.get(code,'')
  if kind not in PUBLIC_KINDS:continue
+ category=record.get('category','')
+ if category=='Atención Educativa':
+  level='ATENCION'
+ elif category=='Inglés 1.º ESO':
+  level='1ESO'
+ elif category=='Inglés 2.º ESO':
+  level='2ESO'
+ elif category=='Inglés 1.º y 2.º':
+  level='AMBOS'
+ else:
+  continue  # Never expose school administrative or personal collections.
+ if level=='ATENCION' and kind!='Atención Educativa' and kind!='Canciones':continue
+ if kind=='Atención Educativa' and level!='ATENCION':continue
  if record.get('rights_checked') is not True or record.get('privacy_checked') is not True:continue
  entry={
   'id':code,'title':record.get('title','Recurso sin título'),
   'description':record.get('description',''),
   'usage':record.get('usage',''),
-  'category':record.get('category',''),
+  'category':category,
   'topic':record.get('topic',''),
-  'kind':kind,'music_group':record.get('music_group',''),
+  'kind':kind,'level':level,
+  'course_label':{'1ESO':'Inglés · 1.º ESO','2ESO':'Inglés · 2.º ESO','AMBOS':'Inglés · 1.º y 2.º ESO','ATENCION':'Atención Educativa · 1.º ESO'}[level],
+  'music_group':record.get('music_group',''),
   'file':record.get('reference_file') or 'Material de Teacher Nessa',
   'section':code.split('-')[0],
   'download':None,'downloads':[],'audio':None,'video':None,
@@ -95,7 +118,7 @@ for file in sorted((ROOT/'content'/'materiales').glob('*.json')):
  else:
   continue  # Do not advertise a resource without a real published file.
  materiales.append(entry)
-materiales.sort(key=lambda x:(('Gramática','Vocabulario','Canciones').index(x['kind']),x['id']))
+materiales.sort(key=lambda x:(LEVEL_ORDER.get(x['level'],99),('Gramática','Vocabulario','Canciones','Rúbricas','Atención Educativa').index(x['kind']),x['id']))
 # Copy only the explicitly enabled downloads, never the whole private review library.
 for relative in sorted(public_files):
  dest=OUT/relative;dest.parent.mkdir(parents=True,exist_ok=True)
