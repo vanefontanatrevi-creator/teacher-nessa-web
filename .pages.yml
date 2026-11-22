@@ -15,7 +15,7 @@ media:
     categories: [image]
 content:
   - name: material
-    label: Biblioteca de materiales
+    label: Materiales revisados de Ingles y Atencion Educativa
     type: collection
     path: content/materiales
     format: json
@@ -39,7 +39,7 @@ content:
         label: Ejemplo de uso en clase
         type: text
       - name: category
-        label: Curso o categoria
+        label: Curso: Ingles 1 ESO, Ingles 2 ESO, ambos o Atencion Educativa de 1 ESO
         type: select
         required: true
         options:
@@ -51,8 +51,8 @@ content:
         label: Tipo de material para la web publica
         type: select
         options:
-          values: ["Gramática", "Vocabulario", "Canciones"]
-        description: "SOLO estos tres tipos. Si queda sin seleccionar la ficha no se mostrara en la web."
+          values: ["Gramática", "Vocabulario", "Canciones", "Rúbricas", "Atención Educativa"]
+        description: "Inglés 1.º y 2.º ESO: gramática, vocabulario, canciones y rúbricas. Atención Educativa: materiales en español de 1.º ESO. No publicar programaciones ni documentos internos."
       - name: music_group
         label: Grupo real de esta cancion (solo MP3)
         type: select
