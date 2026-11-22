@@ -20,58 +20,82 @@ for folder in ['assets']:
  if src.exists():shutil.copytree(src,OUT/folder,dirs_exist_ok=True)
 site=json.loads((ROOT/'content'/'sitio.json').read_text(encoding='utf8'))
 materiales=[];public_files=set();seen=set();bad=[]
+# Only grammar, vocabulary, and songs belong in the public library.
+# Old records stay available in the editor / git history, but aren't published.
+LEGACY_PUBLIC={
+ 'I4-03':'Gramática',
+ 'C1-01':'Gramática',
+ 'E3-07':'Canciones',
+ 'I4-13':'Canciones',
+ 'I4-05':'Canciones',
+ 'I4-06':'Canciones',
+ 'E3-06':'Canciones',
+}
+PUBLIC_KINDS={'Gramática','Vocabulario','Canciones'}
+AUDIO_TYPES={'.mp3','.m4a','.ogg','.wav'}
+VIDEO_TYPES={'.mp4','.webm'}
+SUPPORTED={'.pdf','.png','.jpg','.jpeg','.webp','.docx','.mp3','.m4a','.ogg','.wav','.mp4','.webm'}
+GROUPS={'1A','1B','1C','2A','2B','AE','GENERAL'}
 for file in sorted((ROOT/'content'/'materiales').glob('*.json')):
  try:record=json.loads(file.read_text(encoding='utf8'))
- except Exception as e: raise ValueError(f'JSON inválido: {file.name}: {e}')
- code=record.get('id',file.stem)
+ except Exception as e:raise ValueError(f'JSON inválido: {file.name}: {e}')
+ code=str(record.get('id',file.stem))
  if code in seen:raise ValueError(f'ID repetido: {code}')
  seen.add(code)
  if not record.get('published',False):continue
- # Excluir siempre las fichas internas de la versión pública.
- if record.get('internal') or str(code).startswith('T1-') or str(code) in {'I1-12','E1-12','A1-03','I1-06','E1-07','I1-09','E1-10'}:continue
- if record.get('category') == 'Tutoría 2.º ESO':continue
- category=record.get('category','Inglés 1.º ESO')
+ if record.get('internal') or code.startswith('T1-'):continue
+ if record.get('category')=='Tutoría 2.º ESO':continue
+ kind=record.get('public_kind') or LEGACY_PUBLIC.get(code,'')
+ if kind not in PUBLIC_KINDS:continue
+ if record.get('rights_checked') is not True or record.get('privacy_checked') is not True:continue
  entry={
-  'id':str(code),'title':record.get('title','Recurso sin título'),
+  'id':code,'title':record.get('title','Recurso sin título'),
   'description':record.get('description',''),
   'usage':record.get('usage',''),
-  'category':category,'topic':record.get('topic',''),
-  'music_group':record.get('music_group',''), 'audio':None,
-  'file':record.get('reference_file') or 'Sin fichero identificado',
-  'section':str(code).split('-')[0], 'download':None,
-  'access':'Ficha de catálogo. Descarga pendiente de revisión o de archivo.',
+  'category':record.get('category',''),
+  'topic':record.get('topic',''),
+  'kind':kind,'music_group':record.get('music_group',''),
+  'file':record.get('reference_file') or 'Material de Teacher Nessa',
+  'section':code.split('-')[0],
+  'download':None,'downloads':[],'audio':None,'video':None,
+  'access':'Recurso original revisado y disponible para uso educativo.'
  }
- # Avoid making internal files discoverable in the compiled website.
- if record.get('internal') or str(code).startswith('T1-'):
-  entry['file']='Uso interno · versión pública sin datos personales'
-  entry['access']='Ficha informativa. No se publican los originales internos de Tutoría.'
+ requested=[record.get('asset'),record.get('extra_asset')]
+ visited=set()
+ for source in requested:
+  path=str(source or '').lstrip('/')
+  if path in visited or not path:continue
+  visited.add(path)
+  if not path.startswith('recursos/') or '..' in Path(path).parts:continue
+  original=ROOT/path
+  if not original.is_file() or original.suffix.lower() not in SUPPORTED:
+   bad.append(f'{code}: archivo indicado no encontrado o formato no permitido: {path}')
+   continue
+  suffix=original.suffix.lower()
+  is_media=suffix in AUDIO_TYPES or suffix in VIDEO_TYPES
+  if is_media:
+   verified=(record.get('audio_verified') is True and record.get('music_group') in GROUPS)
+   if verified and record.get('listen_enabled') is True:
+    if suffix in AUDIO_TYPES and entry['audio'] is None:entry['audio']=path
+    if suffix in VIDEO_TYPES and entry['video'] is None:entry['video']=path
+    public_files.add(path)
+   elif record.get('listen_enabled'):
+    bad.append(f'{code}: audio/vídeo sin verificación y grupo confirmados')
+   if verified and record.get('download_enabled') is True:
+    entry['downloads'].append({'url':path,'name':original.name})
+    public_files.add(path)
+  elif record.get('download_enabled') is True:
+   entry['downloads'].append({'url':path,'name':original.name})
+   public_files.add(path)
+ if entry['downloads']:
+  entry['download']=entry['downloads'][0]['url']
+  entry['file']=entry['downloads'][0]['name']
+ elif entry['audio'] or entry['video']:
+  entry['file']=Path(entry['audio'] or entry['video']).name
  else:
-  asset=str(record.get('asset') or '').lstrip('/')
-  if asset.startswith('recursos/') and '..' not in Path(asset).parts and (ROOT/asset).is_file():
-   rights_ok=record.get('rights_checked') is True and record.get('privacy_checked') is True
-   is_audio=Path(asset).suffix.lower() in {'.mp3','.m4a','.ogg','.wav'}
-   if is_audio:
-    groups={'1A','1B','1C','2A','2B','AE','GENERAL'}
-    verified=(record.get('audio_verified') is True and record.get('music_group') in groups)
-    listen=record.get('listen_enabled') is True
-    download=record.get('download_enabled') is True
-    if rights_ok and verified and (listen or download):
-     public_files.add(asset)
-     entry['file']=Path(asset).name
-     if listen:entry['audio']=asset
-     if download:entry['download']=asset
-     entry['access']='Audio verificado y disponible para escuchar.' if listen and not download else 'Audio verificado para uso educativo.'
-    elif listen or download:
-     bad.append(f'{code}: audio pendiente de verificacion de grupo, privacidad o derechos; no se publica')
-   elif rights_ok and record.get('download_enabled') is True:
-    entry['download']=asset
-    entry['file']=Path(asset).name
-    entry['access']='Recurso original disponible para descarga gratuita y educativa.'
-    public_files.add(asset)
-  elif record.get('download_enabled') or record.get('listen_enabled'):
-   bad.append(f'{code}: archivo no encontrado o ruta no valida')
+  continue  # Do not advertise a resource without a real published file.
  materiales.append(entry)
-materiales.sort(key=lambda x:(next((i for i,p in enumerate(('I','E','C','A','T')) if x['id'].startswith(p)),5),x['id']))
+materiales.sort(key=lambda x:(('Gramática','Vocabulario','Canciones').index(x['kind']),x['id']))
 # Copy only the explicitly enabled downloads, never the whole private review library.
 for relative in sorted(public_files):
  dest=OUT/relative;dest.parent.mkdir(parents=True,exist_ok=True)
@@ -89,12 +113,7 @@ for nfile in (ROOT/'content'/'novedades').glob('*.json'):
 (OUT/'datos'/'novedades.js').write_text('window.TN_NEWS='+json.dumps(news,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf8')
 
 (OUT/'datos'/'estado.json').write_text(json.dumps({'fichas_publicas':len(materiales),'descargas':len(public_files),'avisos':bad},ensure_ascii=False,indent=2),encoding='utf8')
-# Public guide available in the site
-src=ROOT/'descargas'/'GUIA_DE_USO.html';
-if src.exists():shutil.copy2(src,OUT/'descargas'/'GUIA_DE_USO.html')
-src=ROOT/'descargas'/'Catalogo_Teacher_Nessa_Publico.pdf'
-if src.exists():shutil.copy2(src,OUT/'descargas'/src.name)
-# GitHub Pages domain: optional and only when configured / purchased
+# Old general catalogs are deliberately excluded: they contain out-of-scope material.\n# GitHub Pages domain: optional and only when configured / purchased
 cname=ROOT/'CNAME'
 if cname.exists():shutil.copy2(cname,OUT/'CNAME')
 print(f'Sitio generado. Fichas: {len(materiales)} · Descargas: {len(public_files)}')
