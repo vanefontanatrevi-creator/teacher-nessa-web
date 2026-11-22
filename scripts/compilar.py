@@ -139,7 +139,7 @@ for file in sorted((ROOT/'content'/'posters').glob('*.json')):
  if level not in LEVEL_ORDER:continue
  if level=='ATENCION' and kind not in {'Atención Educativa','Canciones'}:continue
  if kind=='Atención Educativa' and level!='ATENCION':continue
- path=str(record.get('asset') or '').lstrip('/')
+ path=str(record.get('asset_pdf') or record.get('asset') or '').lstrip('/')
  if not path.startswith('recursos/') or '..' in Path(path).parts:continue
  original=ROOT/path
  if not original.is_file() or original.suffix.lower() not in {'.webp','.png','.jpg','.jpeg','.pdf'}:

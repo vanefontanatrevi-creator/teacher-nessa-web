@@ -7,6 +7,12 @@ media:
     output: /recursos
     rename: safe
     categories: [image, document, video, audio, spreadsheet]
+  - name: posters
+    label: Imágenes de pósteres originales de Teacher Nessa
+    input: recursos/posters
+    output: /recursos/posters
+    rename: safe
+    categories: [image]
   - name: photos
     label: Imagenes PUBLICAS
     input: assets/uploads
@@ -148,11 +154,16 @@ content:
         options:
           values: ["Gramática", "Vocabulario", "Canciones", "Rúbricas", "Atención Educativa"]
       - name: asset
-        label: Imagen o PDF original (reemplazable)
+        label: Imagen original del póster (PNG, JPG, WEBP)
+        type: image
+        options:
+          media: posters
+      - name: asset_pdf
+        label: PDF original del póster (opcional, se usa en lugar de la imagen)
         type: file
-        required: true
         options:
           media: documents
+          extensions: [pdf]
       - name: published
         label: Mostrar este poster en la web
         type: boolean
