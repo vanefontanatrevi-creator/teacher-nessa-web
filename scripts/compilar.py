@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'_site'
 if OUT.exists(): shutil.rmtree(OUT)
 OUT.mkdir(parents=True)
-for name in ['index.html', 'editar.html', '404.html', 'robots.txt', '.nojekyll']:
+for name in ['index.html', 'editar.html', 'prueba-posters.html', '404.html', 'robots.txt', '.nojekyll']:
  source=ROOT/name
  if source.exists():shutil.copy2(source,OUT/name)
 (OUT/'datos').mkdir(exist_ok=True)

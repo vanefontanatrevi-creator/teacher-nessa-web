@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f637a4">
+<meta name="description" content="Muestra visual de pósteres originales Teacher Nessa, sin tarjetas de catálogo.">
+<title>Teacher Nessa · Prueba de galería de pósteres originales</title>
+<style>
+:root{--pink:#f637a4;--yellow:#ffe25c;--ink:#191920;--paper:#fffafa;--muted:#645d68}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff6fc;color:var(--ink);font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+button,a{font:inherit}
+a{color:inherit}
+.container{max-width:1240px;margin:auto;padding:0 clamp(17px,3.5vw,42px)}
+.sitehead{position:sticky;top:0;z-index:12;background:rgba(255,253,252,.97);border-bottom:2px solid var(--ink)}
+.headrow{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:76px}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;font-size:clamp(1.1rem,3vw,1.6rem);font-weight:1000;letter-spacing:-.075em;white-space:nowrap}
+.brand-mark{border:2px solid var(--ink);border-radius:11px;transform:rotate(-7deg);background:var(--pink);color:white;padding:5px 8px;box-shadow:3px 3px 0 var(--ink);letter-spacing:-.04em}
+.teacher{color:var(--pink)}
+.nessa{color:#ffe25c;text-shadow:-1px -1px var(--ink),1px -1px var(--ink),-1px 1px var(--ink),1px 1px var(--ink)}
+.back{font-size:.82rem;font-weight:850;text-decoration:none;border:2px solid var(--ink);border-radius:12px;padding:9px 12px;background:var(--yellow);box-shadow:3px 3px 0 var(--ink)}
+.hero{text-align:center;padding:38px 0 22px}
+.eyebrow{color:#b22476;font-weight:950;font-size:.75rem;letter-spacing:.15em}
+h1{font-family:Impact,'Arial Black',system-ui,sans-serif;font-size:clamp(2.4rem,7vw,5.3rem);line-height:.98;letter-spacing:-.045em;margin:15px auto 20px;max-width:870px}
+h1 em{color:var(--pink);font-style:normal}
+.lead{font-size:clamp(.95rem,1.6vw,1.18rem);color:#60545f;max-width:700px;margin:0 auto 22px;line-height:1.5}
+.note{display:inline-block;background:#fff;border:1px solid #ead9e6;border-radius:12px;padding:10px 14px;font-size:.83rem;color:#64546a}
+.controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:28px 0 34px}
+.filter{background:#fff;border:2px solid var(--ink);border-radius:13px;font-weight:850;padding:12px 17px;cursor:pointer}
+.filter[aria-pressed=true]{background:var(--yellow);box-shadow:4px 4px 0 var(--ink)}
+.section-title{font-size:1.12rem;font-weight:900;margin:0 0 16px}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 20px;align-items:start;padding-bottom:60px}
+.poster{margin:0;min-width:0}
+.poster-link{display:block;line-height:0;background:#fff;border:2px solid var(--ink);border-radius:12px;box-shadow:6px 7px 0 var(--ink);overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.poster-link:hover,.poster-link:focus-visible{transform:translate(3px,3px);box-shadow:3px 4px 0 var(--ink)}
+.poster img{display:block;width:100%;height:auto;object-fit:contain;aspect-ratio:auto}
+.poster figcaption{display:flex;gap:10px;justify-content:space-between;align-items:start;padding:13px 2px 0;font-weight:800;font-size:.88rem}
+.poster figcaption a{font-size:.79rem;color:#b02475;white-space:nowrap}
+.poster[hidden]{display:none}
+.bottom-note{text-align:center;border-top:2px solid #f6d8ea;padding:32px 20px 45px;color:#62556a;font-size:.89rem}
+dialog{padding:0;border:0;border-radius:14px;background:#151319;color:white;box-shadow:0 22px 70px #000a;max-width:min(95vw,1060px);max-height:94vh;width:100%}
+dialog::backdrop{background:#141019dd}
+.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 15px}
+.dialog-title{font-weight:900;font-size:.93rem}
+.dialog-close{border:0;border-radius:8px;background:var(--yellow);font-size:1.4rem;font-weight:900;min-width:38px;height:38px;cursor:pointer}
+.dialog-body{overflow:auto;max-height:calc(94vh - 115px);text-align:center;background:#22202a}
+.dialog-body img{max-width:100%;max-height:none;width:auto;height:auto;display:block;margin:0 auto}
+.dialog-foot{display:flex;justify-content:flex-end;padding:10px 16px}
+.dialog-foot a{background:var(--yellow);color:var(--ink);text-decoration:none;border-radius:8px;padding:9px 15px;font-weight:900}
+@media(max-width:1000px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:630px){.gallery{grid-template-columns:1fr;gap:26px}.poster-link{max-width:520px;margin:auto}.headrow{min-height:68px}.back{font-size:.73rem;padding:8px}.hero{padding-top:27px}.poster figcaption{max-width:520px;margin:auto}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="sitehead"><div class="container headrow"><a class="brand" href="index.html"><span class="brand-mark">TN</span><span class="teacher">Teacher</span><span class="nessa">Nessa</span> ✳</a><a class="back" href="index.html">← Web original</a></div></header>
+<main class="container">
+<section class="hero"><span class="eyebrow">TEACHER NESSA ORIGINALS · PRUEBA VISUAL</span><h1>Los pósteres, <em>tal como son.</em></h1><p class="lead">Aquí se ven los dibujos originales completos, no fichas de catálogo. Pulsa cualquier póster para ampliarlo o abrir su imagen original.</p><p class="note">Esta es una prueba con 8 pósteres reales. La biblioteca actual no se ha sustituido.</p></section>
+<nav class="controls" aria-label="Filtrar galería de prueba"><button class="filter" data-level="all" aria-pressed="true">Todos los pósteres</button><button class="filter" data-level="1ESO" aria-pressed="false">Inglés · 1.º ESO</button><button class="filter" data-level="2ESO" aria-pressed="false">Inglés · 2.º ESO</button></nav>
+<h2 class="section-title" id="sectionTitle">Pósteres originales · 8</h2>
+<section class="gallery" id="posterGallery" aria-label="Galería de pósteres originales">
+<figure class="poster" data-level="1ESO"><a class="poster-link" href="recursos/posters/Calpurnia_Tate_Grammar_Vocabulary_Ch_02.webp" data-poster data-title="Calpurnia Tate · Capítulo 2" aria-label="Ampliar póster original: Calpurnia Tate · Capítulo 2"><img src="recursos/posters/Calpurnia_Tate_Grammar_Vocabulary_Ch_02.webp" alt="Póster original Teacher Nessa: Calpurnia Tate · Capítulo 2" loading="eager" decoding="async"></a><figcaption><span>Calpurnia Tate · Capítulo 2</span><a href="recursos/posters/Calpurnia_Tate_Grammar_Vocabulary_Ch_02.webp" target="_blank" rel="noopener noreferrer" aria-label="Abrir original de Calpurnia Tate · Capítulo 2">Abrir original ↗</a></figcaption></figure>
+<figure class="poster" data-level="1ESO"><a class="poster-link" href="recursos/posters/Calpurnia_Tate_Grammar_Vocabulary_Ch_03.webp" data-poster data-title="Calpurnia Tate · Capítulo 3" aria-label="Ampliar póster original: Calpurnia Tate · Capítulo 3"><img src="recursos/posters/Calpurnia_Tate_Grammar_Vocabulary_Ch_03.webp" alt="Póster original Teacher Nessa: Calpurnia Tate · Capítulo 3" loading="eager" decoding="async"></a><figcaption><span>Calpurnia Tate · Capítulo 3</span><a href="recursos/posters/Calpurnia_Tate_Grammar_Vocabulary_Ch_03.webp" target="_blank" rel="noopener noreferrer" aria-label="Abrir original de Calpurnia Tate · Capítulo 3">Abrir original ↗</a></figcaption></figure>
+<figure class="poster" data-level="1ESO"><a class="poster-link" href="recursos/posters/Calpurnia_Tate_Grammar_Vocabulary_Ch_04.webp" data-poster data-title="Calpurnia Tate · Capítulo 4" aria-label="Ampliar póster original: Calpurnia Tate · Capítulo 4"><img src="recursos/posters/Calpurnia_Tate_Grammar_Vocabulary_Ch_04.webp" alt="Póster original Teacher Nessa: Calpurnia Tate · Capítulo 4" loading="lazy" decoding="async"></a><figcaption><span>Calpurnia Tate · Capítulo 4</span><a href="recursos/posters/Calpurnia_Tate_Grammar_Vocabulary_Ch_04.webp" target="_blank" rel="noopener noreferrer" aria-label="Abrir original de Calpurnia Tate · Capítulo 4">Abrir original ↗</a></figcaption></figure>
+<figure class="poster" data-level="1ESO"><a class="poster-link" href="recursos/posters/Cartel_Animales_Viajes.webp" data-poster data-title="Animales y viajes" aria-label="Ampliar póster original: Animales y viajes"><img src="recursos/posters/Cartel_Animales_Viajes.webp" alt="Póster original Teacher Nessa: Animales y viajes" loading="lazy" decoding="async"></a><figcaption><span>Animales y viajes</span><a href="recursos/posters/Cartel_Animales_Viajes.webp" target="_blank" rel="noopener noreferrer" aria-label="Abrir original de Animales y viajes">Abrir original ↗</a></figcaption></figure>
+<figure class="poster" data-level="1ESO"><a class="poster-link" href="recursos/posters/Poster_Gram_Ingles.webp" data-poster data-title="Grammar: repaso" aria-label="Ampliar póster original: Grammar: repaso"><img src="recursos/posters/Poster_Gram_Ingles.webp" alt="Póster original Teacher Nessa: Grammar: repaso" loading="lazy" decoding="async"></a><figcaption><span>Grammar: repaso</span><a href="recursos/posters/Poster_Gram_Ingles.webp" target="_blank" rel="noopener noreferrer" aria-label="Abrir original de Grammar: repaso">Abrir original ↗</a></figcaption></figure>
+<figure class="poster" data-level="1ESO"><a class="poster-link" href="recursos/posters/Poster_Vocab_Animales_Viajes.webp" data-poster data-title="Vocabulary: animales y viajes" aria-label="Ampliar póster original: Vocabulary: animales y viajes"><img src="recursos/posters/Poster_Vocab_Animales_Viajes.webp" alt="Póster original Teacher Nessa: Vocabulary: animales y viajes" loading="lazy" decoding="async"></a><figcaption><span>Vocabulary: animales y viajes</span><a href="recursos/posters/Poster_Vocab_Animales_Viajes.webp" target="_blank" rel="noopener noreferrer" aria-label="Abrir original de Vocabulary: animales y viajes">Abrir original ↗</a></figcaption></figure>
+<figure class="poster" data-level="2ESO"><a class="poster-link" href="recursos/posters/Proyecto_Moda_Tendencias.webp" data-poster data-title="Fashion & Trends" aria-label="Ampliar póster original: Fashion & Trends"><img src="recursos/posters/Proyecto_Moda_Tendencias.webp" alt="Póster original Teacher Nessa: Fashion & Trends" loading="lazy" decoding="async"></a><figcaption><span>Fashion & Trends</span><a href="recursos/posters/Proyecto_Moda_Tendencias.webp" target="_blank" rel="noopener noreferrer" aria-label="Abrir original de Fashion & Trends">Abrir original ↗</a></figcaption></figure>
+<figure class="poster" data-level="2ESO"><a class="poster-link" href="recursos/posters/Teacher_Nessa_E3-04_Relative_Pronouns.webp" data-poster data-title="Relative Pronouns" aria-label="Ampliar póster original: Relative Pronouns"><img src="recursos/posters/Teacher_Nessa_E3-04_Relative_Pronouns.webp" alt="Póster original Teacher Nessa: Relative Pronouns" loading="lazy" decoding="async"></a><figcaption><span>Relative Pronouns</span><a href="recursos/posters/Teacher_Nessa_E3-04_Relative_Pronouns.webp" target="_blank" rel="noopener noreferrer" aria-label="Abrir original de Relative Pronouns">Abrir original ↗</a></figcaption></figure>
+</section>
+</main>
+<footer class="bottom-note">Prueba de diseño Teacher Nessa · 2026 · Imágenes originales existentes en la web, sin recortes ni recreaciones.</footer>
+<dialog id="zoomDialog" aria-label="Vista ampliada de póster original"><div class="dialog-head"><span class="dialog-title" id="dialogTitle">Póster original</span><button class="dialog-close" id="closeDialog" aria-label="Cerrar">×</button></div><div class="dialog-body"><img id="dialogImg" alt=""></div><div class="dialog-foot"><a id="originalLink" target="_blank" rel="noopener noreferrer">Abrir original ↗</a></div></dialog>
+<script>
+(()=>{
+ const gallery=document.getElementById('posterGallery'),buttons=Array.from(document.querySelectorAll('.filter')),posters=Array.from(gallery.querySelectorAll('.poster'));
+ const labels={all:'Pósteres originales', '1ESO':'Inglés · 1.º ESO','2ESO':'Inglés · 2.º ESO'};
+ buttons.forEach(button=>button.addEventListener('click',()=>{
+  const chosen=button.dataset.level;
+  buttons.forEach(b=>b.setAttribute('aria-pressed',b===button?'true':'false'));
+  const count=posters.reduce((n,p)=>{p.hidden=chosen!=='all'&&p.dataset.level!==chosen;return n+(p.hidden?0:1)},0);
+  document.getElementById('sectionTitle').textContent=labels[chosen]+' · '+count+' pósteres';
+ }));
+ const dialog=document.getElementById('zoomDialog'),zoom=document.getElementById('dialogImg'),caption=document.getElementById('dialogTitle'),original=document.getElementById('originalLink');
+ gallery.addEventListener('click',ev=>{
+  const link=ev.target.closest('[data-poster]');if(!link)return;
+  if(!dialog.showModal)return;
+  ev.preventDefault();zoom.src=link.getAttribute('href');zoom.alt='Póster original: '+link.dataset.title;caption.textContent=link.dataset.title;original.href=link.getAttribute('href');dialog.showModal();
+ });
+ document.getElementById('closeDialog').addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('click',ev=>{if(ev.target===dialog)dialog.close()});
+ dialog.addEventListener('close',()=>zoom.removeAttribute('src'));
+})();
+</script>
+</body></html>
