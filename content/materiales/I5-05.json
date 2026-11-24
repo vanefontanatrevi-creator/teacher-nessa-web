@@ -7,12 +7,13 @@
   "topic": "Misterio, Halloween y mediación",
   "reference_file": "Teacher_Nessa_Halloween_Simple_Game_1ESO.pdf",
   "published": true,
-  "download_enabled": false,
-  "rights_checked": false,
-  "privacy_checked": false,
-  "asset": "",
+  "download_enabled": true,
+  "rights_checked": true,
+  "privacy_checked": true,
+  "asset": "/recursos/Teacher_Nessa_I5-05_Original_Recuperado.pdf",
   "thumbnail": "",
   "featured": false,
   "internal": false,
-  "editor_notes": "El archivo original no está incluido en esta web pública. Se conserva su referencia para revisión; antes de compartir hay que incorporar una versión libre de datos privados y contenidos editoriales no autorizados."
+  "editor_notes": "Original Teacher Nessa revisado como ficha sin datos personales; mantener la comprobación de fuentes y derechos al reutilizar.",
+  "public_kind": "Vocabulario"
 }
