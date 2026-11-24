@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f637a4">
+<meta name="description" content="Galería de pósteres originales Teacher Nessa, clasificados por curso, con explicaciones, canciones y recursos educativos.">
+<title>Teacher Nessa · Galería de pósteres originales y Music Club</title>
+<style>
+:root{--pink:#f637a4;--yellow:#ffe25c;--ink:#191920;--paper:#fffafa;--muted:#645d68}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff6fc;color:var(--ink);font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+button,a{font:inherit}
+a{color:inherit}
+.container{max-width:1240px;margin:auto;padding:0 clamp(17px,3.5vw,42px)}
+.sitehead{position:sticky;top:0;z-index:12;background:rgba(255,253,252,.97);border-bottom:2px solid var(--ink)}
+.headrow{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:76px}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;font-size:clamp(1.1rem,3vw,1.6rem);font-weight:1000;letter-spacing:-.075em;white-space:nowrap}
+.brand-mark{border:2px solid var(--ink);border-radius:11px;transform:rotate(-7deg);background:var(--pink);color:white;padding:5px 8px;box-shadow:3px 3px 0 var(--ink);letter-spacing:-.04em}
+.teacher{color:var(--pink)}
+.nessa{color:#ffe25c;text-shadow:-1px -1px var(--ink),1px -1px var(--ink),-1px 1px var(--ink),1px 1px var(--ink)}
+.back{font-size:.82rem;font-weight:850;text-decoration:none;border:2px solid var(--ink);border-radius:12px;padding:9px 12px;background:var(--yellow);box-shadow:3px 3px 0 var(--ink)}
+.hero{text-align:center;padding:38px 0 22px}
+.eyebrow{color:#b22476;font-weight:950;font-size:.75rem;letter-spacing:.15em}
+h1{font-family:Impact,'Arial Black',system-ui,sans-serif;font-size:clamp(2.4rem,7vw,5.3rem);line-height:.98;letter-spacing:-.045em;margin:15px auto 20px;max-width:870px}
+h1 em{color:var(--pink);font-style:normal}
+.lead{font-size:clamp(.95rem,1.6vw,1.18rem);color:#60545f;max-width:700px;margin:0 auto 22px;line-height:1.5}
+.note{display:inline-block;background:#fff;border:1px solid #ead9e6;border-radius:12px;padding:10px 14px;font-size:.83rem;color:#64546a}
+.controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:28px 0 34px}
+.filter{background:#fff;border:2px solid var(--ink);border-radius:13px;font-weight:850;padding:12px 17px;cursor:pointer}
+.filter[aria-pressed=true]{background:var(--yellow);box-shadow:4px 4px 0 var(--ink)}
+.section-title{font-size:1.12rem;font-weight:900;margin:0 0 16px}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 20px;align-items:start;padding-bottom:60px}
+.poster{margin:0;min-width:0}
+.poster-link{display:block;line-height:0;background:#fff;border:2px solid var(--ink);border-radius:12px;box-shadow:6px 7px 0 var(--ink);overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.poster-link:hover,.poster-link:focus-visible{transform:translate(3px,3px);box-shadow:3px 4px 0 var(--ink)}
+.poster img{display:block;width:100%;height:auto;object-fit:contain;aspect-ratio:auto}
+.poster figcaption{display:flex;gap:10px;justify-content:space-between;align-items:start;padding:13px 2px 0;font-weight:800;font-size:.88rem}
+.poster figcaption a{font-size:.79rem;color:#b02475;white-space:nowrap}
+.poster[hidden]{display:none}
+.bottom-note{text-align:center;border-top:2px solid #f6d8ea;padding:32px 20px 45px;color:#62556a;font-size:.89rem}
+dialog{padding:0;border:0;border-radius:14px;background:#151319;color:white;box-shadow:0 22px 70px #000a;max-width:min(95vw,1060px);max-height:94vh;width:100%}
+dialog::backdrop{background:#141019dd}
+.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 15px}
+.dialog-title{font-weight:900;font-size:.93rem}
+.dialog-close{border:0;border-radius:8px;background:var(--yellow);font-size:1.4rem;font-weight:900;min-width:38px;height:38px;cursor:pointer}
+.dialog-body{overflow:auto;max-height:calc(94vh - 115px);text-align:center;background:#22202a}
+.dialog-body img{max-width:100%;max-height:none;width:auto;height:auto;display:block;margin:0 auto}
+.dialog-foot{display:flex;justify-content:flex-end;padding:10px 16px}
+.dialog-foot a{background:var(--yellow);color:var(--ink);text-decoration:none;border-radius:8px;padding:9px 15px;font-weight:900}
+@media(max-width:1000px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:630px){.gallery{grid-template-columns:1fr;gap:26px}.poster-link{max-width:520px;margin:auto}.headrow{min-height:68px}.back{font-size:.73rem;padding:8px}.hero{padding-top:27px}.poster figcaption{max-width:520px;margin:auto}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+.hero-cover{background:radial-gradient(circle at 10% 15%,#ffe7f4,transparent 39%),linear-gradient(116deg,#fffdfa,#fff5cc);border-bottom:3px solid var(--ink);overflow:hidden}
+.cover-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:45px;align-items:center;padding-top:66px;padding-bottom:64px}
+.cover-copy .eyebrow{display:inline-block;background:var(--yellow);border:2px solid var(--ink);padding:9px 13px;box-shadow:3px 4px var(--ink);transform:rotate(-1deg)}
+.cover-copy h1{font-size:clamp(3.1rem,7.2vw,6.6rem);margin:27px 0 25px;text-align:left;max-width:740px}
+.cover-copy h1 em{color:var(--pink)}
+.cover-lead{font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.6;max-width:630px;color:#524959;font-weight:500}
+.cover-pills{display:flex;gap:9px;flex-wrap:wrap;margin:26px 0 31px}
+.cover-pills span{font-size:.84rem;background:white;padding:7px 10px;border:1.5px solid var(--ink);border-radius:25px;font-weight:850}
+.cover-actions{display:flex;flex-wrap:wrap;gap:13px}
+.big-btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;border-radius:14px;border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:12px 19px;font-weight:900;text-decoration:none}
+.big-btn.pink{background:var(--pink);color:white}.big-btn.yellow{background:var(--yellow);color:var(--ink)}
+.cover-illustration{position:relative;min-height:480px;display:grid;place-items:center}
+.sheet{position:relative;width:min(100%,365px);aspect-ratio:4/5;background:#fff;border:4px solid var(--ink);border-radius:23px;box-shadow:13px 14px 0 var(--ink);transform:rotate(5deg);padding:33px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.sheet:before{content:"";position:absolute;inset:10px;border:2px dashed #ffd3eb;border-radius:17px}
+.sheet .s-stars{font-size:2rem;color:var(--pink);z-index:1}.bigmic{font-size:5.5rem;filter:drop-shadow(3px 4px 0 #222);z-index:1}
+.sheet strong{font-family:Impact,'Arial Black',sans-serif;font-size:clamp(2rem,4vw,3.1rem);line-height:1.02;z-index:1}
+.sheet strong span{color:var(--pink)}
+.sheet-caption{margin-top:17px;background:var(--yellow);border:2px solid var(--ink);padding:7px 12px;font-size:.72rem;font-weight:900;z-index:1}
+.tape{position:absolute;top:12px;left:8px;z-index:2;background:var(--pink);color:white;padding:10px 15px;border:2px solid var(--ink);font-family:monospace;font-weight:900;transform:rotate(-11deg)}
+.heartnote{position:absolute;bottom:0;right:0;color:var(--pink);font-size:8rem;transform:rotate(-11deg)}
+.marquee{background:#c9f0e2;border-bottom:2px solid var(--ink);font-family:monospace;font-weight:900;letter-spacing:.05em;font-size:.87rem;padding:14px 0;text-align:center}
+.library-section{padding-top:68px;padding-bottom:63px}
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:28px}
+.section-heading .eyebrow{font-weight:900;font-size:.8rem;letter-spacing:.14em}
+.section-heading h2{font-family:Impact,'Arial Black',sans-serif;font-size:clamp(2.3rem,6vw,4rem);letter-spacing:-.04em;margin:6px 0 0}
+.section-heading h2 em{color:var(--pink);font-style:normal}
+.section-heading p{max-width:440px;color:#665a69;font-size:.96rem;line-height:1.5;margin:0}
+.library-toolbar{display:flex;gap:17px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:29px}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap}
+.filter{padding:10px 15px;font-size:.87rem}
+.search-box{display:flex;align-items:center;border:2px solid var(--ink);background:#fff;box-shadow:3px 4px 0 var(--ink);border-radius:12px;padding:0 11px;min-width:min(100%,320px)}
+.search-box span{font-size:1.7rem;color:var(--pink)}
+.search-box input{padding:10px;border:0;outline:0;background:none;min-width:0;width:100%;font:inherit}
+.library-section .section-title{margin:0 0 24px}
+.gallery{gap:31px 23px;align-items:start}
+.poster-link img{display:block;width:100%;height:auto;object-fit:contain;aspect-ratio:auto}
+.poster{background:transparent}
+.poster figcaption{display:block;padding:13px 3px 0}
+.poster-name{font-weight:950;font-size:1.05rem;line-height:1.26;margin:0 0 7px}
+.poster-description{font-size:.87rem;line-height:1.55;color:#67576c;font-weight:450;margin:0 0 10px}
+.poster-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.8rem}
+.poster-tag{display:inline-block;border:1px solid #e5bfd8;border-radius:12px;background:#fff;padding:5px 9px;color:#9e216e;font-weight:850}
+.poster-meta a{color:#a61972;font-weight:900;white-space:nowrap}
+.empty-message{text-align:center;padding:44px 18px;background:#fff;border:2px dashed #eac9d9;border-radius:20px;margin:28px 0}
+.extras-section{background:#fffdfb;border-top:2px solid #eadce6;border-bottom:2px solid #eadce6;padding:58px 0}
+.extras-details{border:2px solid var(--ink);border-radius:18px;background:#fff;box-shadow:4px 5px 0 var(--yellow);overflow:hidden}
+.extras-details summary{cursor:pointer;font-weight:900;padding:19px 22px;background:#fffbea}
+.extras-details summary span{font-size:.83rem;color:#765a69}
+.extras-content{padding:16px 22px}
+.extras-heading{font-size:1.1rem;margin:23px 0 11px}
+.docrow{display:flex;align-items:center;gap:14px;padding:14px 3px;border-bottom:1px solid #e5dce2;text-decoration:none}
+.docrow .doc-icon{background:#ffe5f3;border:1px solid #cfa2bb;border-radius:10px;padding:10px;font-size:1.1rem}
+.docrow .doc-body{flex:1;min-width:0}.docrow strong{display:block;font-size:.94rem}.docrow small{display:block;color:#685f68;line-height:1.5}
+.docrow .openicon{font-weight:950;color:#be257b}
+.music-section{background:#191920;color:white;padding:75px 0 82px}
+.music-top{display:grid;grid-template-columns:1fr 320px;gap:35px;align-items:center}
+.music-top .eyebrow{color:#ffc6e4}
+.music-top h2{font-family:Impact,'Arial Black',sans-serif;font-size:clamp(2.75rem,6vw,4.9rem);line-height:1.01;letter-spacing:-.04em;text-align:left;margin:20px 0}
+.music-top h2 em{color:var(--yellow);font-style:normal}
+.music-top p{max-width:650px;color:#e4dce7;font-size:1.02rem;line-height:1.6;margin-bottom:27px}
+.record-wrap{display:grid;place-items:center;position:relative;min-height:315px}
+.vinyl{height:275px;width:275px;border:5px solid white;border-radius:50%;background:repeating-radial-gradient(circle,#25232b 0,#25232b 6px,#393441 7px,#1b1923 10px);box-shadow:14px 13px 0 var(--pink);animation:tn-spin 12s linear infinite;display:grid;place-items:center}
+.vinyl-label{background:var(--yellow);border:4px solid var(--ink);border-radius:50%;width:120px;height:120px;display:grid;place-items:center;font-family:Impact,'Arial Black',sans-serif;font-size:1.22rem;line-height:.95;text-align:center;color:var(--ink);transform:rotate(-12deg)}
+.record-star{position:absolute;right:10px;top:8px;font-size:3rem;color:var(--yellow)}
+@keyframes tn-spin{to{transform:rotate(360deg)}}
+.songs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px;margin-top:49px}
+.song-group{grid-column:1/-1;font-size:1.14rem;font-weight:900;margin:17px 0 0;color:var(--yellow)}
+.song{background:#fff;color:var(--ink);border-radius:18px;border:2px solid #000;box-shadow:5px 6px 0 var(--pink);padding:21px}
+.song .songkind{font:900 .72rem/1.5 monospace;color:#ae1e76}
+.song h3{font-size:1.17rem;line-height:1.25;margin:11px 0}
+.song p{font-size:.86rem;color:#625468;line-height:1.5}
+.song a{display:inline-flex;align-items:center;gap:6px;background:var(--yellow);border:2px solid var(--ink);border-radius:10px;padding:8px 11px;text-decoration:none;font-weight:900;font-size:.83rem}
+.song audio,.song video{display:block;width:100%;margin:17px 0 10px;max-height:300px}
+.music-safety-note{margin:35px 0 0;color:#d8cedb;font-size:.84rem;line-height:1.55;text-align:center}
+.closing{text-align:center;padding:53px 0;background:#fff3fb}
+.closing h2{font-family:Impact,'Arial Black',sans-serif;font-size:2.6rem}.closing h2 em{color:var(--pink);font-style:normal}
+.closing p{color:#685467}.closing-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:17px;font-weight:900;font-size:.9rem}.closing-links a{color:#a81e72}
+[hidden]{display:none!important}
+@media(max-width:960px){.cover-grid{grid-template-columns:1fr .7fr}.cover-illustration{min-height:380px}.sheet{width:min(100%,300px)}.music-top{grid-template-columns:1fr 250px}.vinyl{width:225px;height:225px}}
+@media(max-width:730px){.cover-grid{grid-template-columns:1fr;gap:15px;padding-top:35px;padding-bottom:35px}.cover-copy h1{font-size:clamp(3rem,12vw,4.5rem)}.cover-illustration{min-height:330px}.sheet{width:255px}.sheet .bigmic{font-size:3.8rem}.cover-illustration .tape{left:calc(50% - 180px);font-size:.73rem}.heartnote{right:15%;font-size:5rem}.section-heading{display:block}.section-heading p{margin-top:12px}.library-section{padding-top:48px}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 15px}.music-top{display:block}.record-wrap{min-height:245px}.vinyl{width:215px;height:215px}.songs-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.gallery{grid-template-columns:1fr}.poster-link{max-width:550px}.poster figcaption{max-width:550px}.cover-actions .big-btn{flex:1}.filter{font-size:.81rem;padding:9px 11px}.marquee{font-size:.68rem}.song-group{margin-top:5px}}
+@media(prefers-reduced-motion:reduce){.vinyl{animation:none}}
+
+</style>
+</head>
+<body>
+<header class="sitehead"><div class="container headrow"><a class="brand" href="index.html"><span class="brand-mark">TN</span><span class="teacher">Teacher</span><span class="nessa">Nessa</span> ✳</a><a class="back" href="index.html">← Inicio</a></div></header>
+<main>
+<section class="hero-cover">
+ <div class="container cover-grid">
+  <div class="cover-copy">
+   <span class="eyebrow">✦ TEACHER NESSA · ORIGINAL POSTER COLLECTION ✦</span>
+   <h1>Aprende inglés <em>con mis pósteres.</em></h1>
+   <p class="cover-lead">¡Hola, soy Teacher Nessa! En este rincón encontrarás los pósteres originales que he creado para aprender inglés con imágenes, ejemplos, música y un poquito de imaginación.</p>
+   <div class="cover-pills"><span>✿ Grammar</span><span>★ Vocabulary</span><span>♫ Songs</span><span>♡ Learning with heart</span></div>
+   <div class="cover-actions"><a href="#posteres" class="big-btn pink">Explorar pósteres ↗</a><a href="#canciones" class="big-btn yellow">Ir a las canciones ♫</a></div>
+  </div>
+  <div class="cover-illustration" aria-hidden="true">
+   <div class="tape">TEACHER NESSA ORIGINALS ★</div>
+   <div class="sheet"><div class="s-stars">✦ ✳ ✦</div><div class="bigmic">🎤</div><strong>READ IT.<br>SEE IT.<br><span>SING IT!</span></strong><div class="sheet-caption">YOUR ENGLISH, YOUR WAY</div></div>
+   <div class="heartnote">♡</div>
+  </div>
+ </div>
+</section>
+<div class="marquee" aria-hidden="true"><div class="container">✳ GRAMMAR &nbsp; ★ VOCABULARY &nbsp; ♫ MUSIC CLUB &nbsp; ✿ TEACHER NESSA ORIGINALS &nbsp; ♡ 1.º + 2.º ESO</div></div>
+<section id="posteres" class="container library-section">
+ <div class="section-heading"><div><span class="eyebrow">01 · MI BIBLIOTECA VISUAL</span><h2>Pósteres <em>originales.</em></h2></div><p>Cada imagen es el póster real: no hay recreaciones, fichas artificiales ni recortes. Pulsa para verlo grande y abrir el archivo original.</p></div>
+ <div class="library-toolbar">
+  <div class="filter-row" role="group" aria-label="Filtrar pósteres por curso">
+   <button class="filter" data-level="all" aria-pressed="true">Todos</button>
+   <button class="filter" data-level="1ESO" aria-pressed="false">Inglés 1.º ESO</button>
+   <button class="filter" data-level="2ESO" aria-pressed="false">Inglés 2.º ESO</button>
+   <button class="filter" data-level="ATENCION" aria-pressed="false">Atención Educativa</button>
+   <button class="filter" data-level="AMBOS" aria-pressed="false">Comunes</button>
+  </div>
+  <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" id="posterSearch" placeholder="Buscar Calpurnia, animales, relative pronouns…" aria-label="Buscar pósteres por título o descripción"></label>
+ </div>
+ <p class="section-title" id="sectionTitle" aria-live="polite">Cargando pósteres originales…</p>
+ <div class="gallery" id="posterGallery" aria-live="polite"></div>
+ <div class="empty-message" id="emptyPosters" hidden>No hay pósteres de esta categoría todavía. Puedes ver los otros recursos de ese curso en el apartado siguiente.</div>
+</section>
+<section class="extras-section" id="otros-materiales">
+ <div class="container">
+  <div class="section-heading compact"><div><span class="eyebrow">02 · MATERIALES PARA LA CLASE</span><h2>Más <em>originales.</em></h2></div><p>Actividades, fichas y lecturas reales en PDF o documento, separadas de la galería de pósteres para no confundir los formatos.</p></div>
+  <details class="extras-details"><summary>Ver fichas, lecturas, rúbricas y actividades originales <span id="otherCount"></span></summary><div id="otherMaterials" class="extras-content"></div></details>
+ </div>
+</section>
+<section id="canciones" class="music-section">
+ <div class="container">
+  <div class="music-top">
+   <div><span class="eyebrow">03 · THE TEACHER NESSA MUSIC CLUB</span><h2>Grammar has <em>a rhythm!</em></h2><p>Aprendemos gramática y vocabulario con letras, canciones y actividades musicales. Encontrarás los originales por cursos y podrás reproducir los audios que estén correctamente identificados y autorizados.</p><a href="#songCollections" class="big-btn yellow">Ver mis canciones y letras ♫</a></div>
+   <div class="record-wrap" aria-hidden="true"><div class="vinyl"><div class="vinyl-label">TEACHER<br>NESSA<br>MIX</div></div><div class="record-star">✦</div></div>
+  </div>
+  <div id="songCollections" class="songs-grid" aria-live="polite"></div>
+  <p class="music-safety-note" id="musicNote">Las canciones nuevas se incorporarán cuando el MP3 y su curso estén confirmados. Las letras y actividades musicales originales ya disponibles se pueden abrir desde aquí.</p>
+ </div>
+</section>
+<section class="closing"><div class="container"><h2>Teacher <em>Nessa</em> ♡</h2><p>Teaching with music & heart · Pósteres, materiales originales y canciones para aprender juntos.</p><div class="closing-links"><a href="index.html">Volver a la web principal ↗</a><a href="editar.html">Acceso al editor ✎</a></div></div></section>
+</main>
+<footer class="bottom-note">Teacher Nessa Originals · Pósteres auténticos, sin recortes ni recreaciones · Teaching with music & heart.</footer>
+<dialog id="zoomDialog" aria-label="Vista ampliada de póster original"><div class="dialog-head"><span class="dialog-title" id="dialogTitle">Póster original</span><button class="dialog-close" id="closeDialog" aria-label="Cerrar">×</button></div><div class="dialog-body"><img id="dialogImg" alt=""></div><div class="dialog-foot"><a id="originalLink" target="_blank" rel="noopener noreferrer">Abrir original ↗</a></div></dialog>
+<script src="datos/materiales.js"></script>
+<script src="datos/sitio.js"></script>
+<script>
+(()=>{
+'use strict';
+const entries=Array.isArray(window.TN_MATERIALS)?window.TN_MATERIALS:[];
+const site=window.TN_SITE||{};
+const posterItems=entries.filter(item=>item&&item.preview&&item.download&&/\.(?:png|jpe?g|webp)$/i.test(item.preview)&&['1ESO','2ESO','ATENCION','AMBOS'].includes(item.level));
+const unique=new Map();for(const item of posterItems){if(!unique.has(item.preview))unique.set(item.preview,item)}
+const posters=[...unique.values()];
+const courseNames={'1ESO':'Inglés · 1.º ESO','2ESO':'Inglés · 2.º ESO','ATENCION':'Atención Educativa · 1.º ESO','AMBOS':'Materiales comunes · 1.º y 2.º ESO'};
+const descriptions={
+'Cartel_Animales_Viajes.webp':'Vocabulario ilustrado sobre animales y viajes, útil para aprender palabras y preparar actividades orales.',
+'Guia_Repaso_Ingles.webp':'Guía visual de repaso de inglés para recordar contenidos antes de las actividades y pruebas.',
+'Poster_Animales_Aventura.webp':'Póster ilustrado de aventuras y animales para practicar vocabulario y expresiones en inglés.',
+'Poster_Examen_Repaso.webp':'Consejos y actividades visuales de repaso para preparar ejercicios de inglés.',
+'Poster_Gram_Ingles.webp':'Resumen gráfico de estructuras gramaticales y ejemplos de uso.',
+'Poster_Gramatica_Aventuras.webp':'Gramática presentada mediante un contexto de aventuras.',
+'Poster_Mediacion_Animales.webp':'Apoyo visual para actividades de mediación y comunicación sobre animales.',
+'Poster_Practica_Ingles.webp':'Ejercicios y práctica visual para consolidar contenidos de inglés.',
+'Poster_Repaso_1ESO.webp':'Póster de repaso para el alumnado de 1.º ESO.',
+'Poster_Repaso_Animales_Viajes.webp':'Repaso de vocabulario de animales y viajes con actividades de recuerdo.',
+'Poster_Repaso_Animales_Viajes_Gramatica.webp':'Conexión entre el vocabulario de animales y viajes y la práctica gramatical.',
+'Poster_Respuestas_Examen.webp':'Póster de respuestas para comprobar y explicar ejercicios de repaso.',
+'Poster_Vocab_Animales_Viajes.webp':'Palabras y expresiones de animales y viajes en inglés, organizadas visualmente.',
+'Poster_Vocab_Animales_Viajes_V2.webp':'Otra versión del póster de vocabulario sobre animales y viajes.',
+'Proyecto_Moda_Tendencias.webp':'Vocabulario de moda, tendencias y prendas de vestir para Inglés de 2.º ESO.',
+'Repaso_Ingles_Teacher_Nessa.webp':'Póster de repaso general de inglés con el estilo Teacher Nessa.',
+'Teacher_Nessa_E3-04_Relative_Pronouns.webp':'Explicación visual de los pronombres relativos y cómo utilizarlos en oraciones.'
+};
+function makeDescription(item){
+ const name=(item.preview||'').split('/').pop();
+ const ch=name.match(/^Calpurnia_Tate_Grammar_Vocabulary_Ch_(\d+)\.webp$/);
+ if(ch)return 'Lectura de Calpurnia Tate: apoyo visual de gramática y vocabulario del capítulo '+Number(ch[1])+'.';
+ // An edited description in the CMS takes priority when substantive and not generic.
+ const edited=String(item.description||'').trim();
+ if(edited&&!/Original visual grammar and vocabulary poster|Original classroom poster|Original visual vocabulary and speaking material|Original grammar and revision poster|Original visual/i.test(edited))return edited;
+ return descriptions[name]||'Póster educativo original con apoyo visual para trabajar inglés en clase.';
+}
+function makeTitle(item){
+ const name=(item.preview||'').split('/').pop();
+ const m=name.match(/^Calpurnia_Tate_Grammar_Vocabulary_Ch_(\d+)\.webp$/);
+ if(m)return 'Calpurnia Tate · Capítulo '+Number(m[1]);
+ const overrides={
+'Cartel_Animales_Viajes.webp':'Animales y viajes',
+'Guia_Repaso_Ingles.webp':'Guía de repaso de inglés',
+'Poster_Animales_Aventura.webp':'Animals & Adventure',
+'Poster_Examen_Repaso.webp':'Exam Practice & Tips',
+'Poster_Gram_Ingles.webp':'English Grammar',
+'Poster_Gramatica_Aventuras.webp':'Grammar & Adventures',
+'Poster_Mediacion_Animales.webp':'Animal Mediation',
+'Poster_Practica_Ingles.webp':'English Practice',
+'Poster_Repaso_1ESO.webp':'Repaso de 1.º ESO',
+'Poster_Repaso_Animales_Viajes.webp':'Animals & Travel: Revision',
+'Poster_Repaso_Animales_Viajes_Gramatica.webp':'Animals, Travel & Grammar',
+'Poster_Respuestas_Examen.webp':'Respuestas explicadas',
+'Poster_Vocab_Animales_Viajes.webp':'Animals & Travel: Vocabulary',
+'Poster_Vocab_Animales_Viajes_V2.webp':'Animals & Travel: Vocabulary II',
+'Proyecto_Moda_Tendencias.webp':'Fashion & Trends',
+'Repaso_Ingles_Teacher_Nessa.webp':'Teacher Nessa · English Revision',
+'Teacher_Nessa_E3-04_Relative_Pronouns.webp':'Relative Pronouns'
+ };
+ return overrides[name]||item.title||'Póster original';
+}
+const levelOrder=['1ESO','2ESO','ATENCION','AMBOS'];
+posters.sort((a,b)=>{
+ const l=levelOrder.indexOf(a.level)-levelOrder.indexOf(b.level);
+ if(l)return l;
+ const ac=/Calpurnia_Tate_Grammar_Vocabulary_Ch_(\d+)/.exec(a.preview||'');
+ const bc=/Calpurnia_Tate_Grammar_Vocabulary_Ch_(\d+)/.exec(b.preview||'');
+ if(ac&&bc)return Number(ac[1])-Number(bc[1]);
+ if(ac)return -1;if(bc)return 1;
+ return makeTitle(a).localeCompare(makeTitle(b),'es');
+});
+const gallery=document.getElementById('posterGallery'), search=document.getElementById('posterSearch'), count=document.getElementById('sectionTitle');
+const empty=document.getElementById('emptyPosters'),filters=[...document.querySelectorAll('.filter')];
+let active='all';
+function node(tag,className,text){const el=document.createElement(tag);if(className)el.className=className;if(text!==undefined)el.textContent=text;return el}
+function safeFile(path){return typeof path==='string'&&/^recursos\/[a-zA-Z0-9_.\/%-]+$/.test(path)&&!path.split('/').includes('..')?path:''}
+function card(item){
+ const file=safeFile(item.preview),original=safeFile(item.download);if(!file||!original)return null;
+ const fig=node('figure','poster'),a=node('a','poster-link');
+ a.href=original;a.dataset.poster='true';a.dataset.title=makeTitle(item);
+ a.setAttribute('aria-label','Ampliar póster original: '+makeTitle(item));
+ const img=node('img');img.src=file;img.alt='Póster original Teacher Nessa: '+makeTitle(item);img.loading='lazy';img.decoding='async';
+ a.appendChild(img);fig.appendChild(a);
+ const caption=node('figcaption');
+ caption.appendChild(node('div','poster-name',makeTitle(item)));
+ caption.appendChild(node('p','poster-description',makeDescription(item)));
+ const meta=node('div','poster-meta');meta.appendChild(node('span','poster-tag',courseNames[item.level]||'Teacher Nessa'));
+ const link=node('a',null,'Abrir original ↗');link.href=original;link.target='_blank';link.rel='noopener noreferrer';
+ meta.appendChild(link);caption.appendChild(meta);fig.appendChild(caption);
+ return fig;
+}
+function render(){
+ const q=search.value.trim().toLocaleLowerCase('es');
+ const shown=posters.filter(item=>(active==='all'||item.level===active)&&(makeTitle(item)+' '+makeDescription(item)+' '+(item.kind||'')+' '+(item.topic||'')).toLocaleLowerCase('es').includes(q));
+ const frag=document.createDocumentFragment();
+ for(const item of shown){const el=card(item);if(el)frag.appendChild(el)}
+ gallery.replaceChildren(frag);empty.hidden=shown.length!==0;
+ count.textContent=(active==='all'?'Todos los pósteres':courseNames[active])+' · '+shown.length+(q?' resultados':' pósteres');
+}
+filters.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.level;filters.forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));render()}));
+search.addEventListener('input',render);render();
+const otherMaterials=entries.filter(item=>item.download && !item.preview && item.kind!=='Canciones' && ['1ESO','2ESO','AMBOS','ATENCION'].includes(item.level) && safeFile(item.download));
+const other=document.getElementById('otherMaterials');
+document.getElementById('otherCount').textContent='('+otherMaterials.length+')';
+for(const level of levelOrder){
+ const group=otherMaterials.filter(x=>x.level===level);
+ if(!group.length)continue;
+ other.appendChild(node('h3','extras-heading',courseNames[level]||'Materiales'));
+ for(const item of group){
+  const a=node('a','docrow');a.href=safeFile(item.download);a.target='_blank';a.rel='noopener noreferrer';
+  a.appendChild(node('span','doc-icon',(item.download||'').toLowerCase().endsWith('.pdf')?'PDF':'DOC'));
+  const mid=node('span','doc-body');mid.appendChild(node('strong',null,item.title||'Material original'));
+  mid.appendChild(node('small',null,String(item.description||'Abrir archivo original.').trim()));
+  a.append(mid,node('span','openicon','↗'));other.appendChild(a);
+ }
+}
+const music=entries.filter(item=>item.kind==='Canciones'&&(safeFile(item.download)||safeFile(item.audio)||safeFile(item.video)));
+const songs=document.getElementById('songCollections');
+for(const level of levelOrder){
+ const group=music.filter(x=>x.level===level);
+ if(!group.length)continue;
+ songs.appendChild(node('h3','song-group',courseNames[level]||'Material musical'));
+ for(const item of group){
+  const card=node('article','song');
+  const isPlayable=Boolean(safeFile(item.audio)||safeFile(item.video));
+  card.appendChild(node('span','songkind',isPlayable?'♫ AUDIO / VÍDEO ORIGINAL':'✦ LETRA O ACTIVIDAD MUSICAL'));
+  card.appendChild(node('h3',null,item.title||'Canción de Teacher Nessa'));
+  card.appendChild(node('p',null,item.description||'Canción y recurso musical para aprender inglés.'));
+  const src=safeFile(item.audio)||safeFile(item.video);
+  if(src){
+   const el=document.createElement(item.video?'video':'audio');el.controls=true;el.preload='none';el.src=src;el.setAttribute('controlsList','nodownload');
+   el.setAttribute('aria-label','Reproducir '+(item.title||'canción'));card.appendChild(el);
+   el.addEventListener('play',()=>document.querySelectorAll('#songCollections audio,#songCollections video').forEach(other=>{if(other!==el)other.pause()}));
+  }
+  if(safeFile(item.download)){
+   const a=node('a',null,isPlayable?'Abrir archivo original ↗':'Ver letra / material ↗');
+   a.href=safeFile(item.download);a.target='_blank';a.rel='noopener noreferrer';card.appendChild(a);
+  }
+  songs.appendChild(card);
+ }
+}
+if(!music.length)songs.appendChild(node('p','music-safety-note','Las letras y los audios revisados aparecerán aquí al publicarlos desde tu editor.'));
+const dialog=document.getElementById('zoomDialog'),zoom=document.getElementById('dialogImg');
+const caption=document.getElementById('dialogTitle'),original=document.getElementById('originalLink');
+gallery.addEventListener('click',e=>{
+ const a=e.target.closest('[data-poster]');if(!a||typeof dialog.showModal!=='function')return;
+ e.preventDefault();zoom.src=a.href;zoom.alt='Póster original: '+a.dataset.title;caption.textContent=a.dataset.title;original.href=a.href;dialog.showModal();
+});
+document.getElementById('closeDialog').addEventListener('click',()=>dialog.close());
+dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
+dialog.addEventListener('close',()=>zoom.removeAttribute('src'));
+const pink=site.pink_color,yellow=site.yellow_color;
+if(/^#[0-9a-f]{6}$/i.test(pink||''))document.documentElement.style.setProperty('--pink',pink);
+if(/^#[0-9a-f]{6}$/i.test(yellow||''))document.documentElement.style.setProperty('--yellow',yellow);
+})();
+</script>
+</body></html>
