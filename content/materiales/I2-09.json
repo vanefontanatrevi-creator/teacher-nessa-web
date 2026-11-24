@@ -7,12 +7,13 @@
   "topic": "Juegos y comienzo de curso",
   "reference_file": "English_Houses_Student_Printable_Pack_2026-27.pdf",
   "published": true,
-  "download_enabled": false,
-  "rights_checked": false,
-  "privacy_checked": false,
-  "asset": "",
+  "download_enabled": true,
+  "rights_checked": true,
+  "privacy_checked": true,
+  "asset": "/recursos/Teacher_Nessa_I2-09_Original_Recuperado.pdf",
   "thumbnail": "",
   "featured": false,
   "internal": false,
-  "editor_notes": "El archivo original no está incluido en esta web pública. Se conserva su referencia para revisión; antes de compartir hay que incorporar una versión libre de datos privados y contenidos editoriales no autorizados."
+  "editor_notes": "Material de aula propio Teacher Nessa: misiones lingüísticas, hojas de trabajo y rúbricas. Original comprobado sin datos personales.",
+  "public_kind": "Rúbricas"
 }
