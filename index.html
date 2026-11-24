@@ -98,6 +98,20 @@ footer{background:#fffaf7;padding:54px 0 26px}.footer-grid{display:grid;grid-tem
 @media(max-width:540px){.resource-card .res-preview{height:230px}}
 </style>
 <style>.tn-custom-hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}.art-ribbon,.poster-cloud,.poster-bottom{z-index:2}.hero-bubble{white-space:pre-line}</style>
+<style>
+.original-gallery-banner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:0 0 42px;padding:23px 26px;background:linear-gradient(110deg,#ffe2f2,#fff9c7);border:2px solid var(--ink);border-radius:17px;box-shadow:5px 6px var(--ink)}
+.original-gallery-banner strong{font-family:Impact,'Arial Black',system-ui,sans-serif;font-size:1.6rem;letter-spacing:-.015em}
+.original-gallery-banner p{margin:7px 0 0;color:#60515c;font-size:.93rem;max-width:530px}
+.resource-grid{align-items:start}
+.poster-original{padding:12px 12px 18px}
+.poster-original .res-preview{margin:0;border:0;border-radius:9px;width:100%;height:auto;object-fit:contain;aspect-ratio:auto;max-height:none}
+.poster-original .res-top{order:1;margin-top:10px}
+.poster-original h3{order:2;margin:13px 5px 7px}
+.poster-original p{order:3;margin:0 5px 15px;font-size:.85rem;line-height:1.55}
+.poster-original .res-foot{order:4;margin-top:auto}
+.poster-original .res-code{display:none}
+@media(max-width:680px){.original-gallery-banner{padding:18px}.original-gallery-banner .btn{width:100%}}
+</style>
 </head>
 <body>
 <a class="skip" href="#principal">Saltar al contenido</a>
@@ -105,14 +119,14 @@ footer{background:#fffaf7;padding:54px 0 26px}.footer-grid{display:grid;grid-tem
 <header class="site-header"><div class="container nav-shell">
 <a class="brand" href="#inicio" aria-label="Teacher Nessa, ir al inicio"><span class="brand-mark" data-edit="brand_mark">TN</span><span class="brand-name"><span class="teacher-word" data-edit="brand_teacher">Teacher</span> <em data-edit="brand_nessa">Nessa</em><span aria-hidden="true"> ✳</span></span></a>
 <button class="menu-btn" id="menuBtn" aria-label="Abrir navegación" aria-expanded="false" aria-controls="menuLinks">☰</button>
-<nav class="nav-links" id="menuLinks" aria-label="Navegación principal"><a href="#inicio" data-edit="nav_home">Inicio</a><a href="#recursos" data-nav-course="1ESO" data-edit="nav_first">Inglés 1.º ESO</a><a href="#recursos" data-nav-course="2ESO" data-edit="nav_second">Inglés 2.º ESO</a><a href="#recursos" data-nav-course="ATENCION" data-edit="nav_values">Atención Educativa</a><a class="nav-cta" href="#musica" data-edit="nav_music">Canciones ♫</a></nav>
+<nav class="nav-links" id="menuLinks" aria-label="Navegación principal"><a href="#inicio" data-edit="nav_home">Inicio</a><a href="#recursos" data-nav-course="1ESO" data-edit="nav_first">Inglés 1.º ESO</a><a href="#recursos" data-nav-course="2ESO" data-edit="nav_second">Inglés 2.º ESO</a><a href="#recursos" data-nav-course="ATENCION" data-edit="nav_values">Atención Educativa</a><a href="prueba-posters.html" class="gallery-nav">Pósteres originales ✦</a><a class="nav-cta" href="#musica" data-edit="nav_music">Canciones ♫</a></nav>
 </div></header>
 <main id="principal">
 <section class="hero" id="inicio"><div class="container hero-grid">
 <div class="hero-copy"><span class="eyebrow"><span class="dot"></span> <span data-edit="hero_eyebrow">MADE FOR THE CLASSROOM · 2026—27</span></span>
 <h1><span data-edit="hero_line1">El inglés</span><br><span data-edit="hero_line2_pre">se</span> <span class="highlight" data-edit="hero_line2_highlight">vive,</span><br><span data-edit="hero_line3_pre">se</span> <span class="script" data-edit="hero_line3_highlight">canta</span><br><span data-edit="hero_line4">y se crea</span><span style="color:var(--pink)">.</span></h1>
 <p class="lead">¡Bienvenidos a Teacher Nessa! Gramática y vocabulario en inglés para 1.º y 2.º de ESO, rúbricas, canciones y actividades de Atención Educativa en español para 1.º ESO.</p>
-<div class="hero-actions"><a class="btn btn-pink" href="#recursos"><span data-edit="hero_primary_cta">Explorar materiales</span> <span aria-hidden="true">↗</span></a><a class="btn btn-yellow" href="#musica"><span data-edit="hero_music_cta">Rincón musical</span> <span aria-hidden="true">♫</span></a></div>
+<div class="hero-actions"><a class="btn btn-pink" href="prueba-posters.html"><span data-edit="hero_primary_cta">Explorar materiales</span> <span aria-hidden="true">↗</span></a><a class="btn btn-yellow" href="#musica"><span data-edit="hero_music_cta">Rincón musical</span> <span aria-hidden="true">♫</span></a></div>
 <p class="muted-note">Recursos gratuitos para uso educativo · Materiales sujetos a revisión de derechos y privacidad antes de compartir sus originales.</p>
 </div>
 <div class="hero-art"><img class="tn-hero-owner-photo" id="tnOwnerPhoto" alt="Fotografía de Teacher Nessa"/><div class="art-board"><div class="pin"></div><div class="art-ribbon" data-edit="hero_ribbon">✦ TEACHER NESSA ORIGINALS ✦</div>
@@ -145,7 +159,7 @@ GOOD
 VIBES ✦</div></div>
 </div></section>
 <div class="mini-strip" aria-hidden="true"><div class="container strip-inner"><span data-edit="strip_grammar">✳ GRAMMAR</span><b>✦</b><span data-edit="strip_vocabulary">VOCABULARY</span><b>✦</b><span data-edit="strip_songs">TEACHER NESSA SONGS</span><b>✦</b><span data-edit="strip_english">ENGLISH</span></div></div>
-<section class="section resources" id="recursos"><div class="container"><div class="section-top"><div><span class="section-label" data-edit="resources_eyebrow">✦ EXPLORE THE COLLECTION</span><h2><span data-edit="resources_title_first">Aprende y crea</span> <span data-edit="resources_title_second">con Teacher Nessa.</span></h2></div><p>Recursos originales desde septiembre de 2026, organizados en Inglés de 1.º ESO, Inglés de 2.º ESO y Atención Educativa de 1.º ESO en español.</p></div>
+<section class="section resources" id="recursos"><div class="container"><div class="original-gallery-banner"><div><strong>✦ Teacher Nessa · Poster Collection</strong><p>Contempla los pósteres originales completos, con una breve explicación y clasificados por curso.</p></div><a class="btn btn-pink" href="prueba-posters.html">Ver todos mis pósteres ↗</a></div><div class="section-top"><div><span class="section-label" data-edit="resources_eyebrow">✦ EXPLORE THE COLLECTION</span><h2><span data-edit="resources_title_first">Aprende y crea</span> <span data-edit="resources_title_second">con Teacher Nessa.</span></h2></div><p>Recursos originales desde septiembre de 2026, organizados en Inglés de 1.º ESO, Inglés de 2.º ESO y Atención Educativa de 1.º ESO en español.</p></div>
 <div class="search-console"><div class="console-top"><div class="count"><strong id="count">0</strong> <span data-edit="resources_count_label">materiales</span></div><p class="hint" data-edit="resources_hint">Busca «Present Perfect», «slang», «rúbrica», «empatía» o «frustración»</p></div>
 <label class="search-field"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.8"/><path d="M16 16l5 5"/></svg><span class="sr-only">Buscar materiales</span><input id="search" placeholder="¿Qué te apetece aprender hoy?" autocomplete="off"></label>
 <div class="filters" aria-label="Filtrar por curso"><button class="filter-btn" data-cat="all" data-edit="filter_all_courses" aria-pressed="true">Todos los cursos</button><button class="filter-btn" data-cat="1ESO" data-edit="filter_1eso" aria-pressed="false">Inglés · 1.º ESO</button><button class="filter-btn" data-cat="2ESO" data-edit="filter_2eso" aria-pressed="false">Inglés · 2.º ESO</button><button class="filter-btn" data-cat="ATENCION" data-edit="filter_atencion" aria-pressed="false">Atención Educativa · 1.º ESO</button><button class="filter-btn" data-cat="AMBOS" data-edit="filter_ambos" aria-pressed="false">Comunes a 1.º y 2.º</button></div>
@@ -231,11 +245,11 @@ function dataMatch(item){
  return byCourse&&byKind&&(!onlyDownload||!!item.download)&&(!q||normalize(fields).includes(q));
 }
 function resourceCard(item){
- return '<button class="resource-card" data-id="'+escapeHTML(item.id)+'" aria-label="Ver ficha: '+escapeHTML(item.title)+'">'
+ return '<button class="resource-card '+(item.preview?'poster-original':'document-resource')+'" data-id="'+escapeHTML(item.id)+'" aria-label="'+(item.preview?'Ver póster original: ':'Ver material original: ')+escapeHTML(item.title)+'">'
  +'<div class="res-top"><span class="res-code">'+escapeHTML(item.id)+'</span><span class="res-category">'+escapeHTML(item.kind)+' · '+escapeHTML(item.course_label)+'</span></div>'
  +(item.preview?'<img class="res-preview" loading="lazy" decoding="async" src="'+escapeHTML(item.preview)+'" alt="Vista previa de '+escapeHTML(item.title)+'">':'')
  +'<h3>'+escapeHTML(item.title)+'</h3><p>'+escapeHTML(item.description)+'</p>'
- +'<div class="res-foot"><span><span class="res-available">'+(item.download?escapeHTML(tnText('resource_card_included','ARCHIVO INCLUIDO')):escapeHTML(tnText('resource_card_play','REPRODUCIR')))+'</span></span><span>'+escapeHTML(tnText('resource_card_view','VER FICHA ↗'))+'</span></div></button>';
+ +'<div class="res-foot"><span><span class="res-available">'+(item.preview?'PÓSTER ORIGINAL':(item.download?escapeHTML(tnText('resource_card_included','ARCHIVO INCLUIDO')):escapeHTML(tnText('resource_card_play','REPRODUCIR'))))+'</span></span><span>'+(item.preview?'ABRIR PÓSTER ↗':escapeHTML(tnText('resource_card_view','VER FICHA ↗')))+'</span></div></button>';
 }
 function render(){
  const list=MATERIALS.filter(dataMatch);
