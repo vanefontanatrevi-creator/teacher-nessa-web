@@ -5,14 +5,16 @@
   "usage": "Describir cómo manejar un contratiempo.",
   "category": "Atención Educativa",
   "topic": "Emociones y convivencia",
-  "reference_file": "Gestionamos la frustración juntos.png",
+  "reference_file": "Teacher_Nessa_A1-11_Espanol.pdf",
   "published": true,
   "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "asset": "/recursos/Teacher_Nessa_A1-11_Original.pdf",
+  "asset": "/recursos/Teacher_Nessa_A1-11_Espanol.pdf",
   "thumbnail": "",
   "featured": false,
   "internal": false,
-  "editor_notes": "Nueva ficha original, sin recursos editoriales."
+  "editor_notes": "VERSIÓN REVISADA EN ESPAÑOL. Se han traducido las explicaciones, preguntas e instrucciones del PDF anteriormente publicado en inglés. El archivo original anterior queda conservado en el repositorio.",
+  "public_kind": "Atención Educativa",
+  "language": "es"
 }

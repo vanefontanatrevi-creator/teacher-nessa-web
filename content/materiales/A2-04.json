@@ -5,14 +5,16 @@
   "usage": "Asignar una virtud a un monstruo.",
   "category": "Atención Educativa",
   "topic": "Proyectos y creatividad",
-  "reference_file": "Cartel de Halloween: Monstruos con corazón.png",
+  "reference_file": "Teacher_Nessa_A2-04_Espanol.pdf",
   "published": true,
   "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "asset": "/recursos/Teacher_Nessa_A2-04_Original.pdf",
+  "asset": "/recursos/Teacher_Nessa_A2-04_Espanol.pdf",
   "thumbnail": "",
   "featured": false,
   "internal": false,
-  "editor_notes": "Nueva ficha original, sin recursos editoriales."
+  "editor_notes": "VERSIÓN REVISADA EN ESPAÑOL. Se han traducido las explicaciones, preguntas e instrucciones del PDF anteriormente publicado en inglés. El archivo original anterior queda conservado en el repositorio.",
+  "public_kind": "Atención Educativa",
+  "language": "es"
 }
