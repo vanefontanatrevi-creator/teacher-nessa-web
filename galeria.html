@@ -155,6 +155,7 @@ dialog::backdrop{background:#141019dd}
 @media(max-width:930px){.attention-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.attention-grid{grid-template-columns:1fr}}
 </style>
+<style>.attention-jump{display:inline-flex;align-items:center;text-decoration:none;color:var(--ink);background:#def8e8}.attention-jump:hover{background:#b4f1d7}</style>
 </head>
 <body>
 <header class="sitehead"><div class="container headrow"><a class="brand" href="index.html"><span class="brand-mark">TN</span><span class="teacher">Teacher</span><span class="nessa">Nessa</span> ✳</a><a class="back" href="index.html">← Inicio</a></div></header>
@@ -183,7 +184,7 @@ dialog::backdrop{background:#141019dd}
    <button class="filter" data-level="all" aria-pressed="true">Todos</button>
    <button class="filter" data-level="1ESO" aria-pressed="false">Inglés 1.º ESO</button>
    <button class="filter" data-level="2ESO" aria-pressed="false">Inglés 2.º ESO</button>
-   <button class="filter" data-level="ATENCION" aria-pressed="false">Atención Educativa</button>
+   <a class="filter attention-jump" href="#atencion">Atención Educativa · en español ♡</a>
    <button class="filter" data-level="AMBOS" aria-pressed="false">Comunes</button>
   </div>
   <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" id="posterSearch" placeholder="Buscar Calpurnia, animales, relative pronouns…" aria-label="Buscar pósteres por título o descripción"></label>
