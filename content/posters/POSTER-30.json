@@ -7,9 +7,10 @@
   "level": "1ESO",
   "kind": "Gramática",
   "asset": "/recursos/posters/Poster_Respuestas_Examen.webp",
-  "published": true,
+  "published": false,
   "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "internal": false
+  "internal": false,
+  "editor_notes": "Solucionario vinculado a ejercicios de la página 46 del libro de texto; oculto de la web por solicitud de la autora."
 }

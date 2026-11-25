@@ -7,9 +7,10 @@
   "level": "1ESO",
   "kind": "Gramática",
   "asset": "/recursos/posters/Poster_Examen_Repaso.webp",
-  "published": true,
+  "published": false,
   "download_enabled": true,
   "rights_checked": true,
   "privacy_checked": true,
-  "internal": false
+  "internal": false,
+  "editor_notes": "Aviso y actividades ligados a la página 46 de un libro de texto; oculto de la web mientras se revisan permisos y material de origen."
 }
