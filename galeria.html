@@ -137,6 +137,24 @@ dialog::backdrop{background:#141019dd}
 @media(prefers-reduced-motion:reduce){.vinyl{animation:none}}
 
 </style>
+<style>
+.big-btn.teal{background:#b4f1d7;color:var(--ink)}
+.attention-section{padding:65px 0 72px;background:linear-gradient(140deg,#ecfff5,#fff6fb);border-top:2px solid #bfdacb;border-bottom:2px solid #bfdacb}
+.attention-section .section-heading .eyebrow{color:#347a58}
+.attention-section .section-heading h2 em{color:#db2088}
+.attention-instructions{background:white;border-left:5px solid #45a977;border-radius:8px;padding:13px 18px;color:#41594e;font-weight:650;margin:0 0 26px}
+.attention-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}
+.attention-card{background:white;border:2px solid var(--ink);border-radius:17px;box-shadow:4px 5px 0 #9cdec0;padding:19px;display:flex;flex-direction:column;align-items:flex-start}
+.attention-preview{display:block;width:100%;margin:0 0 13px}.attention-preview img{width:100%;height:auto;border-radius:7px}
+.attention-icon{font-size:1.7rem;color:#b82778}
+.attention-course{font-size:.68rem;letter-spacing:.055em;color:#337d58;font-weight:950;margin:8px 0}
+.attention-card h3{font-size:1.15rem;line-height:1.25;margin:7px 0}
+.attention-card p{font-size:.87rem;line-height:1.5;color:#5d5261;margin:7px 0}
+.attention-card .attention-usage{font-style:italic}
+.attention-open{display:inline-flex;margin-top:auto;padding:9px 12px;background:var(--yellow);border:2px solid var(--ink);border-radius:10px;text-decoration:none;font-size:.83rem;font-weight:900}
+@media(max-width:930px){.attention-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.attention-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <header class="sitehead"><div class="container headrow"><a class="brand" href="index.html"><span class="brand-mark">TN</span><span class="teacher">Teacher</span><span class="nessa">Nessa</span> ✳</a><a class="back" href="index.html">← Inicio</a></div></header>
@@ -148,7 +166,7 @@ dialog::backdrop{background:#141019dd}
    <h1><span data-gallery-edit="gallery_hero_first">El inglés se vive,</span> <em data-gallery-edit="gallery_hero_second">se canta y se crea.</em></h1>
    <p class="cover-lead" data-gallery-edit="gallery_hero_intro">¡Hola, soy Teacher Nessa! Te doy la bienvenida a un espacio para aprender inglés de forma creativa, cercana y divertida. Trabajaremos gramática, vocabulario, lectura y comunicación a través de actividades visuales, juegos, canciones y propuestas para el aula de 1.º y 2.º de ESO.</p>
    <div class="cover-pills"><span>✿ Grammar</span><span>★ Vocabulary</span><span>♫ Songs</span><span>♡ Learning with heart</span></div>
-   <div class="cover-actions"><a href="#posteres" class="big-btn pink" data-gallery-edit="gallery_hero_cta_resources">Explorar materiales ↗</a><a href="#canciones" class="big-btn yellow" data-gallery-edit="gallery_hero_cta_music">Ir a las canciones ♫</a></div>
+   <div class="cover-actions"><a href="#posteres" class="big-btn pink" data-gallery-edit="gallery_hero_cta_resources">Explorar materiales ↗</a><a href="#canciones" class="big-btn yellow" data-gallery-edit="gallery_hero_cta_music">Ir a las canciones ♫</a><a href="#atencion" class="big-btn teal" data-gallery-edit="gallery_hero_cta_attention">Atención Educativa ♡</a></div>
   </div>
   <div class="cover-illustration" aria-hidden="true">
    <div class="tape">TEACHER NESSA ORIGINALS ★</div>
@@ -180,6 +198,14 @@ dialog::backdrop{background:#141019dd}
   <details class="extras-details"><summary><span data-gallery-edit="gallery_activities_summary">Ver fichas, lecturas, juegos y rúbricas</span> <span id="otherCount"></span></summary><div id="otherMaterials" class="extras-content"></div></details>
  </div>
 </section>
+<section id="atencion" class="attention-section">
+ <div class="container">
+  <div class="section-heading"><div><span class="eyebrow" data-gallery-edit="gallery_attention_eyebrow">03 · EDUCACIÓN EN VALORES</span><h2><span data-gallery-edit="gallery_attention_first">Atención Educativa</span> <em data-gallery-edit="gallery_attention_second">1.º ESO</em></h2></div><p data-gallery-edit="gallery_attention_intro">Un espacio en español para reflexionar sobre las emociones, la empatía, la solidaridad, el respeto y la convivencia. Actividades para leer, pensar, dialogar y trabajar en el cuaderno.</p></div>
+  <p class="attention-instructions" data-gallery-edit="gallery_attention_instructions">Lee las explicaciones de cada actividad, sigue las instrucciones y responde en español.</p>
+  <div id="attentionMaterials" class="attention-grid" aria-label="Materiales de Atención Educativa en español"></div>
+  <p id="attentionEmpty" class="empty-message" hidden>En este momento no hay archivos disponibles en esta sección.</p>
+ </div>
+</section>
 <section id="canciones" class="music-section">
  <div class="container">
   <div class="music-top">
@@ -203,15 +229,15 @@ const entries=Array.isArray(window.TN_MATERIALS)?window.TN_MATERIALS:[];
 const site=window.TN_SITE||{};
 // Estos títulos, párrafos y secciones se gestionan desde Pages CMS.
 for(const el of document.querySelectorAll('[data-gallery-edit]')){const key=el.dataset.galleryEdit;if(typeof site[key]==='string')el.textContent=site[key]}
-const areaSettings=[['#posteres','gallery_show_visuals','gallery_order_visual'],['#otros-materiales','gallery_show_activities','gallery_order_activities'],['#canciones','gallery_show_music','gallery_order_music']];
+const areaSettings=[['#posteres','gallery_show_visuals','gallery_order_visual'],['#otros-materiales','gallery_show_activities','gallery_order_activities'],['#atencion','gallery_show_attention','gallery_order_attention'],['#canciones','gallery_show_music','gallery_order_music']];
 const mainContainer=document.querySelector('main');mainContainer.style.display='flex';mainContainer.style.flexDirection='column';for(const child of mainContainer.children)child.style.width='100%';
 const headline=document.querySelector('.hero-cover'),ticker=document.querySelector('.marquee'),closing=document.querySelector('.closing');
 if(headline)headline.style.order='0';if(ticker)ticker.style.order='1';if(closing)closing.style.order='100';
 for(const [selector,showKey,orderKey] of areaSettings){const sec=document.querySelector(selector);if(!sec)continue;if(site[showKey]===false)sec.hidden=true;const n=Number(site[orderKey]);sec.style.order=String(Number.isFinite(n)&&n>=1&&n<=99?n+1:4)};
-const posterItems=entries.filter(item=>item&&item.preview&&item.download&&/\.(?:png|jpe?g|webp)$/i.test(item.preview)&&['1ESO','2ESO','ATENCION','AMBOS'].includes(item.level));
+const posterItems=entries.filter(item=>item&&item.preview&&item.download&&/\.(?:png|jpe?g|webp)$/i.test(item.preview)&&['1ESO','2ESO','AMBOS'].includes(item.level));
 const unique=new Map();for(const item of posterItems){if(!unique.has(item.preview))unique.set(item.preview,item)}
 const posters=[...unique.values()];
-const courseNames={'1ESO':'Inglés · 1.º ESO','2ESO':'Inglés · 2.º ESO','ATENCION':'Atención Educativa · 1.º ESO','AMBOS':'Materiales comunes · 1.º y 2.º ESO'};
+const courseNames={'1ESO':'Inglés · 1.º ESO','2ESO':'Inglés · 2.º ESO','ATENCION':'Atención Educativa · 1.º ESO · En español','AMBOS':'Materiales comunes · 1.º y 2.º ESO'};
 const descriptions={
 'Cartel_Animales_Viajes.webp':'Vocabulario ilustrado sobre animales y viajes, útil para aprender palabras y preparar actividades orales.',
 'Guia_Repaso_Ingles.webp':'Guía visual de repaso de inglés para recordar contenidos antes de las actividades y pruebas.',
@@ -306,7 +332,7 @@ function render(){
 filters.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.level;filters.forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));render()}));
 search.addEventListener('input',render);render();
 const forbiddenDoc=/programaci[oó]n|secuenciaci[oó]n|ex[aá]men(?:es)?|\bexam\b|\bexams\b|diagn[oó]stic/i;
-const otherMaterials=entries.filter(item=>item.download && !item.preview && item.kind!=='Canciones' && ['1ESO','2ESO','AMBOS','ATENCION'].includes(item.level) && safeFile(item.download) && !forbiddenDoc.test([item.title,item.file].join(' ')));
+const otherMaterials=entries.filter(item=>item.download && !item.preview && item.kind!=='Canciones' && ['1ESO','2ESO','AMBOS'].includes(item.level) && safeFile(item.download) && !forbiddenDoc.test([item.title,item.file].join(' ')));
 const other=document.getElementById('otherMaterials');
 document.getElementById('otherCount').textContent='('+otherMaterials.length+')';
 for(const level of levelOrder){
@@ -321,6 +347,24 @@ for(const level of levelOrder){
   a.append(mid,node('span','openicon','↗'));other.appendChild(a);
  }
 }
+const attentionList=entries.filter(item=>item.level==='ATENCION' && item.download && safeFile(item.download) && !forbiddenDoc.test([item.title,item.file].join(' ')) && item.kind!=='Canciones');
+const attentionHost=document.getElementById('attentionMaterials');
+for(const item of attentionList){
+ const article=node('article','attention-card');
+ if(item.preview&&safeFile(item.preview)){
+  const a=node('a','attention-preview');a.href=safeFile(item.download);a.target='_blank';a.rel='noopener noreferrer';
+  const img=node('img');img.loading='lazy';img.src=safeFile(item.preview);img.alt=String(item.title||'Recurso de Atención Educativa');a.appendChild(img);article.appendChild(a);
+ }else{article.appendChild(node('span','attention-icon','♡'))}
+ article.appendChild(node('span','attention-course','ATENCIÓN EDUCATIVA · 1.º ESO'));
+ article.appendChild(node('h3',null,String(item.title||'Actividad educativa')));
+ article.appendChild(node('p',null,String(item.description||'Actividad de reflexión y convivencia.')));
+ if(item.usage)article.appendChild(node('p','attention-usage','Para trabajar: '+item.usage));
+ const open=node('a','attention-open',safeFile(item.download).toLowerCase().endsWith('.pdf')?'Abrir ficha en español ↗':'Abrir material ↗');
+ open.href=safeFile(item.download);open.target='_blank';open.rel='noopener noreferrer';article.appendChild(open);
+ attentionHost.appendChild(article);
+}
+document.getElementById('attentionEmpty').hidden=attentionList.length!==0;
+
 const music=entries.filter(item=>item.kind==='Canciones'&&(safeFile(item.download)||safeFile(item.audio)||safeFile(item.video)));
 const songs=document.getElementById('songCollections');
 for(const level of levelOrder){

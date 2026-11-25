@@ -26,5 +26,13 @@
   "gallery_show_music": true,
   "gallery_order_visual": 1,
   "gallery_order_activities": 2,
-  "gallery_order_music": 3
+  "gallery_order_music": 4,
+  "gallery_hero_cta_attention": "Atención Educativa ♡",
+  "gallery_attention_eyebrow": "03 · EDUCACIÓN EN VALORES",
+  "gallery_attention_first": "Atención Educativa",
+  "gallery_attention_second": "1.º ESO",
+  "gallery_attention_intro": "Un espacio en español para reflexionar sobre las emociones, la empatía, la solidaridad, el respeto y la convivencia. Actividades para leer, pensar, dialogar y trabajar en el cuaderno.",
+  "gallery_attention_instructions": "Lee las explicaciones de cada actividad, sigue las instrucciones y responde en español.",
+  "gallery_show_attention": true,
+  "gallery_order_attention": 3
 }

@@ -721,6 +721,30 @@ content:
       - name: gallery_music_note
         label: "Nota de permisos de canciones"
         type: text
+      - name: gallery_hero_cta_attention
+        label: "Botón para ir a Atención Educativa"
+        type: string
+      - name: gallery_attention_eyebrow
+        label: "Atención Educativa: etiqueta"
+        type: string
+      - name: gallery_attention_first
+        label: "Atención Educativa: título principal"
+        type: string
+      - name: gallery_attention_second
+        label: "Atención Educativa: título del curso"
+        type: string
+      - name: gallery_attention_intro
+        label: "Atención Educativa: explicación en español"
+        type: text
+      - name: gallery_attention_instructions
+        label: "Atención Educativa: instrucciones en español"
+        type: text
+      - name: gallery_show_attention
+        label: "Mostrar u ocultar la sección de Atención Educativa"
+        type: boolean
+      - name: gallery_order_attention
+        label: "Orden de la sección de Atención Educativa"
+        type: number
       - name: gallery_footer_text
         label: "Frase final educativa"
         type: text
