@@ -19,7 +19,7 @@ for folder in ['assets']:
  src=ROOT/folder
  if src.exists():shutil.copytree(src,OUT/folder,dirs_exist_ok=True)
 site=json.loads((ROOT/'content'/'sitio.json').read_text(encoding='utf8'))
-for extra in ['portada','biblioteca','musica','reto','pie']:
+for extra in ['portada','biblioteca','musica','reto','pie','galeria']:
  config=ROOT/'content'/'ui'/f'{extra}.json'
  if config.is_file():site.update(json.loads(config.read_text(encoding='utf8')))
 materiales=[];public_files=set();seen=set();bad=[]

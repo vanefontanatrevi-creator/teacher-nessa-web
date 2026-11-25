@@ -651,3 +651,94 @@ content:
       - name: detail_note
         label: "Nota legal al final de cada ficha"
         type: text
+
+  - name: galeria
+    label: "06 · Galería educativa y orden de secciones"
+    type: file
+    path: content/ui/galeria.json
+    format: json
+    fields:
+      - name: gallery_eyebrow
+        label: "Etiqueta superior de la galería"
+        type: string
+      - name: gallery_hero_first
+        label: "Titulo educativo de la galería primera parte"
+        type: string
+      - name: gallery_hero_second
+        label: "Titulo educativo de la galería en rosa"
+        type: string
+      - name: gallery_hero_intro
+        label: "Introducción educativa de la galería"
+        type: text
+      - name: gallery_hero_cta_resources
+        label: "Texto del botón de materiales"
+        type: string
+      - name: gallery_hero_cta_music
+        label: "Texto del botón de canciones"
+        type: string
+      - name: gallery_visual_eyebrow
+        label: "Etiqueta sobre recursos visuales"
+        type: string
+      - name: gallery_visual_first
+        label: "Título del bloque visual primera parte"
+        type: string
+      - name: gallery_visual_second
+        label: "Título del bloque visual parte rosa"
+        type: string
+      - name: gallery_visual_intro
+        label: "Explicación del bloque visual"
+        type: text
+      - name: gallery_activities_eyebrow
+        label: "Etiqueta sobre actividades"
+        type: string
+      - name: gallery_activities_first
+        label: "Título de actividades primera parte"
+        type: string
+      - name: gallery_activities_second
+        label: "Título de actividades parte rosa"
+        type: string
+      - name: gallery_activities_intro
+        label: "Explicación de actividades, lecturas y rúbricas"
+        type: text
+      - name: gallery_activities_summary
+        label: "Texto para desplegar actividades"
+        type: string
+      - name: gallery_music_eyebrow
+        label: "Etiqueta de música"
+        type: string
+      - name: gallery_music_first
+        label: "Título Music Club primera parte"
+        type: string
+      - name: gallery_music_second
+        label: "Título Music Club en amarillo"
+        type: string
+      - name: gallery_music_intro
+        label: "Texto de presentación de canciones"
+        type: text
+      - name: gallery_music_cta
+        label: "Botón de canciones"
+        type: string
+      - name: gallery_music_note
+        label: "Nota de permisos de canciones"
+        type: text
+      - name: gallery_footer_text
+        label: "Frase final educativa"
+        type: text
+      - name: gallery_show_visuals
+        label: "Mostrar u ocultar recursos visuales"
+        type: boolean
+      - name: gallery_show_activities
+        label: "Mostrar u ocultar actividades, lecturas y rúbricas"
+        type: boolean
+      - name: gallery_show_music
+        label: "Mostrar u ocultar sección de canciones"
+        type: boolean
+      - name: gallery_order_visual
+        label: "Orden del bloque visual (1, 2 o 3)"
+        type: number
+      - name: gallery_order_activities
+        label: "Orden del bloque actividades (1, 2 o 3)"
+        type: number
+      - name: gallery_order_music
+        label: "Orden del bloque canciones (1, 2 o 3)"
+        type: number
