@@ -203,5 +203,16 @@ for nfile in (ROOT/'content'/'novedades').glob('*.json'):
 # Old general catalogs are deliberately excluded: they contain out-of-scope material.\n# GitHub Pages domain: optional and only when configured / purchased
 cname=ROOT/'CNAME'
 if cname.exists():shutil.copy2(cname,OUT/'CNAME')
+# Language audit of already-public Atención Educativa PDFs; remove this diagnostic after reviewing.
+try:
+ import subprocess
+ for code in ('A1-05','A1-11','A2-04'):
+  pdf=ROOT/'recursos'/f'Teacher_Nessa_{code}_Original.pdf'
+  result=subprocess.run(['pdftotext','-layout',str(pdf),'-'],capture_output=True,text=True,check=False)
+  snippet=' '.join(result.stdout.replace('\f',' ').split())[:1700]
+  print(f'AUDITORIA_ATENCION {code}: {snippet or "(Sin texto extraíble / pdftotext no disponible)"}')
+except Exception as exc:
+ print('AUDITORIA_ATENCION ERROR:',repr(exc))
+
 print(f'Sitio generado. Fichas: {len(materiales)} · Descargas: {len(public_files)}')
 for err in bad:print('Aviso:',err,file=sys.stderr)
