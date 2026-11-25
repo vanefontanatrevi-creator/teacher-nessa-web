@@ -203,16 +203,27 @@ for nfile in (ROOT/'content'/'novedades').glob('*.json'):
 # Old general catalogs are deliberately excluded: they contain out-of-scope material.\n# GitHub Pages domain: optional and only when configured / purchased
 cname=ROOT/'CNAME'
 if cname.exists():shutil.copy2(cname,OUT/'CNAME')
-# Language audit of already-public Atención Educativa PDFs; remove this diagnostic after reviewing.
+# TEMPORARY LANGUAGE AUDIT OF PUBLIC PDF FILES
 try:
- import subprocess
+ import re,zlib,base64
  for code in ('A1-05','A1-11','A2-04'):
-  pdf=ROOT/'recursos'/f'Teacher_Nessa_{code}_Original.pdf'
-  result=subprocess.run(['pdftotext','-layout',str(pdf),'-'],capture_output=True,text=True,check=False)
-  snippet=' '.join(result.stdout.replace('\f',' ').split())[:1700]
-  print(f'AUDITORIA_ATENCION {code}: {snippet or "(Sin texto extraíble / pdftotext no disponible)"}')
-except Exception as exc:
- print('AUDITORIA_ATENCION ERROR:',repr(exc))
-
+  pdf=(ROOT/'recursos'/f'Teacher_Nessa_{code}_Original.pdf').read_bytes()
+  strings=[]
+  for match in re.finditer(rb'stream\r?\n',pdf):
+   pos=match.end()
+   end=pdf.find(b'endstream',pos)
+   if end<0:continue
+   dat=pdf[pos:end].strip()
+   prev=pdf[max(0,match.start()-130):match.start()]
+   try:
+    if b'ASCII85Decode' in prev:dat=base64.a85decode(b'<~'+dat,adobe=True)
+    if b'FlateDecode' in prev:dat=zlib.decompress(dat)
+    if b'Tj' in dat or b'TJ' in dat:
+     strings.extend(re.findall(rb'\((.*?)\)\s*Tj',dat,re.S))
+     strings.extend(re.findall(rb'\[(.*?)\]\s*TJ',dat,re.S))
+   except Exception:continue
+  lines=[''.join(chr(c) if 32<=c<127 or c in (9,10) else ' ' for c in chunk) for chunk in strings]
+  print(f'AUDITORIA_ATENCION {code} '+ ' | '.join(lines)[:2500])
+except Exception as exc:print('AUDITORIA_ATENCION ERROR:',repr(exc))
 print(f'Sitio generado. Fichas: {len(materiales)} · Descargas: {len(public_files)}')
 for err in bad:print('Aviso:',err,file=sys.stderr)
