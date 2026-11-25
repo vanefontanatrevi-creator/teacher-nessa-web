@@ -170,9 +170,9 @@ dialog::backdrop{background:#141019dd}
   </div>
   <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" id="posterSearch" placeholder="Buscar Calpurnia, animales, relative pronouns…" aria-label="Buscar pósteres por título o descripción"></label>
  </div>
- <p class="section-title" id="sectionTitle" aria-live="polite">Cargando pósteres originales…</p>
+ <p class="section-title" id="sectionTitle" aria-live="polite">Cargando materiales visuales…</p>
  <div class="gallery" id="posterGallery" aria-live="polite"></div>
- <div class="empty-message" id="emptyPosters" hidden>No hay pósteres de esta categoría todavía. Puedes ver los otros recursos de ese curso en el apartado siguiente.</div>
+ <div class="empty-message" id="emptyPosters" hidden>Todavía no hay materiales visuales de esta categoría. Puedes consultar las actividades, fichas y lecturas disponibles en el siguiente apartado.</div>
 </section>
 <section class="extras-section" id="otros-materiales">
  <div class="container">
@@ -204,7 +204,7 @@ const site=window.TN_SITE||{};
 // Estos títulos, párrafos y secciones se gestionan desde Pages CMS.
 for(const el of document.querySelectorAll('[data-gallery-edit]')){const key=el.dataset.galleryEdit;if(typeof site[key]==='string')el.textContent=site[key]}
 const areaSettings=[['#posteres','gallery_show_visuals','gallery_order_visual'],['#otros-materiales','gallery_show_activities','gallery_order_activities'],['#canciones','gallery_show_music','gallery_order_music']];
-const mainContainer=document.querySelector('main');mainContainer.style.display='flex';mainContainer.style.flexDirection='column';
+const mainContainer=document.querySelector('main');mainContainer.style.display='flex';mainContainer.style.flexDirection='column';for(const child of mainContainer.children)child.style.width='100%';
 const headline=document.querySelector('.hero-cover'),ticker=document.querySelector('.marquee'),closing=document.querySelector('.closing');
 if(headline)headline.style.order='0';if(ticker)ticker.style.order='1';if(closing)closing.style.order='100';
 for(const [selector,showKey,orderKey] of areaSettings){const sec=document.querySelector(selector);if(!sec)continue;if(site[showKey]===false)sec.hidden=true;const n=Number(site[orderKey]);sec.style.order=String(Number.isFinite(n)&&n>=1&&n<=99?n+1:4)};
@@ -301,11 +301,12 @@ function render(){
  const frag=document.createDocumentFragment();
  for(const item of shown){const el=card(item);if(el)frag.appendChild(el)}
  gallery.replaceChildren(frag);empty.hidden=shown.length!==0;
- count.textContent=(active==='all'?'Todos los pósteres':courseNames[active])+' · '+shown.length+(q?' resultados':' pósteres');
+ count.textContent=(active==='all'?'Recursos visuales':courseNames[active])+' · '+shown.length+(q?' resultados':' recursos visuales');
 }
 filters.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.level;filters.forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));render()}));
 search.addEventListener('input',render);render();
-const otherMaterials=entries.filter(item=>item.download && !item.preview && item.kind!=='Canciones' && ['1ESO','2ESO','AMBOS','ATENCION'].includes(item.level) && safeFile(item.download));
+const forbiddenDoc=/programaci[oó]n|secuenciaci[oó]n|ex[aá]men(?:es)?|\bexam\b|\bexams\b|diagn[oó]stic/i;
+const otherMaterials=entries.filter(item=>item.download && !item.preview && item.kind!=='Canciones' && ['1ESO','2ESO','AMBOS','ATENCION'].includes(item.level) && safeFile(item.download) && !forbiddenDoc.test([item.title,item.file].join(' ')));
 const other=document.getElementById('otherMaterials');
 document.getElementById('otherCount').textContent='('+otherMaterials.length+')';
 for(const level of levelOrder){

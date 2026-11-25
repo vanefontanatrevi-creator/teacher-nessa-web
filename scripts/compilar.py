@@ -58,6 +58,11 @@ for file in sorted((ROOT/'content'/'materiales').glob('*.json')):
  if record.get('category')=='Tutoría 2.º ESO':continue
  kind=record.get('public_kind') or LEGACY_PUBLIC.get(code,'')
  if kind not in PUBLIC_KINDS:continue
+ # Never publish curricular programming, exams or diagnostic tests as learning resources.
+ # Rubrics are intentionally permitted even when filed under curricular evaluation.
+ if kind!='Rúbricas':
+  title_and_file=(str(record.get('title') or '')+' '+str(record.get('reference_file') or '')).lower()
+  if any(term in title_and_file for term in ('programaci','secuenciaci','examen','exámenes','exam ','exam_','diagnóstic','diagnostic')):continue
  category=record.get('category','')
  if category=='Atención Educativa':
   level='ATENCION'
