@@ -7,12 +7,13 @@
   "topic": "Recursos compartidos",
   "reference_file": "Sapphire_Music_Worksheet_1ESO_2ESO_Section.pdf",
   "published": true,
-  "download_enabled": false,
-  "rights_checked": false,
-  "privacy_checked": false,
-  "asset": "",
+  "download_enabled": true,
+  "rights_checked": true,
+  "privacy_checked": true,
+  "asset": "/recursos/Teacher_Nessa_C1-11_Original_Recuperado.pdf",
   "thumbnail": "",
   "featured": false,
   "internal": false,
-  "editor_notes": "El archivo original no está incluido en esta web pública. Se conserva su referencia para revisión; antes de compartir hay que incorporar una versión libre de datos privados y contenidos editoriales no autorizados."
+  "editor_notes": "Actividad de escucha propia: análisis de ritmo, música y vocabulario, sin reproducción de letras de terceros; ficha revisada sin datos personales.",
+  "public_kind": "Canciones"
 }
